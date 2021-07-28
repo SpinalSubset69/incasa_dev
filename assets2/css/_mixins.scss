@@ -1,0 +1,111 @@
+//Mixins
+//Flexbox
+@mixin flexbox($direction, $wrap, $justify, $alItem, $alContent) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+  
+    -webkit-flex-wrap: $wrap;
+    -moz-flex-wrap: $wrap;
+    -ms-flex-wrap: $wrap;
+    flex-wrap: $wrap;
+  
+    -webkit-justify-content: $justify;
+    -moz-justify-content: $justify;
+    -ms-justify-content: $justify;
+    justify-content: $justify;
+    -ms-flex-pack: $justify;
+  
+    -webkit-align-items: $alItem;
+    -moz-align-items: $alItem;
+    -ms-align-items: $alItem;
+    align-items: $alItem;
+  
+    -webkit-align-content: $alContent;
+    -moz-align-content: $alContent;
+    -ms-align-content: $alContent;
+    align-content: $alContent;
+  }
+  
+  @mixin flexItem($order, $grow, $shrink, $basis, $self) {
+    -webkit-box-ordinal-group: $order;
+    -moz-box-ordinal-group: $order;
+    -ms-flex-order: $order;
+    -webkit-order: $order;
+    order: $order;
+  
+    -webkit-flex-grow: $grow;
+    -moz-flex-grow: $grow;
+    -ms-flex-grow: $grow;
+    flex-grow: $grow;
+  
+    -webkit-flex-shrink: $shrink;
+    -moz-flex-shrink: $shrink;
+    -ms-flex-shrink: $shrink;
+    flex-shrink: $shrink;
+  
+    -webkit-flex-basis: $basis;
+    -moz-flex-basis: $basis;
+    -ms-flex-basis: $basis;
+    flex-basis: $basis;
+  
+    -webkit-align-self: $self;
+    -moz-align-self: $self;
+    -ms-align-self: $self;
+    align-self: $self;
+  }
+  
+  @mixin bg($size, $pos, $rep) {
+    background-size: $size;
+    background-position: $pos;
+    background-repeat: $rep;
+  }
+  
+  @mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  //breakpoints
+  @mixin bpExtraGrande {
+    @media only screen and (max-width: 1200px){
+      @content;
+    }
+  }
+  @mixin bpGrande {
+    @media only screen and (max-width: 992px){
+      @content;
+    }
+  }
+  @mixin bpMediano {
+    @media only screen and (max-width: 768px){
+      @content;
+    }
+  }
+  @mixin bpChico {
+    @media only screen and (max-width: 600px){
+      @content;
+    }
+  }
+  @mixin bpExtraChico {
+    @media only screen and (max-width: 386px){
+      @content;
+    }
+  }
+  
+  //placeholder
+  @mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}
+  }
+  

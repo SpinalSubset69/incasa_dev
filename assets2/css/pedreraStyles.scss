@@ -1,0 +1,277 @@
+@import "_mixins";
+
+//fuente
+$fuente: 'Lato', sans-serif;
+//colores
+$n: #000000;
+$b: #FFFFFF;
+$v: #5b7300;
+
+html, body{
+  height: 100%;
+}
+
+body{
+  margin: 0 auto;
+  padding: 0;
+  font-family: $fuente !important;
+  overflow-x: hidden;
+}
+
+.bgLogin{
+  height: 100vh;
+  position: relative;
+  background-blend-mode: multiply;
+  @include bg(cover, center, no-repeat);
+  .overlay{
+    height: 100vh;
+    background: $n;
+    width: 100%;
+    opacity: .7;
+    position: absolute;
+  }
+  .containerLogin{
+    z-index: 1;
+    background-color: $b;
+    padding: 0;
+    margin: auto;
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 10px rgba($n,0.5);
+    @include flexbox(row,wrap,space-between,center,center);
+    @include bpGrande{
+      width: 80%;
+    }
+    @include bpChico{
+      width: 85%;
+    }
+    .side{
+      height: 100%;
+      &.side1{
+        width: 35%;
+        border-radius: 10px 0 0 10px;
+        @include flexbox(column, wrap,space-between,flex-start,flex-start);
+        @include bpExtraGrande{
+          width: 50%;
+          height: 100%;
+        }
+        @include bpMediano{
+          width: 100%;
+          height: 60%;
+        }
+      }
+      &.side2{
+        width:65%;
+        border-radius: 0 10px 10px 0;
+        @include bpExtraGrande{
+          width: 50%;
+          height: 100%;
+        }
+        @include bpMediano{
+          border-radius: 0 0px 10px 10px;
+          width: 100%;
+          height: 40%;
+        }
+        &.bg{
+          @include bg(cover,center,no-repeat);
+        }
+
+      }
+      .containerForm{
+        padding: 20px;
+        height: 95%;
+        @include flexbox(column,wrap,space-between,flex-start,stretch);
+        img{
+          @include bpMediano{
+            display: none;
+          }
+        }
+        .formLogin{
+          width: 100%;                  
+          h4{
+            font-weight:400;
+            margin: 10px 0 30px 0;
+            @include bpMediano{
+              margin-bottom: 10px;
+            }
+          }
+          h1{
+            font-size: 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 20px 0 0px 0;
+            @media only screen and (max-width: 1224px){
+              font-size: 30px;
+            }
+          }
+          .form{
+            .field{
+              @include bpMediano{
+                margin-bottom: 5px;
+              }
+              .icon{
+                color: $v;
+              }
+            }
+            .button{
+              @include bpMediano{
+                font-size: 14px;
+              }
+            }
+            .ui.red.icon.message{
+              width: inherit;
+              @include bpMediano{
+                padding: 10px 10px;
+              }
+            }
+            @include bpMediano{
+              font-size: 12px;
+            }
+          }
+        }
+        .txtLogin{
+          text-align: left;
+          font-weight: 300;
+          @include bpGrande{
+            font-size: 12px;
+          }
+          @include bpMediano{
+            display: none;
+          }
+        }
+        @include bpMediano{
+          padding: 10px;
+          width: 95%;
+        }
+      }
+    }
+  }
+  // .containerCambiarPass{
+  //   z-index: 1;
+  //   background-color: $b;
+  //   margin: auto;
+  //   width: 50%;
+  //   height: 60%;
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   left: 0;
+  //   bottom: 0;
+  //   border-radius: 10px;
+  //   box-shadow: 10px 10px 10px 10px rgba($n,0.5);
+  //   @include bpExtraGrande{
+  //     width: 50%;
+  //     height: 45%;
+  //   }
+  //   @include bpMediano{
+  //     width: 70%;
+  //   }
+  //   @include bpChico{
+  //     width: 90%;
+  //   }
+  //   .passTitulo{
+  //     padding: 20px 20px;
+  //     border-radius: 10px 10px 0 0;
+  //     background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+  //     @include flexbox(row,wrap,center,center,center);
+  //     .bgIcon{
+  //       background-color: $b;
+  //       padding: 10px;
+  //       border-radius: 10px;
+  //       margin-right: 10px;
+  //     }
+  //     i.lock{
+  //       font-size: 30px;
+  //       color: $v;
+  //       margin: 0;
+  //       padding: 0;
+  //       @include bpExtraGrande{
+  //         font-size: 20px;
+  //       }
+  //       @include bpMediano{
+  //         font-size: 15px;
+  //       }
+  //     }
+  //     .titulo{
+  //       h1,p{margin: 0; padding: 0; color:$b;}
+  //       h1{
+  //         text-transform: uppercase;
+  //         font-weight: 900;
+  //         text-shadow: 2px 2px rgba($n,0.5);
+  //         @include bpGrande{
+  //           font-size: 15px;
+  //         }
+  //         @include bpMediano{
+  //           font-size: 12px;
+  //         }
+  //       }
+  //       p{
+  //         font-weight: 200;
+  //         @include bpGrande{
+  //           font-size: 12px;
+  //         }
+  //         @include bpMediano{
+  //           font-size: 9px;
+  //         }
+  //         span{
+  //           font-weight: 800;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   .nombreUsuario{
+  //     padding: 15px 0;
+  //     @include flexbox(row,wrap,center,center,center);
+  //     .nombre{
+  //       padding: 10px;
+  //       background-color: $b;
+  //       border-radius: 10px;
+  //       text-transform: uppercase;
+  //       // box-shadow: 0px 0px 0px 2px rgba($n,0.2);
+  //       @include flexbox(column,wrap,center,center,center);
+  //       p{margin: 0; padding: 0; font-weight: bold;font-size: 20px;}
+  //     }
+  //     @include bpGrande{
+  //       font-size: 15px;
+  //     }
+  //     @include bpMediano{
+  //       font-size: 10px;
+  //     }
+  //   }
+  //   .formPass{
+  //     padding: 5px 20px 5px 20px;
+  //     .formContrasena{
+  //       @include bpGrande{
+  //         font-size: 12px !important;
+  //       }
+  //       @include bpMediano{
+  //         font-size: 10px !important;
+  //       }
+  //       .button.guardarContrasena{
+  //         @include bpGrande{
+  //           font-size: 12px !important;
+  //         }
+  //         @include bpMediano{
+  //           font-size: 10px !important;
+  //         }
+  //       }
+  //     }
+  //     .msgContrasena{
+  //       width: -webkit-stretch !important;
+  //       @include bpGrande{
+  //         font-size: 12px !important;
+  //       }
+  //       @include bpMediano{
+  //         font-size: 10px !important;
+  //       }
+  //     }
+
+  //   }
+  // }
+}

@@ -1,0 +1,23 @@
+[07-Jun-2020 17:53:47 UTC] PHP Fatal error:  Class 'REST_Controller' not found in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/PedreraMobile.php on line 9
+[07-Jun-2020 17:57:17 UTC] PHP Fatal error:  Class 'chriskacerguis\RestServer\RestController' not found in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/PedreraMobile.php on line 9
+[07-Jun-2020 18:00:52 UTC] PHP Fatal error:  Class 'chriskacerguis\RestServer\RestController' not found in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/PedreraMobile.php on line 9
+[21-May-2021 19:00:56 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:03:37 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:03:41 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:04:30 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:05:19 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:05:24 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:06:18 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:07:17 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:07:20 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:07:37 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:07:41 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:10:22 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:10:39 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:13:20 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:13:38 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 19:13:42 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 20:08:46 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 20:09:47 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 20:10:46 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[21-May-2021 20:12:07 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535

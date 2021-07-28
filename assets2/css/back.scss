@@ -1,0 +1,17 @@
+@import "_mixins";
+.agregarUsuarios, .verUsuarios, .editarPromovente, .tablaPromoventes, .crearProyecto, .addTruck{
+  margin: 20px;
+}
+
+.verUsuarios{
+  .tablaUsuarios{
+    .ui.button{
+      width: fit-content;
+      display: inline-flex !important;
+      @include flexbox(row,wrap,center,center,center);
+      @include bpMediano{
+        p{display: none;}
+      }
+    }
+  }
+}
