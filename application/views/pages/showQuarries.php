@@ -140,7 +140,7 @@
       $(".mini.modal.del").modal("setting", {
         closable: false,
         onApprove: function () {
-          $(location).attr('href',"http://lapedrera.margam.mx/Pedrera/removeQuarry/"+data_id);
+          $(location).attr('href',"https://incasapac.com/Pedrera/removeQuarry/"+data_id);
           return false;
         }
       }).modal("show");

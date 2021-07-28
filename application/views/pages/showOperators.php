@@ -97,7 +97,7 @@
         console.log(val);
         $.ajax({
             type: 'POST',
-            url: 'http://lapedrera.margam.mx/Pedrera/addGPSOperator/',
+            url: 'https://incasapac.com/Pedrera/addGPSOperator/',
             data: {idGPS:val, idOperator: idOperator},
             dataType: 'json',
             success: function(response){
@@ -113,7 +113,7 @@
         var idOperator = $(this).children('option[value=' + val + ']').attr('operator-value');        
         $.ajax({
             type: 'POST',
-            url: 'http://lapedrera.margam.mx/Pedrera/addPlantOperator/',
+            url: 'https://incasapac.com/Pedrera/addPlantOperator/',
             data: {idBuilding:val, idOperator: idOperator},
             dataType: 'json',
             success: function(response){
@@ -130,7 +130,7 @@
         
         $.ajax({
             type: 'POST',
-            url: 'http://lapedrera.margam.mx/Pedrera/removePlantOperator/',
+            url: 'https://incasapac.com/Pedrera/removePlantOperator/',
             data: {idBuilding:val, idOperator: idOperator},
             dataType: 'json',
             success: function(response){

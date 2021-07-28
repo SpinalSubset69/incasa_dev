@@ -175,7 +175,7 @@
       var idMaterial = this.name;
       $.ajax({
             type: 'POST',
-            url: 'http://lapedrera.margam.mx/Pedrera/activateMaterial/',
+            url: 'https://incasapac.com/Pedrera/activateMaterial/',
             data: {idMaterial:idMaterial, active: active},
             dataType: 'json',
             success: function(response){

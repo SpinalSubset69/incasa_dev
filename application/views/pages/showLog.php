@@ -117,7 +117,7 @@
         $('.btnDetails').on('click', function() {
             var event = $(this);
             var data_id = $(this).attr("data-value");
-            $(location).attr('href', "http://lapedrera.margam.mx/Pedrera/showDetails/" + data_id);
+            $(location).attr('href', "https://incasapac.com/Pedrera/showDetails/" + data_id);
         });
         
 

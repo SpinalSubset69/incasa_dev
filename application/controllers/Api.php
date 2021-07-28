@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 //default website
-//http://lapedrera.margam.mx/PedreraMobile/
+//https://incasapac.com/PedreraMobile/
 
 use chriskacerguis\RestServer\RestController;
 
