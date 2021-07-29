@@ -63,7 +63,7 @@
                                     }else
                                         $dateu = gmt_to_local($dateu, "UP1", FALSE);
                                     $dateu = unix_to_human($dateu); 
-                                    echo explode(" ",$dateu)[1]; 
+                                    echo explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]; 
                                 ?>">
                             </div>
                         </div>
