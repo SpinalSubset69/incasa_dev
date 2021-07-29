@@ -852,7 +852,7 @@ class Pedrera extends CI_Controller {
 		$now = now("America/Monterrey");
 		echo $now;
 		echo "<br>";
-		echo mdate($now);
+		echo mdate($fmt = 'DATE_RFC3339',$now);
         return;
     }
 
