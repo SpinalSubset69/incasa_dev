@@ -84,14 +84,28 @@
                                     date_default_timezone_set('America/Monterrey');
                                     $dateu = mysql_to_unix($lo['arrival']);
                                     if(date('I')==1) {
-                                        echo " Si ";
                                         $dateu = gmt_to_local($dateu, "UP2", FALSE);
                                     }else
                                         $dateu = gmt_to_local($dateu, "UP1", FALSE);
-                                    echo $lo['arrival']."  ".unix_to_human($dateu); 
+                                    echo unix_to_human($dateu); 
                                 ?>
                             </td>
-                            <td><?php echo ($lo['departure']!=NULL)?$lo['departure']:"No ha salido"; ?></td>
+                            <td>
+                                <?php 
+                                    if($lo['departure']!=NULL){
+                                        date_default_timezone_set('America/Monterrey');
+                                        $dateu = mysql_to_unix($lo['departure']);
+                                        if(date('I')==1) {
+                                            $dateu = gmt_to_local($dateu, "UP2", FALSE);
+                                        }else
+                                            $dateu = gmt_to_local($dateu, "UP1", FALSE);
+                                        echo unix_to_human($dateu);
+                                    }else{
+                                        echo "No ha salido";
+                                    }
+                                    #echo ($lo['departure']!=NULL)?$lo['departure']:"No ha salido";
+                                ?>
+                            </td>
                             <td><?php echo ($lo['departure']!=NULL)?$lo['time']:$lo['time']." al momento"; ?></td>
                             <td><div data-value="<?php echo $lo['idLog']; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
                         </tr>
