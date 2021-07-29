@@ -55,7 +55,16 @@
                         <div class="column">
                             <div class="field">
                                 <label>Hora de llegada:</label>
-                                <input disabled type="text" value="<?php echo explode(" ",$log->arrival)[1]; ?>">
+                                <input disabled type="text" value="<?php 
+                                    date_default_timezone_set('America/Monterrey');
+                                    $dateu = mysql_to_unix($log->arrival);
+                                    if(date('I')==1) {
+                                        $dateu = gmt_to_local($dateu, "UP2", FALSE);
+                                    }else
+                                        $dateu = gmt_to_local($dateu, "UP1", FALSE);
+                                    $dateu = unix_to_human($dateu); 
+                                    echo explode(" ",$dateu)[1]; 
+                                ?>">
                             </div>
                         </div>
                         <div class="column">
