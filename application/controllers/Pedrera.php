@@ -849,9 +849,9 @@ class Pedrera extends CI_Controller {
     }
     
     public function prueba(){ 
-		echo now("America/Monterrey");
+		echo unix_to_human(now("America/Monterrey"));
 		echo "<br>";
-		echo now();
+		echo unix_to_human(now());
 		/*$now = now("America/Monterrey");
 		$datestring = '%Y-%m-%d %h:%i:%s';
 		echo $now;
@@ -861,8 +861,8 @@ class Pedrera extends CI_Controller {
 		
 		//2021-07-29 11:23:27
 		//Se convierte a unix
-		$unix = mysql_to_unix('2021-07-29 11:23:27');
-		echo $unix;
+		//$unix = mysql_to_unix('2021-07-29 11:23:27');
+		//echo $unix;
         return;
     }
 
