@@ -77,8 +77,18 @@
                             <!-- <td><?php echo $lo['nameMaterial']; ?></td> -->
                             <td><?php echo $lo['idGPS2']; ?></td>
                             <!-- <td><?php echo $lo['nameBuilding']; ?></td> -->
+                            <!-- En horario de verano debo de adelantar dos horas; si no una hora -->
                             <td><?php echo $lo['nameDriver']; ?></td>
-                            <td><?php echo unix_to_human(mysql_to_unix($lo['arrival'])); ?></td>
+                            <td>
+                                <?php 
+                                    $dateu = mysql_to_unix($lo['arrival']);
+                                    if(date('I')==1) 
+                                        $dateu = gmt_to_local($dateu, "UP2", FALSE);
+                                    else
+                                        $dateu = gmt_to_local($dateu, "UP1", FALSE);
+                                    echo $lo['arrival']."  ".unix_to_human($dateu); 
+                                ?>
+                            </td>
                             <td><?php echo ($lo['departure']!=NULL)?$lo['departure']:"No ha salido"; ?></td>
                             <td><?php echo ($lo['departure']!=NULL)?$lo['time']:$lo['time']." al momento"; ?></td>
                             <td><div data-value="<?php echo $lo['idLog']; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
