@@ -81,8 +81,9 @@
                             <td><?php echo $lo['nameDriver']; ?></td>
                             <td>
                                 <?php 
+                                    date_default_timezone_set('America/Monterrey');
                                     $dateu = mysql_to_unix($lo['arrival']);
-                                    if(date('I')=='1') {
+                                    if(date('I')==1) {
                                         echo " Si ";
                                         $dateu = gmt_to_local($dateu, "UP2", FALSE);
                                     }else
