@@ -110,7 +110,17 @@
                         <tr>
                             <td><?php echo $i; ?></td>
                             <td><?php echo $incident['description']; ?></td>
-                            <td><?php echo explode(" ",$incident['date'])[1]; ?></td>
+                            <td><?php 
+                                date_default_timezone_set('America/Monterrey');
+                                $dateu = mysql_to_unix($incident['date']);
+                                if(date('I')==1) {
+                                    $dateu = gmt_to_local($dateu, "UP2", FALSE);
+                                }else
+                                    $dateu = gmt_to_local($dateu, "UP1", FALSE);
+                                $dateu = unix_to_human($dateu); 
+                                echo explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+                                //echo explode(" ",$incident['date'])[1]; 
+                            ?></td>
                         </tr>
                     <?php $i=$i-1; ?>
                     <?php endforeach; ?>
