@@ -849,11 +849,15 @@ class Pedrera extends CI_Controller {
     }
     
     public function prueba(){  
-		$now = now("America/Monterrey");
+		/*$now = now("America/Monterrey");
 		$datestring = '%Y-%m-%d %h:%i:%s';
 		echo $now;
 		echo "<br>";
-		echo mdate($datestring,$now);
+		echo mdate($datestring,$now);*/
+		//1627557807
+		//2021-07-29 11:23:27
+		$unix = mysql_to_unix('2021-07-29 11:23:27');
+		echo $unix;
         return;
     }
 
