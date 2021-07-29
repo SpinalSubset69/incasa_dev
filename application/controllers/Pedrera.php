@@ -849,9 +849,12 @@ class Pedrera extends CI_Controller {
     }
     
     public function prueba(){ 
-		echo unix_to_human(now("America/Monterrey"));
-		echo "<br>";
-		echo unix_to_human(now());
+		date_default_timezone_set('America/Monterrey'); # add your city to set local time zone
+		$now = date('Y-m-d H:i:s');
+		echo $now;
+		//echo unix_to_human(now("America/Monterrey"));
+		//echo "<br>";
+		//echo unix_to_human(now());
 		/*$now = now("America/Monterrey");
 		$datestring = '%Y-%m-%d %h:%i:%s';
 		echo $now;
