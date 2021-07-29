@@ -7,7 +7,7 @@ class Log_model extends CI_Model{
 
     public function insertHistory($idLog, $desc){
         $this->db->set('idLog', $idLog);
-        $this->db->set('description', $desc);
+        $this->db->set('description', $desc);        
         $this->db->set('date', 'NOW()', FALSE);
         $this->db->insert('history');
     }  
@@ -94,7 +94,7 @@ class Log_model extends CI_Model{
     }
 
     public function updateLog($field, $idLog, $desc){  
-        $this->db->set($field, 'NOW()', FALSE);           
+        $this->db->set($field, 'NOW()', FALSE);                   
         $this->db->where('idLog', $idLog);
         $this->db->update('log');
 

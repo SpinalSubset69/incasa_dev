@@ -11,6 +11,7 @@ class Pedrera extends CI_Controller {
 		$this->load->library(array('session')); //Control de sesiones (Cookies)
 		$this->load->helper('url'); //Para el base_url()
 		$this->load->helper(['jwt', 'authorization']); // Loading jwt and authorization
+		$this->load->helper('date');
 		$this->load->helper('utils');//Utilerias para obtener el menu, permisos, etc
 
 
@@ -847,8 +848,8 @@ class Pedrera extends CI_Controller {
 	
     }
     
-    public function prueba(){
-        echo '<html><head><title>Service Unavailable</title><meta http-equiv="Content-Type" content="text/html; charset=us-ascii"></head><body><h2>Service Unavailable</h2><hr><p>HTTP Error 503. The service is unavailable.</p></body></html>';
+    public function prueba(){  
+		echo now();      
         return;
     }
 
