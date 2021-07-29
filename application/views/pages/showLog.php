@@ -82,9 +82,10 @@
                             <td>
                                 <?php 
                                     $dateu = mysql_to_unix($lo['arrival']);
-                                    if(date('I')==1) 
+                                    if(date('I')==1) {
+                                        echo " Si ";
                                         $dateu = gmt_to_local($dateu, "UP2", FALSE);
-                                    else
+                                    }else
                                         $dateu = gmt_to_local($dateu, "UP1", FALSE);
                                     echo $lo['arrival']."  ".unix_to_human($dateu); 
                                 ?>
