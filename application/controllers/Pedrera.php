@@ -855,7 +855,9 @@ class Pedrera extends CI_Controller {
 		echo "<br>";
 		echo mdate($datestring,$now);*/
 		//1627557807
+		
 		//2021-07-29 11:23:27
+		//Se convierte a unix
 		$unix = mysql_to_unix('2021-07-29 11:23:27');
 		echo $unix;
         return;
