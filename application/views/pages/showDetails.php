@@ -70,7 +70,19 @@
                         <div class="column">
                             <div class="field">
                                 <label>Hora de salida:</label>
-                                <input disabled type="text" value="<?php echo ($log->departure!=NULL)?explode(" ",$log->departure)[1]:"No ha salido"; ?>">
+                                <input disabled type="text" value="<?php 
+                                    if($log->departure!=NULL){
+                                        date_default_timezone_set('America/Monterrey');
+                                        $dateu = mysql_to_unix($log->departure);
+                                        if(date('I')==1) {
+                                            $dateu = gmt_to_local($dateu, "UP2", FALSE);
+                                        }else
+                                            $dateu = gmt_to_local($dateu, "UP1", FALSE);
+                                        $dateu = unix_to_human($dateu); 
+                                        echo explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+                                    }else
+                                        echo "No ha salido"; 
+                                ?>">
                             </div>
                         </div>
                         <div class="column">
