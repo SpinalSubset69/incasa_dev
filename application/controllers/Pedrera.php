@@ -848,7 +848,10 @@ class Pedrera extends CI_Controller {
 	
     }
     
-    public function prueba(){  
+    public function prueba(){ 
+		echo now("America/Monterrey");
+		echo "<br>";
+		echo now();
 		/*$now = now("America/Monterrey");
 		$datestring = '%Y-%m-%d %h:%i:%s';
 		echo $now;
