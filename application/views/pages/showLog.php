@@ -78,7 +78,7 @@
                             <td><?php echo $lo['idGPS2']; ?></td>
                             <!-- <td><?php echo $lo['nameBuilding']; ?></td> -->
                             <td><?php echo $lo['nameDriver']; ?></td>
-                            <td><?php echo mysql_to_unix($lo['arrival']); ?></td>
+                            <td><?php echo unix_to_human(mysql_to_unix($lo['arrival'])); ?></td>
                             <td><?php echo ($lo['departure']!=NULL)?$lo['departure']:"No ha salido"; ?></td>
                             <td><?php echo ($lo['departure']!=NULL)?$lo['time']:$lo['time']." al momento"; ?></td>
                             <td><div data-value="<?php echo $lo['idLog']; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
