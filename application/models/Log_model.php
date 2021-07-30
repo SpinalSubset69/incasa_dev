@@ -93,7 +93,7 @@ class Log_model extends CI_Model{
                 $dateu = gmt_to_local($dateu, "UP2", FALSE);
             }else
                 $dateu = gmt_to_local($dateu, "UP1", FALSE);
-            $att['time']=unix_to_human($dateu);
+            $att['time2']=unix_to_human($dateu);
             //$_attendance[] = $att;           
         endforeach;
         return $attendance;
