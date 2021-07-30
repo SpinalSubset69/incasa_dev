@@ -44,7 +44,7 @@ class Users_model extends CI_Model{
 
 	public function getQuarries(){
 		//select *,(select count(*) from log where log.idQuarry=10 and (log.arrival BETWEEN curdate() and NOW()) and log.departure is NULL) as dentro, (select count(*) from log where log.idQuarry=quarries.idQuarry and (log.arrival BETWEEN curdate() and NOW()) and log.departure is not NULL) as atendidos from quarries
-		$this->db->select('*, (select count(*) from log where (log.arrival BETWEEN curdate() and NOW()) and log.departure is NULL) as dentro, (select count(*) from log where log.idQuarry=quarries.idQuarry and (log.arrival BETWEEN curdate() and NOW()) and log.departure is not NULL) as atendidos');
+		$this->db->select('*, (select count(*) from log where log.idQuarry=quarries.idQuarry and (log.arrival BETWEEN curdate() and NOW()) and log.departure is NULL) as dentro, (select count(*) from log where log.idQuarry=quarries.idQuarry and (log.arrival BETWEEN curdate() and NOW()) and log.departure is not NULL) as atendidos');
 		$query=$this->db->get('quarries');
 		return $query->result_array(); 
 	}
