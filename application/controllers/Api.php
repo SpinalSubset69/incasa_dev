@@ -20,7 +20,8 @@ class Api extends RestController
 
 		//Load Helpers		
 		$this->load->helper(['jwt', 'authorization']); // Loading jwt and authorization
-
+		$this->load->helper('date');
+		
 		//Load models
 		$this->load->model('Users_model'); //Users model {login}
 		$this->load->model('Trucks_model'); //Trucks model {getTruck}
