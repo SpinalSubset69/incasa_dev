@@ -85,7 +85,7 @@ class Log_model extends CI_Model{
             $attendance=$query->result_array();
         }
         date_default_timezone_set('America/Monterrey');
-        //$_attendance = [];
+        $_attendance = [];
         foreach ($attendance as $att):
             //$dateu = mysql_to_unix($att['time']);
             $dateu = mysql_to_unix("2021-07-30 09:06:01");            
@@ -93,10 +93,10 @@ class Log_model extends CI_Model{
                 $dateu = gmt_to_local($dateu, "UP2", FALSE);
             }else
                 $dateu = gmt_to_local($dateu, "UP1", FALSE);
-            $att['time2']=unix_to_human($dateu);
-            //$_attendance[] = $att;           
+            $att['time']=unix_to_human($dateu);
+            $_attendance[] = $att;           
         endforeach;
-        return $attendance;
+        return $_attendance;
 
     }
 
