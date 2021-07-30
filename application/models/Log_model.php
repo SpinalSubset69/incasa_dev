@@ -87,14 +87,16 @@ class Log_model extends CI_Model{
         date_default_timezone_set('America/Monterrey');
         $_attendance = [];
         foreach ($attendance as $att):
-            $dateu = $att['time'];
-            $dateu = mysql_to_unix($dateu);            
-            if(date('I')==1) {
-                $dateu = gmt_to_local($dateu, "UP2", FALSE);
-            }else
-                $dateu = gmt_to_local($dateu, "UP1", FALSE);
-            $dateu = unix_to_human($dateu);                 
-            $att['time']=explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];            
+            if($att['time']!=null){
+                $dateu = $att['time'];
+                $dateu = mysql_to_unix($dateu);            
+                if(date('I')==1) {
+                    $dateu = gmt_to_local($dateu, "UP2", FALSE);
+                }else
+                    $dateu = gmt_to_local($dateu, "UP1", FALSE);
+                $dateu = unix_to_human($dateu);                 
+                $att['time']=explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+            }
             $_attendance[] = $att;           
         endforeach;
         return $_attendance;
