@@ -495,7 +495,7 @@ class Api extends RestController
 				
 				$file = "miarchivo2.txt";
 				$texto = $id." ".$name." ".$type." ".$date." ";
-				$fp = fopen($file, "w");
+				$fp = fopen($file, "a");
 				fwrite($fp, $texto);
 				fclose($fp);
                 
