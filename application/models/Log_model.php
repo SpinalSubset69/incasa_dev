@@ -88,13 +88,13 @@ class Log_model extends CI_Model{
         $_attendance = [];
         foreach ($attendance as $att):
             $dateu = $att['time'];
-            $dateu = mysql_to_unix($dateu);
-            //$dateu = mysql_to_unix("2021-07-30 09:06:01");            
+            $dateu = mysql_to_unix($dateu);            
             if(date('I')==1) {
                 $dateu = gmt_to_local($dateu, "UP2", FALSE);
             }else
                 $dateu = gmt_to_local($dateu, "UP1", FALSE);
-            $att['time']=unix_to_human($dateu);
+            $dateu = unix_to_human($dateu);                 
+            $att['time']=explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];            
             $_attendance[] = $att;           
         endforeach;
         return $_attendance;
