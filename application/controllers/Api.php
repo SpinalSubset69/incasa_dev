@@ -494,7 +494,7 @@ class Api extends RestController
 				//$this->Log_model->insertTimeTest();
 				
 				$file = "miarchivo2.txt";
-				$texto = $id." ".$name." ".$type." ".$date." ";
+				$texto = $id." ".$name." ".$type." ".$date."\n";
 				$fp = fopen($file, "a");
 				fwrite($fp, $texto);
 				fclose($fp);
