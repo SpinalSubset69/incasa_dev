@@ -156,7 +156,7 @@
 
         $('.tablaUsuarios').tablesort({
             headers: {
-                8: { sorter: 'digit' } // column number, type
+                7: { sorter: 'digit' } // column number, type
             }
         });
         var mitabla = $('.tablaUsuarios').DataTable({
