@@ -71,7 +71,7 @@
                 <tbody>
                     <!-- INICIA FILA -->
                     <?php foreach ($log as $lo) : ?>
-                        <tr <?php if ($lo['departure']!=NULL){ if ($lo['time'] > 40) echo 'class="warning"'; } else {echo 'class="positive"';} ?>>
+                        <tr <?php if ($lo['departure']!=NULL){ if ($lo['time'] >= 45) echo 'class="warning"'; } else {echo 'class="positive"';} ?>>
                             <td><?php echo $lo['nameQuarry']; ?></td>
                             <td><?php echo $lo['idTruck']; ?></td>
                             <td><?php echo $lo['nameCompany']; ?></td>
