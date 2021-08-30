@@ -64,7 +64,7 @@
                         <th class="sorted">Conductor</th>
                         <th class="sorted">Llegada</th>
                         <th class="sorted">Salida</th>
-                        <th class="sorted">Tiempo (min)</th>
+                        <th class="tiempo" class="sorted">Tiempo (min)</th>
                         <th class="no-sort">Detalles</th>
                     </tr>
                 </thead>
@@ -154,23 +154,15 @@
             mitabla.draw();
         });
 
-
-        $.tablesort.defaults = {
-            debug: $.tablesort.DEBUG,		// Outputs some basic debug info when true.
-            asc: 'sorted ascending',		// CSS classes added to `<th>` elements on sort.
-            desc: 'sorted descending',
-            compare: function(a, b) {		// Function used to compare values when sorting.
-                if (a > b) {
-                    return 1;
-                } else if (a < b) {
-                    return -1;
-                } else {
-                    return 0;
-                }
-            }
-        };
-
         $('.tablaUsuarios').tablesort();
+
+        $('thead th.tiempo').data(
+        'sortBy', 
+        function(th, td, tablesort) {
+            return parseInt(td.text());
+        }
+    );
+
         var mitabla = $('.tablaUsuarios').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
