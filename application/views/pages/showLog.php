@@ -63,7 +63,7 @@
                         <th class="sorted">Conductor</th>
                         <th class="sorted">Llegada</th>
                         <th class="sorted">Salida</th>
-                        <th class="sorted">Tiempo (min)</th>
+                        <th class=\"{sorter: 'digit'}\" class="sorted">Tiempo (min)</th>
                         <th class="no-sort">Detalles</th>
                     </tr>
                 </thead>
@@ -154,11 +154,7 @@
         });
 
 
-        $('.tablaUsuarios').tablesort({
-            headers: {
-                7: { sorter: 'digit' } // column number, type
-            }
-        });
+        $('.tablaUsuarios').tablesort();
         var mitabla = $('.tablaUsuarios').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
