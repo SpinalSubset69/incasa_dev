@@ -76,7 +76,7 @@
                             <td><?php echo $lo['nameCompany']; ?></td>
                             <!-- <td><?php echo $lo['nameMaterial']; ?></td> -->
                             <td><?php echo $lo['idGPS2']; ?></td>
-                            
+                            <td><?php echo $lo['time']; ?></td>
                             <!-- En horario de verano debo de adelantar dos horas; si no una hora -->
                             <td><?php echo $lo['nameDriver']; ?></td>
                             <td>
@@ -105,8 +105,7 @@
                                     }
                                     #echo ($lo['departure']!=NULL)?$lo['departure']:"No ha salido";
                                 ?>
-                            </td>
-                            <td><?php echo $lo['time']; ?></td>
+                            </td>                            
                             <td><div data-value="<?php echo $lo['idLog']; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
                         </tr>
                     <?php endforeach; ?>
