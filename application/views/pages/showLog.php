@@ -106,7 +106,7 @@
                                     #echo ($lo['departure']!=NULL)?$lo['departure']:"No ha salido";
                                 ?>
                             </td>
-                            <td><?php echo ($lo['departure']!=NULL)?$lo['time']:$lo['time']; ?></td>
+                            <td><?php echo $lo['time']; ?></td>
                             <td><div data-value="<?php echo $lo['idLog']; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
                         </tr>
                     <?php endforeach; ?>
