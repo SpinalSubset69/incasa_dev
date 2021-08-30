@@ -164,14 +164,10 @@
     );
 
         var mitabla = $('.tablaUsuarios').DataTable({
-            // "language": {
-            //     "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-            // },
-            buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
-        });
-
-        mitabla.buttons().container()
-        .appendTo( $('div.eight.column:eq(0)', mitabla.table().container()) );
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            }            
+        });        
 
         $('#rangestart').calendar({
             type: 'date',
