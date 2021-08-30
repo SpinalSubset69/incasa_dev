@@ -70,7 +70,7 @@
                 <tbody>
                     <!-- INICIA FILA -->
                     <?php foreach ($log as $lo) : ?>
-                        <tr <?php if ($lo['time'] > 40) echo 'class="warning"'; ?>>
+                        <tr <?php if ($lo['time'] > 40) echo 'class="positive"'; ?>>
                             <td><?php echo $lo['nameQuarry']; ?></td>
                             <td><?php echo $lo['idTruck']; ?></td>
                             <td><?php echo $lo['nameCompany']; ?></td>
