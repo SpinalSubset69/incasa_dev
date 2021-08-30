@@ -58,7 +58,7 @@
                         <th class="sorted descending">Pedrera</th>
                         <th class="sorted descending">Placa</th>
                         <th class="sorted descending">Compañia</th>
-                        <th class="sorted descending">Material</th>
+                        <th class="sorted descending">GPS</th>
                         <!-- <th class="">Planta</th> -->
                         <th class="sorted descending">Conductor</th>
                         <th class="sorted descending">Llegada</th>
@@ -70,7 +70,7 @@
                 <tbody>
                     <!-- INICIA FILA -->
                     <?php foreach ($log as $lo) : ?>
-                        <tr <?php if ($lo['time'] > 45) echo 'class="warning"'; ?>>
+                        <tr <?php if ($lo['time'] > 40) echo 'class="warning"'; ?>>
                             <td><?php echo $lo['nameQuarry']; ?></td>
                             <td><?php echo $lo['idTruck']; ?></td>
                             <td><?php echo $lo['nameCompany']; ?></td>
@@ -117,7 +117,7 @@
                         <th class="sorted descending">Pedrera</th>
                         <th class="sorted descending">Placa</th>
                         <th class="sorted descending">Compañia</th>
-                        <th class="sorted descending">Material</th>
+                        <th class="sorted descending">GPS</th>
                         <!-- <th class="">Planta</th> -->
                         <th class="sorted descending">Conductor</th>
                         <th class="sorted descending">Llegada</th>
