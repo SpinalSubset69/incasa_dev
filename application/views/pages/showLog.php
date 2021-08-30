@@ -1,5 +1,5 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>assets2/semantic/components/tablesort.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets2/semantic/components/jquery.metadata.js"></script>
+<!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets2/semantic/components/jquery.metadata.js"></script> -->
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
 
@@ -64,7 +64,7 @@
                         <th class="sorted">Conductor</th>
                         <th class="sorted">Llegada</th>
                         <th class="sorted">Salida</th>
-                        <th class="{sorter: 'digit'}" class="sorted">Tiempo (min)</th>
+                        <th class="sorted">Tiempo (min)</th>
                         <th class="no-sort">Detalles</th>
                     </tr>
                 </thead>
@@ -154,6 +154,21 @@
             mitabla.draw();
         });
 
+
+        $.tablesort.defaults = {
+            debug: $.tablesort.DEBUG,		// Outputs some basic debug info when true.
+            asc: 'sorted ascending',		// CSS classes added to `<th>` elements on sort.
+            desc: 'sorted descending',
+            compare: function(a, b) {		// Function used to compare values when sorting.
+                if (a > b) {
+                    return 1;
+                } else if (a < b) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        };
 
         $('.tablaUsuarios').tablesort();
         var mitabla = $('.tablaUsuarios').DataTable({
