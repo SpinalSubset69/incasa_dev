@@ -487,6 +487,7 @@ class Api extends RestController
 			} else {
 				// Extract the id of the gps
                 $id = $this->post('id');
+				$nombregps = $this->post('nombregps');
 				$type = $this->post('type');
 				$name = $this->post('name');
 				$date = $this->post('date');
@@ -494,7 +495,7 @@ class Api extends RestController
 				//$this->Log_model->insertTimeTest();
 				
 				$file = "miarchivo2.txt";
-				$texto = $id." ".$name." ".$type." ".$date."\n";
+				$texto = $id." ".$nombregps." ".$name." ".$type." ".$date."\n";
 				$fp = fopen($file, "a");
 				fwrite($fp, $texto);
 				fclose($fp);
