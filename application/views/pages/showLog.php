@@ -114,16 +114,16 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th class="sorted descending">Pedrera</th>
-                        <th class="sorted descending">Placa</th>
-                        <th class="sorted descending">Compañia</th>
-                        <th class="sorted descending">GPS</th>
+                        <th class="sorted">Pedrera</th>
+                        <th class="sorted">Placa</th>
+                        <th class="sorted">Compañia</th>
+                        <th class="sorted">GPS</th>
                         <!-- <th class="">Planta</th> -->
-                        <th class="sorted descending">Conductor</th>
-                        <th class="sorted descending">Llegada</th>
-                        <th class="sorted descending">Salida</th>
+                        <th class="sorted">Conductor</th>
+                        <th class="sorted">Llegada</th>
+                        <th class="sorted">Salida</th>
                         <th class="sorted">Tiempo</th>
-                        <th class="sorted descending">Detalles</th>
+                        <th class="sorted">Detalles</th>
                     </tr>
                 </tfoot>
             </table>
@@ -220,8 +220,7 @@
                     return year + '-' + month + '-' + day;
                 }
             },
-            onSelect: function(date) {
-                console.log(date);
+            onSelect: function(date) {            
                 if (!date) return '';
                 var day = date.getDate() + '';
                 if (day.length < 2) {
@@ -241,7 +240,6 @@
 
 
         $.fn.DataTable.ext.search.push((settings, row) => {
-            console.log(row[5]);
             var date = row[5];
             date = date.split(' ')[0];
             date = date.replace(/-/g, '/');
