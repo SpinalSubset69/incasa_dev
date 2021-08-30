@@ -76,7 +76,7 @@
                             <td><?php echo $lo['nameCompany']; ?></td>
                             <!-- <td><?php echo $lo['nameMaterial']; ?></td> -->
                             <td><?php echo $lo['idGPS2']; ?></td>
-                            <!-- <td><?php echo $lo['nameBuilding']; ?></td> -->
+                            
                             <!-- En horario de verano debo de adelantar dos horas; si no una hora -->
                             <td><?php echo $lo['nameDriver']; ?></td>
                             <td>
@@ -122,7 +122,7 @@
                         <th class="sorted descending">Conductor</th>
                         <th class="sorted descending">Llegada</th>
                         <th class="sorted descending">Salida</th>
-                        <th class="sorted descending">Tiempo</th>
+                        <th class="sorted">Tiempo</th>
                         <th class="sorted descending">Detalles</th>
                     </tr>
                 </tfoot>
