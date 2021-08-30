@@ -63,7 +63,7 @@
                         <th class="sorted">Conductor</th>
                         <th class="sorted">Llegada</th>
                         <th class="sorted">Salida</th>
-                        <th class=\"{sorter: 'digit'}\" class="sorted">Tiempo (min)</th>
+                        <th class="{sorter: 'digit'}" class="sorted">Tiempo (min)</th>
                         <th class="no-sort">Detalles</th>
                     </tr>
                 </thead>
