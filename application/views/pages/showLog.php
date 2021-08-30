@@ -55,14 +55,14 @@
             <table class="ui sortable celled table tablaUsuarios">
                 <thead>
                     <tr>
-                        <th class="sorted descending">Pedrera</th>
-                        <th class="sorted descending">Placa</th>
-                        <th class="sorted descending">Compañia</th>
-                        <th class="sorted descending">GPS</th>
+                        <th class="sorted">Pedrera</th>
+                        <th class="sorted">Placa</th>
+                        <th class="sorted">Compañia</th>
+                        <th class="sorted">GPS</th>
                         <!-- <th class="">Planta</th> -->
-                        <th class="sorted descending">Conductor</th>
-                        <th class="sorted descending">Llegada</th>
-                        <th class="sorted descending">Salida</th>
+                        <th class="sorted">Conductor</th>
+                        <th class="sorted">Llegada</th>
+                        <th class="sorted">Salida</th>
                         <th class="sorted descending">Tiempo (min)</th>
                         <th class="no-sort">Detalles</th>
                     </tr>
