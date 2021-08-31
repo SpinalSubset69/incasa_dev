@@ -287,7 +287,7 @@
         $('.btnDetails').on('click', function() {
             var event = $(this);
             var data_id = $(this).attr("data-value");
-            document.cookie = 'id='+data_id;
+            document.cookie = 'id='+ data_id +'; Path=/;';
             //$(location).attr('href', "https://incasapac.com/Pedrera/showDetails/" + data_id);
             //window.open("https://incasapac.com/Pedrera/showDetails/" + data_id, '_blank');
             $('.ui.modal').modal('show');
