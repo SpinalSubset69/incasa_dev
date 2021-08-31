@@ -109,7 +109,7 @@ class Pedrera extends CI_Controller {
 		$idLog=$this->uri->segment(3);
 		//Obtener log				
 		$log=$this->Log_model->getLogId($idLog);
-		echo $idLog;
+		echo $this->session->userdata('is_logued');
 		return;
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==1 && $log!=FALSE){
 			$data['menu']=$this->getMenu();
