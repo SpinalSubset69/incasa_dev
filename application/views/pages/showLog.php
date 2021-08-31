@@ -149,7 +149,7 @@
                         <div class="column">
                             <div class="field">
                                 <label>Placa:</label>
-                                <input disabled type="text" value="<?php echo $log->idTruck; ?>">
+                                <input disabled type="text" value="<?php echo $log[0]['log2']->idTruck; ?>">
                             </div>
                         </div>
                         <div class="column">
