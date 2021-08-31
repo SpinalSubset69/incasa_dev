@@ -111,8 +111,8 @@
                             <td><?php echo $lo['time']; ?></td>
                             <td><div data-value="<?php echo $i; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
                         </tr>
-                    <?php endforeach; ?>
-                    <?php $i=$i+1; ?>
+                        <?php $i=$i+1; ?>
+                    <?php endforeach; ?>                    
                     <!-- TERMINA FILA -->
                 </tbody>
                 <tfoot>
