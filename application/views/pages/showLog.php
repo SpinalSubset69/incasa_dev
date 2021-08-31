@@ -148,7 +148,7 @@
                     <div class="ui equal width grid stackable">
                         <div class="column">
                             <div class="field">
-                                <label><?php echo $this->session->userdata('id'); ?>Placa:</label>
+                                <label><?php echo $_COOKIE["id"]; ?>Placa:</label>
                                 <input disabled type="text" value="<?php echo $log[0]['log2']->idTruck; ?>">
                             </div>
                         </div>
