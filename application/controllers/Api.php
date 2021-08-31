@@ -491,7 +491,7 @@ class Api extends RestController
 				$type = $this->post('type');
 				$name = $this->post('name');
 				$date = $this->post('date');
-				$type = ucwords($type);
+				//$type = ucwords($type);
 				//$this->Log_model->insertTimeTest();
 				
 				$file = "miarchivo2.txt";
@@ -514,7 +514,7 @@ class Api extends RestController
 						}elseif($building->typeBuilding==2){
 							$msg ='Planta: '.$building->nameBuilding;
 							//Update del idBuilding igual a $building->idBuilding en el $log->idLog
-							if($type=='Entrada')
+							if($type==1)
 								$this->Log_model->updateTruckBuilding($log->idLog, $building->idBuilding);
 							else
 								$this->Log_model->updateTruckBuilding($log->idLog, NULL);
@@ -526,10 +526,13 @@ class Api extends RestController
 							$this->Log_model->updateTruckBuilding($log->idLog, NULL);
 						}
 						$con = 'a';
-						if($type=="Salida")
+						$nom_type = 'Entrada';
+						if($type==2){
+							$nom_type = 'Salida';
 							$con = 'de';						
+						}
 						
-						$this->Log_model->insertHistory($log->idLog, $type." de vehículo ".$con." ".$msg);
+						$this->Log_model->insertHistory($log->idLog, $nom_type." de vehículo ".$con." ".$msg);
 					}
 				}else{//No es ningun gps del log
 				//Buscamos si es un gps de algun operador
@@ -538,7 +541,7 @@ class Api extends RestController
 						$building = $this->Materials_model->getBuilding($name);
 						if($building!=NULL){
 							if($building->typeBuilding==2){
-								if($type=="Entrada")
+								if($type==1)
 									$this->Users_model->updateOperatorBuilding($user->idUser, $building->idBuilding);
 								else
 									$this->Users_model->updateOperatorBuilding($user->idUser, NULL);
