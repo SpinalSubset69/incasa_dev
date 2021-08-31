@@ -148,7 +148,7 @@
                     <div class="ui equal width grid stackable">
                         <div class="column">
                             <div class="field">
-                                <label>Placa:</label>
+                                <label><?php echo $this->session->userdata('id'); ?>Placa:</label>
                                 <input disabled type="text" value="<?php echo $log[0]['log2']->idTruck; ?>">
                             </div>
                         </div>
@@ -287,6 +287,7 @@
         $('.btnDetails').on('click', function() {
             var event = $(this);
             var data_id = $(this).attr("data-value");
+            document.cookie = "id="+data_id;
             //$(location).attr('href', "https://incasapac.com/Pedrera/showDetails/" + data_id);
             //window.open("https://incasapac.com/Pedrera/showDetails/" + data_id, '_blank');
             $('.ui.modal').modal('show');
