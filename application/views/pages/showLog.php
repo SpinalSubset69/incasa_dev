@@ -134,7 +134,24 @@
     </div>
 </main>
 
-
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+      Detalles
+  </div>
+  <div class="description" id="description">
+  
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
 
 
 <script type="text/javascript">
@@ -151,7 +168,11 @@
             document.cookie = 'id_log='+data_id;
             //$(location).attr('href', "https://incasapac.com/Pedrera/showDetails/" + data_id);
             //window.open("https://incasapac.com/Pedrera/showDetails/" + data_id, '_blank');
-            $('.ui.modal').modal('show');
+            $('#conte-modal').load("https://incasapac.com/Pedrera/showDetails/" + data_id, function() {
+                 //$('#bootstrap-modal').modal({show:true});
+                 $('.ui.modal').modal('show');
+            });
+            
         });
         
 
