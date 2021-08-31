@@ -109,6 +109,8 @@ class Pedrera extends CI_Controller {
 		$idLog=$this->uri->segment(3);
 		//Obtener log				
 		$log=$this->Log_model->getLogId($idLog);
+		echo $idLog;
+		return;
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==1 && $log!=FALSE){
 			$data['menu']=$this->getMenu();
 			$data['user']=$this->session->userdata('username');
@@ -126,7 +128,7 @@ class Pedrera extends CI_Controller {
 			$this->load->view('templates/footer');
 		}else{
 			$data['heading'] = "404 Página no encotrada.";
-            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.....";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
             $this->load->view('errors/cli/error_404',$data);
 		}
 	}
