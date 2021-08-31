@@ -109,7 +109,7 @@
                                 ?>
                             </td>
                             <td><?php echo $lo['time']; ?></td>
-                            <td><div data-value="<?php echo $i; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
+                            <td><div data-value="<?php echo $lo['idLog']; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
                         </tr>
                         <?php $i=$i+1; ?>
                     <?php endforeach; ?>                    
