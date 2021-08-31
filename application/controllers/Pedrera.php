@@ -80,9 +80,9 @@ class Pedrera extends CI_Controller {
 			$log = $this->Log_model->getLog();
 			$_log = array();
 			foreach($log as $lo):
-				$lo['log2']=$this->Log_model->getLogId($lo->idLog);
+				$lo['log2']=$this->Log_model->getLogId($lo['idLog']);
 				//$data['log2']=$log;
-				$incidents=$this->Log_model->getIncidents($lo->idLog);
+				$incidents=$this->Log_model->getIncidents($lo['idLog']);
 				$lo['incidents']=$incidents->result_array();
 				$lo['total']=$incidents->num_rows();
 				$_log[] = $lo;
