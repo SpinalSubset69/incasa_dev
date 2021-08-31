@@ -70,6 +70,7 @@
                 </thead>
                 <tbody>
                     <!-- INICIA FILA -->
+                    <?php $i=0; ?>
                     <?php foreach ($log as $lo) : ?>
                         <tr <?php if ($lo['departure']!=NULL){ if ($lo['time'] >= 45) echo 'class="warning"'; } else {echo 'class="positive"';} ?>>
                             <td><?php echo $lo['nameQuarry']; ?></td>
@@ -108,9 +109,10 @@
                                 ?>
                             </td>
                             <td><?php echo $lo['time']; ?></td>
-                            <td><div data-value="<?php echo $lo['idLog']; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
+                            <td><div data-value="<?php echo $i; ?>" class="ui blue icon button btnDetails" name="button"><i class="search icon"></i> </div></td>                            
                         </tr>
                     <?php endforeach; ?>
+                    <?php $i=$i+1; ?>
                     <!-- TERMINA FILA -->
                 </tbody>
                 <tfoot>
