@@ -78,7 +78,8 @@ class Pedrera extends CI_Controller {
 			//$data['log']=$this->Users_model->getUsers();
 			//$data['usuarios']=array();
 			$log = $this->Log_model->getLog();
-			$_log = array();
+			
+			/*$_log = array();
 			foreach($log as $lo):
 				$lo['log2']=$this->Log_model->getLogId($lo['idLog']);
 				//$data['log2']=$log;
@@ -86,10 +87,10 @@ class Pedrera extends CI_Controller {
 				$lo['incidents']=$incidents->result_array();
 				$lo['total']=$incidents->num_rows();
 				$_log[] = $lo;
-			endforeach;
+			endforeach;*/
 			
 
-			$data['log'] = $_log;
+			$data['log'] = $log;
 			$data["txt_fechainicio"]="";
     		$data["txt_fechafin"]="";
 
@@ -125,7 +126,7 @@ class Pedrera extends CI_Controller {
 			$this->load->view('templates/footer');
 		}else{
 			$data['heading'] = "404 Página no encotrada.";
-            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.....";
             $this->load->view('errors/cli/error_404',$data);
 		}
 	}
