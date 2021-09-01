@@ -62,7 +62,7 @@
                         <th class="sorted">GPS</th>
                         <th class="sorted">Material</th>
                         <th class="sorted">Conductor</th>
-                        <th class="sorted descending default-sort">Llegada</th>
+                        <th class="sorted default-sort">Llegada</th>
                         <th class="sorted">Salida</th>
                         <th class="tiempo" class="sorted">Tiempo (min)</th>
                         <th class="no-sort">Detalles</th>
@@ -181,7 +181,7 @@
             mitabla.draw();
         });
 
-        $('.tablaUsuarios').tablesort().data('tablesort').sort($("th.default-sort"));
+        $('.tablaUsuarios').tablesort().data('tablesort').sort($("th.default-sort"),'desc');
 
         $('thead th.tiempo').data(
         'sortBy', 
