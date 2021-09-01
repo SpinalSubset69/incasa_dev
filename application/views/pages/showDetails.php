@@ -2,7 +2,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
 
-<div class="headerBack" style="background: linear-gradient(90deg, rgba(26, 43, 64,0.9) 100% ,rgb(24,30,51) 0%);">
+<!-- <div class="headerBack" style="background: linear-gradient(90deg, rgba(26, 43, 64,0.9) 100% ,rgb(24,30,51) 0%);">
     <div class="page-content miHeader">
         <div class="miTitulo">
             <i class="users icon"></i>
@@ -10,7 +10,7 @@
         </div>
         <p class="txtBg">Detalles</p>
     </div>
-</div>
+</div> -->
 
 
 
