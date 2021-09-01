@@ -121,7 +121,7 @@ class Pedrera extends CI_Controller {
 			$incidents=$this->Log_model->getIncidents($idLog);
 			$data['incidents']=$incidents->result_array();
 			$data['total']=$incidents->num_rows();
-			$this->load->view('templates/header',$data);
+			//$this->load->view('templates/header',$data);
 			$this->load->view('pages/showDetails', $data);
 			$this->load->view('templates/footer');
 		}else{
