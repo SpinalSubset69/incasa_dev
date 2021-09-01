@@ -142,7 +142,7 @@
   <div class="description" id="description">
   
   </div>
-  <div class="actions">
+  <!-- <div class="actions">
     <div class="ui black deny button">
       Nope
     </div>
@@ -150,7 +150,7 @@
       Yep, that's me
       <i class="checkmark icon"></i>
     </div>
-  </div>
+  </div> -->
 </div>
 
 
