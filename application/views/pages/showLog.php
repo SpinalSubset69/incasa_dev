@@ -62,7 +62,7 @@
                         <th class="sorted">GPS</th>
                         <th class="sorted">Material</th>
                         <th class="sorted">Conductor</th>
-                        <th class="sorted ascending">Llegada</th>
+                        <th class="sorted descending">Llegada</th>
                         <th class="sorted">Salida</th>
                         <th class="tiempo" class="sorted descending">Tiempo (min)</th>
                         <th class="no-sort">Detalles</th>
