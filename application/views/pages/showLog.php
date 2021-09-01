@@ -183,7 +183,7 @@
 
         $('.tablaUsuarios').tablesort();        
         var tablesort = $('.tablaUsuarios').data('tablesort'); 
-        tablesort.sort($("th.default-sort"));
+        tablesort.sort($("th.default-sort"),'desc');
 
         $('thead th.tiempo').data(
         'sortBy', 
