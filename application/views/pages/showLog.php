@@ -182,7 +182,7 @@
         });
 
         var tablesort = $('.tablaUsuarios').tablesort();        
-        tablesort.sort($("th.default-sort"),'desc');
+        tablesort.sort($("th.default-sort"));
 
         $('thead th.tiempo').data(
         'sortBy', 
