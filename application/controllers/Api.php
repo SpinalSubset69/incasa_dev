@@ -486,8 +486,8 @@ class Api extends RestController
 				exit();
 			} else {
 				// Extract the id of the gps
-                $id = $this->post('id');
-				$nombregps = $this->post('nombregps');
+                $nombregps = $this->post('id');
+				$id = $this->post('nombregps');
 				$type = $this->post('type');
 				$name = $this->post('name');
 				$date = $this->post('date');
@@ -556,7 +556,7 @@ class Api extends RestController
 				              
 
 				$status = parent::HTTP_OK;
-				$response = ['status' => $status, 'id' => $id];
+				$response = ['status' => $status, 'id' => $nombregps];
 				$this->response($response, $status);
 				
 			}
