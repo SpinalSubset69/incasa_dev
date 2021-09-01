@@ -181,8 +181,8 @@
             mitabla.draw();
         });
 
-        $('.tablaUsuarios').tablesort().data('tablesort').sort($("th.default-sort"));
-        $('.tablaUsuarios').tablesort().data('tablesort').sort($("th.default-sort"));
+        var tablesort = $('.tablaUsuarios').tablesort();        
+        tablesort.sort($("th.default-sort"),'desc');
 
         $('thead th.tiempo').data(
         'sortBy', 
