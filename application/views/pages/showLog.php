@@ -56,7 +56,7 @@
             <table class="ui sortable celled table tablaUsuarios">
                 <thead>
                     <tr>
-                        <th class="sorted">Pedrera</th>
+                        <th class="sorted descending">Pedrera</th>
                         <th class="sorted">Placa</th>
                         <th class="sorted">Compañia</th>
                         <th class="sorted">GPS</th>
