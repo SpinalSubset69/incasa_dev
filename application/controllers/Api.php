@@ -232,6 +232,7 @@ class Api extends RestController
 				$_plants = [];
 				foreach ($plants as $plant):
 					$plant['v2plant'] = $this->Log_model->getVehicles2Plant($plant['idBuilding']);
+					$plant['vInplant'] = $this->Log_model->getVehiclesinPlant($plant['idBuilding']);
 					$_plants[] = $plant;
 				endforeach;
 				
