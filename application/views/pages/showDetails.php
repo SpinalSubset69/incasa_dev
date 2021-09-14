@@ -132,7 +132,8 @@
                                         $minutes += $since_start->i;
                                         //echo $incidents[$j]['date']." ";
                                         //echo $incidents[$j+1]['date']." ";
-                                        echo $minutes;
+                                        if($minutes != 0)
+                                            echo $minutes;
                                     }
                                 ?>
                             </td>
