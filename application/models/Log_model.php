@@ -67,7 +67,7 @@ class Log_model extends CI_Model{
     }
 
     public function getVehicles2Plant($idBuilding){
-        $this->db->select("idTruck, 2 as good");
+        $this->db->select("idTruck");
         $this->db->from('log, materials_buildings');
         $this->db->where("log.idMaterial=materials_buildings.idMaterial");
         $this->db->where("materials_buildings.idBuilding=".$idBuilding);
