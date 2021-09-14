@@ -106,7 +106,7 @@
                 </thead>
                 <tbody>
                     <!-- INICIA FILA -->
-                    <?php $i=$total; $dateant = null;?>
+                    <?php $i=$total; ?>
                     <?php foreach ($incidents as $incident) : ?>
                         <tr>
                             <td><?php echo $i; ?></td>
@@ -123,9 +123,19 @@
                                 //echo explode(" ",$incident['date'])[1]; 
                             ?>
                             </td>
-                            <td><?php if($dateant!=null) echo $incidents[$i-1]['date']; ?></td>
+                            <td><?php 
+                                    if($i>0){
+                                        $start_date = new DateTime($incidents[$i-2]['date']);
+                                        $since_start = $start_date->diff(new DateTime($incidents[$i-1]['date']));
+                                        $minutes = $since_start->days * 24 * 60;
+                                        $minutes += $since_start->h * 60;
+                                        $minutes += $since_start->i;
+                                        echo $minutes;
+                                    }
+                                ?>
+                            </td>
                         </tr>
-                    <?php $i=$i-1; $dateant = $incident['date'];?>
+                    <?php $i=$i-1;?>
                     <?php endforeach; ?>
                     <!-- TERMINA FILA -->
                 </tbody>
