@@ -77,7 +77,8 @@ class Log_model extends CI_Model{
     }
 
     public function getVehiclesinPlant($idBuilding){
-        $this->db->select("idTruck");
+        //select idTruck, IF(EXISTS(select * from materials_buildings where materials_buildings.idMaterial=log.idMaterial and materials_buildings.idBuilding=log.idBuilding),1,0) as good from log where log.idBuilding=48
+        $this->db->select("idTruck, IF(EXISTS(select * from materials_buildings where materials_buildings.idMaterial=log.idMaterial and materials_buildings.idBuilding=log.idBuilding),1,0) as good");
         $this->db->from('log');
         $this->db->where("log.idBuilding=".$idBuilding);
         //$this->db->where("departure is null");
