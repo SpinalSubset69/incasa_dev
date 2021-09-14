@@ -137,7 +137,7 @@
                                 ?>
                             </td>
                         </tr>
-                    <?php $i=$i-1;?>
+                    <?php $i=$i-1; $j=$j+1;?>
                     <?php endforeach; ?>
                     <!-- TERMINA FILA -->
                 </tbody>
