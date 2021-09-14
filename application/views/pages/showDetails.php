@@ -130,6 +130,8 @@
                                         //$minutes = $since_start->days * 24 * 60;
                                         //$minutes += $since_start->h * 60;
                                         $minutes = $since_start->i;
+                                        echo $start_date." ";
+                                        echo new DateTime($incidents[$i-1]['date'])." ";
                                         echo $minutes;
                                     }
                                 ?>
