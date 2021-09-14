@@ -123,7 +123,7 @@
                                 //echo explode(" ",$incident['date'])[1]; 
                             ?>
                             </td>
-                            <td><?php if($dateant!=null) echo $incident[$i-1]; ?></td>
+                            <td><?php if($dateant!=null) echo $incidents[$i-1]; ?></td>
                         </tr>
                     <?php $i=$i-1; $dateant = $incident['date'];?>
                     <?php endforeach; ?>
