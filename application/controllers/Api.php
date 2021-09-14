@@ -227,9 +227,16 @@ class Api extends RestController
                 $user = $this->Users_model->getUser($data->username);
 
 				$plants = $this->Log_model->getAttendancePriority($user->idUser);
+
+				/* Obtener los vehiculos a planta */
+				$_plants = [];
+				foreach ($plants as $plant):
+					$plant['v2plant'] = $this->Log_model->getVehicles2Plant($plant['idBuilding']);
+					$_plants[] = $plant;
+				endforeach;
 				
 				$status = parent::HTTP_OK;
-				$response = ['status' => $status, 'plants' => $plants];
+				$response = ['status' => $status, 'plants' => $_plants];
 				$this->response($response, $status);
 				
 			}
