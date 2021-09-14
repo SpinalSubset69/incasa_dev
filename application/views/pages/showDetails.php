@@ -131,7 +131,7 @@
                                         //$minutes += $since_start->h * 60;
                                         $minutes = $since_start->i;
                                         echo $incidents[$j]['date']." ";
-                                        echo $incidents[$j-1]['date']." ";
+                                        echo $incidents[$j+1]['date']." ";
                                         echo $minutes;
                                     }
                                 ?>
