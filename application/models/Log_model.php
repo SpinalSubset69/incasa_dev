@@ -71,7 +71,7 @@ class Log_model extends CI_Model{
         $this->db->from('log, materials_buildings');
         $this->db->where("log.idMaterial=materials_buildings.idMaterial");
         $this->db->where("materials_buildings.idBuilding=".$idBuilding);
-        $this->db->where("departure is null");
+        //$this->db->where("departure is null");
         $query=$this->db->get();
         return $query->result_array();
     }
