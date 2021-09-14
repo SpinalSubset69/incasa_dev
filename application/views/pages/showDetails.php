@@ -101,11 +101,12 @@
                         <th class="sorted descending"></th>
                         <th class="">Descripción</th>
                         <th class="">Hora</th>
+                        <th class="">Tiempo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- INICIA FILA -->
-                    <?php $i=$total; ?>
+                    <?php $i=$total; $dateant = null;?>
                     <?php foreach ($incidents as $incident) : ?>
                         <tr>
                             <td><?php echo $i; ?></td>
@@ -120,9 +121,11 @@
                                 $dateu = unix_to_human($dateu); 
                                 echo explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
                                 //echo explode(" ",$incident['date'])[1]; 
-                            ?></td>
+                            ?>
+                            </td>
+                            <td><?php if($dateant!=null) echo "1"; ?></td>
                         </tr>
-                    <?php $i=$i-1; ?>
+                    <?php $i=$i-1; $dateant = $incident['date'];?>
                     <?php endforeach; ?>
                     <!-- TERMINA FILA -->
                 </tbody>
@@ -131,6 +134,7 @@
                         <th class="sorted descending"></th>
                         <th class="">Descripción</th>
                         <th class="">Hora</th>
+                        <th class="">Tiempo</th>
                     </tr>
                 </tfoot>
             </table>
