@@ -90,7 +90,10 @@ class Log_model extends CI_Model{
         /*
         select *, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, (select TIME(min(log.arrival)) from log where log.idBuilding=buildings.idBuilding) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=13), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=13), 1, 0) as isOnBuilding from buildings where buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idOperator=13 and operators_buildings.idBuilding=buildings.idBuilding) ORDER by isOnBuilding DESC, isOperator ASC, -time DESC, total desc
         */
-        $this->db->select("*, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=".$idOperator."), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=".$idOperator."), 1, 0) as isOnBuilding");
+        /*
+        select *, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, TIMESTAMPDIFF(MINUTE, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding),now()) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=13), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=13), 1, 0) as isOnBuilding from buildings where buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idOperator=35 and operators_buildings.idBuilding=buildings.idBuilding) ORDER by isOnBuilding DESC, isOperator ASC, -time DESC, total desc
+         */
+        $this->db->select("*, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, TIMESTAMPDIFF(MINUTE, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding),now()) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=".$idOperator."), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=".$idOperator."), 1, 0) as isOnBuilding");
         $this->db->from('buildings');
         $this->db->where("buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idOperator=".$idOperator." and operators_buildings.idBuilding=buildings.idBuilding)");
         $this->db->order_by("isOnBuilding DESC, isOperator ASC, (time * -1) DESC, total DESC");
@@ -104,6 +107,7 @@ class Log_model extends CI_Model{
             $query=$this->db->get();
             $attendance=$query->result_array();
         }
+        /*
         date_default_timezone_set('America/Monterrey');
         $_attendance = [];
         foreach ($attendance as $att):
@@ -118,8 +122,8 @@ class Log_model extends CI_Model{
                 $att['time']=explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
             }
             $_attendance[] = $att;           
-        endforeach;
-        return $_attendance;
+        endforeach;*/
+        return $attendance;
 
     }
 
