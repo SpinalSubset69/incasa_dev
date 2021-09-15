@@ -1,5 +1,19 @@
 <?php
 
+function getMenuSitesBascula(){
+  $menu=array(
+            "nombre"=>"Sitios",
+            "icono" => "map marker alternate icon",
+            "submenu"=>array(
+              array(
+                "nombre"=>"Ver Sitios",
+                "direccion"=>"Pedrera/showSites"
+              )
+            )
+  );
+  return $menu;
+}
+
 function getMenuCamiones(){
   $menu=array(
             "nombre"=>"Camiones",

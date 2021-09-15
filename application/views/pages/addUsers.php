@@ -52,7 +52,7 @@
                   <div class="item" data-value="1">Administrador</div>
                   <div class="item" data-value="2">Vigilante</div>
                   <div class="item" data-value="3">Operador Pala</div>
-                  <div class="item" data-value="4">Supervisor</div>
+                  <!-- <div class="item" data-value="4">Supervisor</div> -->
                   <div class="item" data-value="5">Báscula</div>
               </div>
             </div>

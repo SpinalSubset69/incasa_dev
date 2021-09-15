@@ -34,6 +34,7 @@ class Pedrera extends CI_Controller {
 				break;
 			case 5://bascula
 				array_push($menu, getMenuCamiones());
+				array_push($menu, getMenuSitesBascula());
 			break;
 		}				
 		return $menu;
