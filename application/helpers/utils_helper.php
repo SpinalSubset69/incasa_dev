@@ -2,12 +2,12 @@
 
 function getMenuSitesBascula(){
   $menu=array(
-            "nombre"=>"Sitios",
+            "nombre"=>"Plantas",
             "icono" => "map marker alternate icon",
             "submenu"=>array(
               array(
-                "nombre"=>"Ver Sitios",
-                "direccion"=>"Pedrera/showSites"
+                "nombre"=>"Ver Plantas",
+                "direccion"=>"Pedrera/showPlants"
               )
             )
   );

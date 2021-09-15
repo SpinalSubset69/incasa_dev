@@ -791,6 +791,36 @@ class Pedrera extends CI_Controller {
 		}
 	}
 
+	public function showPlants(){				
+
+		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==5){			
+				
+			$quarry = $this->session->userdata('quarry');
+			
+
+			
+
+			$data['menu']=$this->getMenu();
+			$data['user']=$this->session->userdata('username');
+			$data['type']='';			
+			if($this->session->userdata('usertype')==1)
+				$data['type']='Administrador';
+			if($this->session->userdata('usertype')==5)
+				$data['type']='Báscula';
+
+			$data['mostrarModal']='';
+			$data['error']='';
+
+    		$this->load->view('templates/header',$data);
+    		$this->load->view('pages/showPlants', $data);
+    		$this->load->view('templates/footer');
+		}else{
+			$data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404',$data);
+		}
+	}
+
 	public function weighTruck(){
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==5){
 			$data['plate']='';
