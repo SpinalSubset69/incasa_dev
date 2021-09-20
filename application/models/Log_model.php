@@ -137,7 +137,7 @@ class Log_model extends CI_Model{
         $this->db->select("*, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, TIMESTAMPDIFF(MINUTE, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding),now()) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding), 1, 0) as isOperator");
         $this->db->from('buildings');
         $this->db->where("buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idBuilding=buildings.idBuilding)");
-        $this->db->order_by("isOnBuilding DESC, isOperator ASC, (time * -1) DESC, total DESC");
+        $this->db->order_by("isOperator ASC, (time * -1) DESC, total DESC");
         $query=$this->db->get();
         $attendance=$query->result_array();
         // if($attendance[0]['total']==0 && $attendance[0]['isOnBuilding']==1){//Le esta diciendo que se quede en la planta donde no hay ninguno ya, se vuelve a ejecutar

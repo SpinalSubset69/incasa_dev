@@ -791,6 +791,7 @@ class Pedrera extends CI_Controller {
 		}
 	}
 
+	//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
 	public function showPlants(){				
 
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==5){			
