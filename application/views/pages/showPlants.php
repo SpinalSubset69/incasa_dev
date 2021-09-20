@@ -34,7 +34,7 @@
                         <td style="text-align:right;"><i class="truck icon"></i></td>
                     </tr>
                     <?php foreach($plant['v2plant'] as $v2plant): ?>
-                    <tr style="background-color: gray">
+                    <tr style="background-color: rgba(24, 30, 51,0.2)">
                         <td>                        
                         </td>
                         <td style="text-align:right;">
@@ -44,9 +44,9 @@
                     <?php endforeach; ?>
                     <?php foreach($plant['vInplant'] as $vInplant): ?>
                         <?php if($vInplant['good']==0){ ?>
-                            <tr style="background-color: green;">
+                            <tr style="background-color: rgba(0, 255, 0,0.5);">
                         <?php }else{ ?>
-                            <tr style="background-color: red;">
+                            <tr style="background-color: rgba(255, 0, 0,0.5);">
                         <?php } ?>                        
                         <td>                        
                         </td>
