@@ -26,7 +26,7 @@
                                 <a style="margin-right: 10px;" class="ui grey circular label"><?php echo $plant['total']; ?></a>
                                 <div class="content">
                                     <?php echo $plant['nameBuilding']; ?>
-                                    <div class="sub header"><?php echo $plant['time']; ?> minutos
+                                    <div class="sub header"><?php if($plant['time']==1) echo $plant['time']." minuto"; else if($plant['time']>1) echo $plant['time']." minutos"; ?> 
                                     </div>
                                 </div>
                             </h4>
