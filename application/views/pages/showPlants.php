@@ -38,7 +38,7 @@
                         <td>                        
                         </td>
                         <td style="text-align:right;">
-                            <?php $v2plant['idTruck']; ?>
+                            <?php echo $v2plant['idTruck']; ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -51,7 +51,7 @@
                         <td>                        
                         </td>
                         <td style="text-align:right;">
-                            <?php $vInplant['idTruck']; ?>
+                            <?php echo $vInplant['idTruck']; ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>
