@@ -32,6 +32,14 @@
                     </td>
                     <td style="text-align:right;"><i class="truck icon"></i></td>
                 </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td style="text-align:right;">
+                        ABC123
+                    </td>
+                </tr>
             </tbody>
         </table>
     </section>
