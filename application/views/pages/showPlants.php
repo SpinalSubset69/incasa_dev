@@ -11,7 +11,7 @@
 <main class="page-content">
   <div class="container-fluid">
     <section class="showPlants">
-        <table style="margin-top: 30px;" class="ui fixed table">
+        <table style="margin: 30px auto; width: 90%;" class="ui fixed table">
             <thead>
                 <tr>
                     <th>Planta</th>
