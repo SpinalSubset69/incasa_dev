@@ -21,6 +21,7 @@
             <tbody>
                 <tr>
                     <td>
+                        <a class="ui grey circular label">2</a>
                         <div class="content">
                             Planta 1
                             <div class="sub header">15 minutos
