@@ -31,7 +31,11 @@
                                 </div>
                             </h4>
                         </td>
-                        <td style="text-align:right;"><i class="truck icon"></i></td>
+                        <td style="text-align:right;">
+                            <?php if($plant['isOperator']==1){ ?>
+                            <i class="truck icon"></i>
+                            <?php } ?>
+                        </td>
                     </tr>
                     <?php foreach($plant['v2plant'] as $v2plant): ?>
                     <tr style="background-color: rgba(24, 30, 51,0.2)">
