@@ -43,7 +43,11 @@
                     </tr>
                     <?php endforeach; ?>
                     <?php foreach($plant['vInplant'] as $vInplant): ?>
-                    <tr style=<?php if($vInplant['good']==0) echo "background-color: green;"; else echo "background-color: red;"; ?>>
+                        <?php if($vInplant['good']==0){ ?>
+                            <tr style="background-color: green;">
+                        <?php }else{ ?>
+                            <tr style="background-color: red;">
+                        <?php } ?>                        
                         <td>                        
                         </td>
                         <td style="text-align:right;">
