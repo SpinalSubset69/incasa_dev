@@ -15,7 +15,7 @@
             <thead>
                 <tr>
                     <th>Planta</th>
-                    <th>Placas</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </td>
-                    <td>Carro</td>
+                    <td style="text-align:right;"><i class="truck icon"></i></td>
                 </tr>
             </tbody>
         </table>
