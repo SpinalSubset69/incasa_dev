@@ -32,9 +32,8 @@
                     </td>
                     <td style="text-align:right;"><i class="truck icon"></i></td>
                 </tr>
-                <tr>
-                    <td>
-                        
+                <tr style="background-color: red">
+                    <td>                        
                     </td>
                     <td style="text-align:right;">
                         ABC123
