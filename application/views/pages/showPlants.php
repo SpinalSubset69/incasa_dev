@@ -33,13 +33,24 @@
                         </td>
                         <td style="text-align:right;"><i class="truck icon"></i></td>
                     </tr>
-                    <tr style="background-color: red">
+                    <?php foreach($plant['v2plant'] as $v2plant): ?>
+                    <tr style="background-color: gray">
                         <td>                        
                         </td>
                         <td style="text-align:right;">
-                            ABC123
+                            <?php $v2plant['idTruck']; ?>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
+                    <?php foreach($plant['vInplant'] as $vInplant): ?>
+                    <tr style=<?php echo ($vInplant['good']==0)?"background-color: green":"background-color: red"; ?>>
+                        <td>                        
+                        </td>
+                        <td style="text-align:right;">
+                            <?php $vInplant['idTruck']; ?>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
                 <?php endforeach; ?>
             </tbody>
         </table>
