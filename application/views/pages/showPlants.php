@@ -23,7 +23,7 @@
                     <tr>
                         <td>
                             <h4 class="ui image header" style="display: flex; align-items: center; justify-content:flex-start;" >
-                                <a style="margin-right: 10px;" class="ui grey circular label">2</a>
+                                <a style="margin-right: 10px;" class="ui grey circular label"><?php echo $plant['total']; ?></a>
                                 <div class="content">
                                     <?php echo $plant['nameBuilding']; ?>
                                     <div class="sub header"><?php echo $plant['time']; ?> minutos
