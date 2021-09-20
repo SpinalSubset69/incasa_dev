@@ -11,7 +11,26 @@
 <main class="page-content">
   <div class="container-fluid">
     <section class="showPlants">
-      
+        <table class="ui fixed table">
+            <thead>
+                <tr>
+                    <th>Planta</th>
+                    <th>Placas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="content">
+                            Planta 1
+                            <div class="sub header">15 minutos
+                            </div>
+                        </div>
+                    </td>
+                    <td>Carro</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
   </div>
 </main>
