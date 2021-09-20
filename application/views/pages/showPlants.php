@@ -19,26 +19,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <h4 class="ui image header" style="display: flex; align-items: center; justify-content:flex-start;" >
-                            <a style="margin-right: 10px;" class="ui grey circular label">2</a>
-                            <div class="content">
-                                Planta 1
-                                <div class="sub header">15 minutos
+                <?php foreach ($plant as $plants): ?>
+                    <tr>
+                        <td>
+                            <h4 class="ui image header" style="display: flex; align-items: center; justify-content:flex-start;" >
+                                <a style="margin-right: 10px;" class="ui grey circular label">2</a>
+                                <div class="content">
+                                    <?php echo $plant['nameBuilding']; ?>
+                                    <div class="sub header"><?php echo $plant['time']; ?> minutos
+                                    </div>
                                 </div>
-                            </div>
-                        </h4>
-                    </td>
-                    <td style="text-align:right;"><i class="truck icon"></i></td>
-                </tr>
-                <tr style="background-color: red">
-                    <td>                        
-                    </td>
-                    <td style="text-align:right;">
-                        ABC123
-                    </td>
-                </tr>
+                            </h4>
+                        </td>
+                        <td style="text-align:right;"><i class="truck icon"></i></td>
+                    </tr>
+                    <tr style="background-color: red">
+                        <td>                        
+                        </td>
+                        <td style="text-align:right;">
+                            ABC123
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </section>
