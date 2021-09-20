@@ -100,7 +100,7 @@ class Log_model extends CI_Model{
         $query=$this->db->get();
         $attendance=$query->result_array();
         if($attendance[0]['total']==0 && $attendance[0]['isOnBuilding']==1){//Le esta diciendo que se quede en la planta donde no hay ninguno ya, se vuelve a ejecutar
-            $this->db->select("*, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=".$idOperator."), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=".$idOperator."), 1, 0) as isOnBuilding");
+            $this->db->select("*, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, TIMESTAMPDIFF(MINUTE, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding),now()) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=".$idOperator."), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=".$idOperator."), 1, 0) as isOnBuilding");
             $this->db->from('buildings');
             $this->db->where("buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idOperator=".$idOperator." and operators_buildings.idBuilding=buildings.idBuilding)");
             $this->db->order_by("isOperator ASC, (time * -1) DESC, total DESC");
@@ -123,6 +123,31 @@ class Log_model extends CI_Model{
             }
             $_attendance[] = $att;           
         endforeach;*/
+        return $attendance;
+
+    }
+
+    public function getAttendance(){//adm - prioridad
+        /*
+        select *, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, (select TIME(min(log.arrival)) from log where log.idBuilding=buildings.idBuilding) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=13), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=13), 1, 0) as isOnBuilding from buildings where buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idOperator=13 and operators_buildings.idBuilding=buildings.idBuilding) ORDER by isOnBuilding DESC, isOperator ASC, -time DESC, total desc
+        */
+        /*
+        select *, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, TIMESTAMPDIFF(MINUTE, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding),now()) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=13), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=13), 1, 0) as isOnBuilding from buildings where buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idOperator=35 and operators_buildings.idBuilding=buildings.idBuilding) ORDER by isOnBuilding DESC, isOperator ASC, -time DESC, total desc
+         */
+        $this->db->select("*, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, TIMESTAMPDIFF(MINUTE, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding),now()) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding), 1, 0) as isOperator");
+        $this->db->from('buildings');
+        $this->db->where("buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idBuilding=buildings.idBuilding)");
+        $this->db->order_by("isOnBuilding DESC, isOperator ASC, (time * -1) DESC, total DESC");
+        $query=$this->db->get();
+        $attendance=$query->result_array();
+        // if($attendance[0]['total']==0 && $attendance[0]['isOnBuilding']==1){//Le esta diciendo que se quede en la planta donde no hay ninguno ya, se vuelve a ejecutar
+        //     $this->db->select("*, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=".$idOperator."), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=".$idOperator."), 1, 0) as isOnBuilding");
+        //     $this->db->from('buildings');
+        //     $this->db->where("buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idOperator=".$idOperator." and operators_buildings.idBuilding=buildings.idBuilding)");
+        //     $this->db->order_by("isOperator ASC, (time * -1) DESC, total DESC");
+        //     $query=$this->db->get();
+        //     $attendance=$query->result_array();
+        // }
         return $attendance;
 
     }
