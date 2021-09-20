@@ -21,7 +21,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <h4 class="ui image header">
+                        <h4 class="ui image header" style="display: flex; align-items: center; justify-content:center;" >
                             <a class="ui grey circular label">2</a>
                             <div class="content">
                                 Planta 1
