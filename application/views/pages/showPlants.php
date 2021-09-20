@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($plant as $plants): ?>
+                <?php foreach ($plants as $plant): ?>
                     <tr>
                         <td>
                             <h4 class="ui image header" style="display: flex; align-items: center; justify-content:flex-start;" >
