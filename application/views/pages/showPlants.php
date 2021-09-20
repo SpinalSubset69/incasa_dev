@@ -21,12 +21,14 @@
             <tbody>
                 <tr>
                     <td>
-                        <a class="ui grey circular label">2</a>
-                        <div class="content">
-                            Planta 1
-                            <div class="sub header">15 minutos
+                        <h4 class="ui image header">
+                            <a class="ui grey circular label">2</a>
+                            <div class="content">
+                                Planta 1
+                                <div class="sub header">15 minutos
+                                </div>
                             </div>
-                        </div>
+                        </h4>
                     </td>
                     <td style="text-align:right;"><i class="truck icon"></i></td>
                 </tr>
