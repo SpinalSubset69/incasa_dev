@@ -47,7 +47,7 @@
                     </tr>
                     <?php endforeach; ?>
                     <?php foreach($plant['vInplant'] as $vInplant): ?>
-                        <?php if($vInplant['good']==0){ ?>
+                        <?php if($vInplant['good']==1){ ?>
                             <tr style="background-color: rgba(0, 255, 0,0.5);">
                         <?php }else{ ?>
                             <tr style="background-color: rgba(255, 0, 0,0.5);">
