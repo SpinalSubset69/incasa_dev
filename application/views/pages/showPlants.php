@@ -71,7 +71,9 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
-    
+    window.setTimeout(function () {
+        window.location.reload();
+    }, 5000);
 
   });
 </script>
