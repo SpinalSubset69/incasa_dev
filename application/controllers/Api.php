@@ -526,7 +526,7 @@ class Api extends RestController
 								$this->Log_model->updateTruckBuilding($log->idLog, $building->idBuilding);
 							else{
 								//Es salida de planta, hay que verificar si tardo en salir de planta mas de n minutos
-
+								$this->Log_model->saveLoaded($log->idLog,$building->idBuilding);
 								$this->Log_model->updateTruckBuilding($log->idLog, NULL);
 							}
 						}elseif($building->typeBuilding==3){

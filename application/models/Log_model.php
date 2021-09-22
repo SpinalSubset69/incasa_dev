@@ -5,6 +5,22 @@ class Log_model extends CI_Model{
 		$this->load->database();
     }
 
+    public function saveLoaded($idLog, $idBuilding){
+        //select * from history where idLog=126 order by idHistory desc limit 1
+        $this->db->select('*, TIMESTAMPDIFF(MINUTE, history.date,now()) as time');
+        $this->db->from('history');
+        $this->db->where('idLog', $idLog);
+        $this->db->order_by("idHistory DESC")
+        $query=$this->db->get();
+        $result = $query->result_array();
+        //Se verifica si el ultimo registro fue entrada a la planta de donde se esta saliendo
+        if($result[0]['idBuilding']==$idBuilding && $result[0]['time']>4){
+            $this->db->set('loaded', 'NOW()', FALSE);                   
+            $this->db->where('idLog', $idLog);
+            $this->db->update('log');
+        }
+    }
+
     public function insertHistory($idLog, $desc, $type, $idBuilding){
         $this->db->set('idLog', $idLog);
         $this->db->set('description', $desc);        
