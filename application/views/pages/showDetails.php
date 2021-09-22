@@ -125,8 +125,8 @@
                             </td>
                             <td><?php 
                                     if($i>0){
-                                        $start_date = new DateTime($incidents[$i]['date']);
-                                        $since_start = $start_date->diff(new DateTime($incidents[$i+1]['date']));
+                                        $start_date = new DateTime($incidents[$i-1]['date']);
+                                        $since_start = $start_date->diff(new DateTime($incidents[$i]['date']));
                                         //$minutes = $since_start->days * 24 * 60;
                                         $minutes = $since_start->h * 60;
                                         $minutes += $since_start->i;
