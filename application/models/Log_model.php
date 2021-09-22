@@ -10,7 +10,7 @@ class Log_model extends CI_Model{
         $this->db->select('*, TIMESTAMPDIFF(MINUTE, history.date,now()) as time');
         $this->db->from('history');
         $this->db->where('idLog', $idLog);
-        $this->db->order_by("idHistory DESC")
+        $this->db->order_by("idHistory DESC");
         $query=$this->db->get();
         $result = $query->result_array();
         //Se verifica si el ultimo registro fue entrada a la planta de donde se esta saliendo
