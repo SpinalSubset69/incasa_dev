@@ -106,10 +106,10 @@
                 </thead>
                 <tbody>
                     <!-- INICIA FILA -->
-                    <?php $i=$total; $j=0;?>
+                    <?php $i=0; $j=0;?>
                     <?php foreach ($incidents as $incident) : ?>
                         <tr>
-                            <td><?php echo $i; ?></td>
+                            <td><?php echo $i+1; ?></td>
                             <td><?php echo $incident['description']; ?></td>
                             <td><?php 
                                 date_default_timezone_set('America/Monterrey');
@@ -124,9 +124,9 @@
                             ?>
                             </td>
                             <td><?php 
-                                    if($i>1){
-                                        $start_date = new DateTime($incidents[$j]['date']);
-                                        $since_start = $start_date->diff(new DateTime($incidents[$j+1]['date']));
+                                    if($i>0){
+                                        $start_date = new DateTime($incidents[$i]['date']);
+                                        $since_start = $start_date->diff(new DateTime($incidents[$i+1]['date']));
                                         //$minutes = $since_start->days * 24 * 60;
                                         $minutes = $since_start->h * 60;
                                         $minutes += $since_start->i;
@@ -138,7 +138,7 @@
                                 ?>
                             </td>
                         </tr>
-                    <?php $i=$i-1; $j=$j+1;?>
+                    <?php $i=$i+1; $j=$j+1;?>
                     <?php endforeach; ?>
                     <!-- TERMINA FILA -->
                 </tbody>

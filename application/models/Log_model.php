@@ -223,7 +223,7 @@ class Log_model extends CI_Model{
         $this->db->select("*");
         $this->db->from('history');        
         $this->db->where("idLog=".$idLog);
-        $this->db->order_by("idHistory DESC");
+        $this->db->order_by("idHistory ASC");
         $query=$this->db->get();
         return $query;
     }
