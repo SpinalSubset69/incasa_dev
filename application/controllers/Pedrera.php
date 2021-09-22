@@ -759,7 +759,7 @@ class Pedrera extends CI_Controller {
 					$idLog = $this->Log_model->insertLog($log);					
 
 					//Insertar en el historial
-					$this->Log_model->insertHistory($idLog, "Registro de vehículo en báscula");
+					$this->Log_model->insertHistory($idLog, "Registro de vehículo en báscula", NULL, NULL);
 
 
 					//$material=$this->Materials_model->getAvailableBuilding($material);
