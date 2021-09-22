@@ -353,7 +353,7 @@ class Api extends RestController
                 //adm - Descomentar en producción
 				$idLog = $this->Log_model->insertLog($log);
 
-				$this->Log_model->insertHistory($idLog, "Entrada de vehículo");
+				$this->Log_model->insertHistory($idLog, "Entrada de vehículo", 1, NULL);
 				
 				$status = parent::HTTP_OK;
 				$response = ['status' => $status, 'plate'=>$plate, 'idMaterial'=>$idMaterial, 'driver'=>$driver, 'company'=>$company, 'gps'=>$gps];
@@ -524,8 +524,11 @@ class Api extends RestController
 							//Update del idBuilding igual a $building->idBuilding en el $log->idLog
 							if($type==1)
 								$this->Log_model->updateTruckBuilding($log->idLog, $building->idBuilding);
-							else
+							else{
+								//Es salida de planta, hay que verificar si tardo en salir de planta mas de n minutos
+
 								$this->Log_model->updateTruckBuilding($log->idLog, NULL);
+							}
 						}elseif($building->typeBuilding==3){
 							$msg ='Bascula '.$building->nameBuilding;
 							$this->Log_model->updateTruckBuilding($log->idLog, NULL);
@@ -540,7 +543,7 @@ class Api extends RestController
 							$con = 'de';						
 						}
 						
-						$this->Log_model->insertHistory($log->idLog, $nom_type." de vehículo ".$con." ".$msg);
+						$this->Log_model->insertHistory($log->idLog, $nom_type." de vehículo ".$con." ".$msg, $type, $building->idBuilding);
 					}
 				}else{//No es ningun gps del log
 				//Buscamos si es un gps de algun operador

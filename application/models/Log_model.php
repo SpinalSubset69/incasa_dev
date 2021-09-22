@@ -5,9 +5,11 @@ class Log_model extends CI_Model{
 		$this->load->database();
     }
 
-    public function insertHistory($idLog, $desc){
+    public function insertHistory($idLog, $desc, $type, $idBuilding){
         $this->db->set('idLog', $idLog);
         $this->db->set('description', $desc);        
+        $this->db->set('type', $type);
+        $this->db->set('idBuilding', $idBuilding);                
         $this->db->set('date', 'NOW()', FALSE);
         $this->db->insert('history');
     }  
