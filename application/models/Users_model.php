@@ -161,6 +161,7 @@ class Users_model extends CI_Model{
 
 	public function addGPSOperator($idOperator, $idGPS){
 		$this->db->set('idGPS', $idGPS);           
+		$this->db->set('idBuilding', null);           
         $this->db->where('idUser', $idOperator);
         $this->db->update('users');
 		//$this->db->insert('operators_buildings',array('idBuilding'=>$idBuilding, 'idOperator'=>$idOperator));
