@@ -865,7 +865,7 @@ class Pedrera extends CI_Controller {
 				$incidents=$this->Log_model->getIncidents($lo['idLog']);
 				$incidents=$incidents->result_array();
 				$this->excel->getActiveSheet()->setCellValue("A{$numrow}", $lo['idTruck']);
-				$this->excel->getActiveSheet()->setCellValue("B{$numrow}", $lo['idGPS2']);
+				$this->excel->getActiveSheet()->setCellValue("B{$numrow}", "'".$lo['idGPS2']);
 				$this->excel->getActiveSheet()->setCellValue("C{$numrow}", $lo['nameDriver']);
 				$this->excel->getActiveSheet()->setCellValue("D{$numrow}", $lo['nameCompany']);
 				$this->excel->getActiveSheet()->setCellValue("E{$numrow}", $lo['nameMaterial']);
