@@ -853,6 +853,7 @@ class Pedrera extends CI_Controller {
 			$this->excel->getActiveSheet()->setCellValue("V2", "Hr Entrada");
 			$this->excel->getActiveSheet()->setCellValue("W2", "Hr Salida");
 			$this->excel->getActiveSheet()->setCellValue("X2", "Minutos");
+			$this->excel->getActiveSheet()->getStyle('A2:X2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
 			//$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
 			/*foreach ($materias as $materia) {
