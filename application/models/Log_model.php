@@ -252,6 +252,60 @@ class Log_model extends CI_Model{
         return $query;
     }
 
+    public function getBasculaTime($idLog, $tipo){
+        //select * from history, buildings where history.idLog = 130 and history.idBuilding = buildings.idBuilding and buildings.typeBuilding=2 ORDER by history.idLog
+        $idLog = 130;
+        $tipo = 2;
+        $this->db->select("*");
+        $this->db->from('history, buildings');        
+        $this->db->where("history.idLog=".$idLog);
+        $this->db->where("history.idBuilding = buildings.idBuilding");
+        $this->db->where("buildings.typeBuilding=".$tipo);
+        $this->db->order_by("history.idLog");
+        $query=$this->db->get();
+        $incidents = $query->result_array();
+
+        //$existEntrada = false;
+        $fecha1 = null;
+        $fecha2 = null;
+        $edificio = null;
+        $max_entrada = null;
+        $max_salida = null;
+        $max_minutos = 0;
+        foreach($incidents as $incident):            
+            if($incident['type']==1){
+                $fecha1 = $incident['date'];
+                $edificio = $incident['idBuilding'];
+            }else{
+                if($fecha1!=null && $incident['idBuilding']==$edificio)
+                    $fecha2 = $incident['date'];
+                else
+                    $fecha1 = null;                
+            }
+            
+            //Tengo entrada y salida del mismo edificio
+            if($fecha1!=null && $fecha2!=null){
+
+                //Calcular diferencia en minutos entre dos fechas
+                $start_date = new DateTime($fecha1);
+                $since_start = $start_date->diff(new DateTime($fecha2));                                        
+                $minutes = $since_start->h * 60;
+                $minutes += $since_start->i;
+
+                if($minutes>$max_minutos){
+                    $max_entrada = $fecha1;
+                    $max_salida = $fecha2;
+                    $max_minutos = $minutes;
+                }
+
+                $fecha1=null;
+                $fecha2=null;
+            }
+        endforeach;
+
+        return array($max_entrada, $max_salida, $max_minutos);
+    }
+
     //add as incidency
     public function insertLog($data){        
         //$this->db->set('arr ival', 'NOW()', FALSE);
