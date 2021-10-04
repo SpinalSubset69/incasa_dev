@@ -252,10 +252,9 @@ class Log_model extends CI_Model{
         return $query;
     }
 
-    public function getBasculaTime($idLog, $tipo){
+    public function getTimes($idLog, $tipo){
         //select * from history, buildings where history.idLog = 130 and history.idBuilding = buildings.idBuilding and buildings.typeBuilding=2 ORDER by history.idLog
         $idLog = 130;
-        $tipo = 2;
         $this->db->select("*");
         $this->db->from('history, buildings');        
         $this->db->where("history.idLog=".$idLog);
@@ -302,6 +301,21 @@ class Log_model extends CI_Model{
                 $fecha2=null;
             }
         endforeach;
+
+        $dateu = mysql_to_unix($max_entrada);
+        if(date('I')==1)
+            $dateu = gmt_to_local($dateu, "UP2", FALSE);
+        else
+            $dateu = gmt_to_local($dateu, "UP1", FALSE);
+        $dateu = unix_to_human($dateu);
+        $max_entrada = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+        $dateu = mysql_to_unix($max_salida);
+        if(date('I')==1)
+            $dateu = gmt_to_local($dateu, "UP2", FALSE);
+        else
+            $dateu = gmt_to_local($dateu, "UP1", FALSE);
+        $dateu = unix_to_human($dateu);
+        $max_salida = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
 
         return array($max_entrada, $max_salida, $max_minutos);
     }
