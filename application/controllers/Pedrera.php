@@ -892,6 +892,7 @@ class Pedrera extends CI_Controller {
 				$this->excel->getActiveSheet()->setCellValue("I{$numrow}", $lo['time']);
 				//$lo['total']=$incidents->num_rows();
 				//$_log[] = $lo;
+				$numrow++;
 			endforeach;
 
 			//$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
