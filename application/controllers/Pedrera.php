@@ -791,6 +791,39 @@ class Pedrera extends CI_Controller {
 		}
 	}
 
+	public function downloadReport(){
+
+		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==1){			
+
+			$this->load->library('excel');
+			$this->excel->setActiveSheetIndex(0);
+			$this->excel->getActiveSheet()->setTitle('Carrera');
+			$this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(45);
+
+			$this->excel->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
+			$this->excel->getActiveSheet()->getStyle("B1")->getFont()->setBold(true);
+			$contador=2;
+			$this->excel->getActiveSheet()->setCellValue("A1", "Materia");
+			$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
+			foreach ($materias as $materia) {
+			$this->excel->getActiveSheet()->setCellValue("A{$contador}", $materia['nombre']);
+			$this->excel->getActiveSheet()->setCellValue("B{$contador}", $materia['total']);
+			$contador++;
+			}
+			$archivo = "reporteBasico.xls";
+			header('Content-Type: application/vnd.ms-excel');
+			header('Content-Disposition: attachment;filename="'.$archivo.'"');
+			header('Cache-Control: max-age=0');
+			$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
+			//Hacemos una salida al navegador con el archivo Excel.
+			$objWriter->save('php://output');
+		}else{
+			$data['heading'] = "404 Página no encotrada.";
+			$data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+			$this->load->view('errors/cli/error_404',$data);
+		}
+	}
+
 	//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
 	public function showPlants(){				
 
