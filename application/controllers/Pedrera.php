@@ -801,8 +801,7 @@ class Pedrera extends CI_Controller {
 			//$this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(45);
 
 			//$this->excel->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
-			//$this->excel->getActiveSheet()->getStyle("B1")->getFont()->setBold(true);
-			$contador=2;			
+			//$this->excel->getActiveSheet()->getStyle("B1")->getFont()->setBold(true);			
 
 			//Entrada
 			$this->excel->getActiveSheet()->mergeCells("J1:L1");			
@@ -858,6 +857,40 @@ class Pedrera extends CI_Controller {
 				$this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
 			}
 
+			$numrow = 3;
+			$log = $this->Log_model->getLog();
+
+			foreach($log as $lo):
+				//$lo['log2']=$this->Log_model->getLogId($lo['idLog']);
+				$incidents=$this->Log_model->getIncidents($lo['idLog']);
+				$incidents=$incidents->result_array();
+				$this->excel->getActiveSheet()->setCellValue("A{$numrow}", $lo['idTruck']);
+				$this->excel->getActiveSheet()->setCellValue("B{$numrow}", $lo['idGPS2']);
+				$this->excel->getActiveSheet()->setCellValue("C{$numrow}", $lo['nameDriver']);
+				$this->excel->getActiveSheet()->setCellValue("D{$numrow}", $lo['nameCompany']);
+				$this->excel->getActiveSheet()->setCellValue("E{$numrow}", $lo['nameMaterial']);
+
+				$this->excel->getActiveSheet()->setCellValue("F{$numrow}", explode(" ",$lo['arrival'])[0]);				
+
+				date_default_timezone_set('America/Monterrey');
+                $dateu = mysql_to_unix($lo['arrival']);
+				if(date('I')==1) 
+					$dateu = gmt_to_local($dateu, "UP2", FALSE);
+				else
+					$dateu = gmt_to_local($dateu, "UP1", FALSE);
+				$this->excel->getActiveSheet()->setCellValue("G{$numrow}", unix_to_human($dateu));
+				$dateu = mysql_to_unix($lo['departure']);
+				if(date('I')==1)
+					$dateu = gmt_to_local($dateu, "UP2", FALSE);
+				else
+					$dateu = gmt_to_local($dateu, "UP1", FALSE);
+
+				$this->excel->getActiveSheet()->setCellValue("H{$numrow}", unix_to_human($dateu));
+
+				$this->excel->getActiveSheet()->setCellValue("I{$numrow}", $lo['time']);
+				//$lo['total']=$incidents->num_rows();
+				//$_log[] = $lo;
+			endforeach;
 
 			//$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
 			/*foreach ($materias as $materia) {
