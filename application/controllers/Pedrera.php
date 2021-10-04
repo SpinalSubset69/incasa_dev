@@ -805,6 +805,7 @@ class Pedrera extends CI_Controller {
 			$contador=2;			
 			$this->excel->getActiveSheet()->mergeCells("J1:L1");			
 			$this->excel->getActiveSheet()->setCellValue("J1", "Entrada");
+			$sheet->getActiveSheet()->getStyle('A1:ZZ1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			//$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
 			/*foreach ($materias as $materia) {
 			$this->excel->getActiveSheet()->setCellValue("A{$contador}", $materia['nombre']);
