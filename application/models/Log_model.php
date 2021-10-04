@@ -254,7 +254,6 @@ class Log_model extends CI_Model{
 
     public function getTimes($idLog, $tipo){
         //select * from history, buildings where history.idLog = 130 and history.idBuilding = buildings.idBuilding and buildings.typeBuilding=2 ORDER by history.idLog
-        $idLog = 130;
         $this->db->select("*");
         $this->db->from('history, buildings');        
         $this->db->where("history.idLog=".$idLog);

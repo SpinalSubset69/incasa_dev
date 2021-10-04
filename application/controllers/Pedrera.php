@@ -897,6 +897,26 @@ class Pedrera extends CI_Controller {
 				$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max2);
 				$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max3);
 
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2);
+				
+				$this->excel->getActiveSheet()->setCellValue("M{$numrow}", $max1);
+				$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max2);
+				$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max3);
+
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 3);
+				
+				$this->excel->getActiveSheet()->setCellValue("P{$numrow}", $max1);
+				$this->excel->getActiveSheet()->setCellValue("Q{$numrow}", $max2);
+				$this->excel->getActiveSheet()->setCellValue("R{$numrow}", $max3);
+
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 4);
+				
+				$this->excel->getActiveSheet()->setCellValue("S{$numrow}", $max1);
+				$this->excel->getActiveSheet()->setCellValue("T{$numrow}", $max2);
+				$this->excel->getActiveSheet()->setCellValue("U{$numrow}", $max3);
+
+				
+
 
 				//$lo['total']=$incidents->num_rows();
 				//$_log[] = $lo;
