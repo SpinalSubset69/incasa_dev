@@ -805,11 +805,11 @@ class Pedrera extends CI_Controller {
 			$contador=2;
 			$this->excel->getActiveSheet()->setCellValue("A1", "Materia");
 			$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
-			foreach ($materias as $materia) {
+			/*foreach ($materias as $materia) {
 			$this->excel->getActiveSheet()->setCellValue("A{$contador}", $materia['nombre']);
 			$this->excel->getActiveSheet()->setCellValue("B{$contador}", $materia['total']);
 			$contador++;
-			}
+			}*/
 			$archivo = "reporteBasico.xls";
 			header('Content-Type: application/vnd.ms-excel');
 			header('Content-Disposition: attachment;filename="'.$archivo.'"');
