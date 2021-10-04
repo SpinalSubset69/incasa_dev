@@ -878,14 +878,16 @@ class Pedrera extends CI_Controller {
 					$dateu = gmt_to_local($dateu, "UP2", FALSE);
 				else
 					$dateu = gmt_to_local($dateu, "UP1", FALSE);
-				$this->excel->getActiveSheet()->setCellValue("G{$numrow}", unix_to_human($dateu));
+
+				$dateu = unix_to_human($dateu); 
+				$this->excel->getActiveSheet()->setCellValue("G{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
 				$dateu = mysql_to_unix($lo['departure']);
 				if(date('I')==1)
 					$dateu = gmt_to_local($dateu, "UP2", FALSE);
 				else
 					$dateu = gmt_to_local($dateu, "UP1", FALSE);
-
-				$this->excel->getActiveSheet()->setCellValue("H{$numrow}", unix_to_human($dateu));
+				$dateu = unix_to_human($dateu); 
+				$this->excel->getActiveSheet()->setCellValue("H{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
 
 				$this->excel->getActiveSheet()->setCellValue("I{$numrow}", $lo['time']);
 				//$lo['total']=$incidents->num_rows();
