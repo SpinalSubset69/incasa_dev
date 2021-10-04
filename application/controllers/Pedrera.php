@@ -803,8 +803,9 @@ class Pedrera extends CI_Controller {
 			$this->excel->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
 			$this->excel->getActiveSheet()->getStyle("B1")->getFont()->setBold(true);
 			$contador=2;
-			$this->excel->getActiveSheet()->setCellValue("A1", "Materia");
-			$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
+			$this->excel->getActiveSheet()->->mergeCells("J1:L1");
+			$this->excel->getActiveSheet()->setCellValue("K1", "Entrada");
+			//$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
 			/*foreach ($materias as $materia) {
 			$this->excel->getActiveSheet()->setCellValue("A{$contador}", $materia['nombre']);
 			$this->excel->getActiveSheet()->setCellValue("B{$contador}", $materia['total']);
