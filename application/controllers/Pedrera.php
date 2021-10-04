@@ -797,11 +797,11 @@ class Pedrera extends CI_Controller {
 
 			$this->load->library('excel');
 			$this->excel->setActiveSheetIndex(0);
-			$this->excel->getActiveSheet()->setTitle('Carrera');
-			$this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(45);
+			$this->excel->getActiveSheet()->setTitle('Tiempos');
+			//$this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(45);
 
-			$this->excel->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
-			$this->excel->getActiveSheet()->getStyle("B1")->getFont()->setBold(true);
+			//$this->excel->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
+			//$this->excel->getActiveSheet()->getStyle("B1")->getFont()->setBold(true);
 			$contador=2;
 			$this->excel->getActiveSheet()->setCellValue("K1", "Entrada");
 			$this->excel->getActiveSheet()->mergeCells("J1:L1");			
