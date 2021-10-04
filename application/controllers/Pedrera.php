@@ -803,9 +803,57 @@ class Pedrera extends CI_Controller {
 			//$this->excel->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
 			//$this->excel->getActiveSheet()->getStyle("B1")->getFont()->setBold(true);
 			$contador=2;			
+
+			//Entrada
 			$this->excel->getActiveSheet()->mergeCells("J1:L1");			
 			$this->excel->getActiveSheet()->setCellValue("J1", "Entrada");
 			$this->excel->getActiveSheet()->getStyle('J1:L1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
+			//Material Cargar
+			$this->excel->getActiveSheet()->mergeCells("M1:O1");			
+			$this->excel->getActiveSheet()->setCellValue("M1", "Material Cargar");
+			$this->excel->getActiveSheet()->getStyle('M1:O1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
+			//Bascula
+			$this->excel->getActiveSheet()->mergeCells("P1:R1");			
+			$this->excel->getActiveSheet()->setCellValue("P1", "Báscula");
+			$this->excel->getActiveSheet()->getStyle('P1:R1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
+			//Enlonado
+			$this->excel->getActiveSheet()->mergeCells("S1:U1");			
+			$this->excel->getActiveSheet()->setCellValue("S1", "Enlonado");
+			$this->excel->getActiveSheet()->getStyle('S1:U1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
+			//Salida
+			$this->excel->getActiveSheet()->mergeCells("V1:X1");			
+			$this->excel->getActiveSheet()->setCellValue("V1", "Salida");
+			$this->excel->getActiveSheet()->getStyle('V1:X1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
+			$this->excel->getActiveSheet()->setCellValue("A2", "Placa");
+			$this->excel->getActiveSheet()->setCellValue("B2", "GPS");
+			$this->excel->getActiveSheet()->setCellValue("C2", "Conductor");
+			$this->excel->getActiveSheet()->setCellValue("D2", "Cia Fletera");
+			$this->excel->getActiveSheet()->setCellValue("E2", "Material Carga");
+			$this->excel->getActiveSheet()->setCellValue("F2", "Fecha");
+			$this->excel->getActiveSheet()->setCellValue("G2", "Hora Llegada");
+			$this->excel->getActiveSheet()->setCellValue("H2", "Hora Salida");
+			$this->excel->getActiveSheet()->setCellValue("I2", "Tiempo Total");
+			$this->excel->getActiveSheet()->setCellValue("J2", "Hr Entrada");
+			$this->excel->getActiveSheet()->setCellValue("K2", "Hr Salida");
+			$this->excel->getActiveSheet()->setCellValue("L2", "Minutos");
+			$this->excel->getActiveSheet()->setCellValue("M2", "Hr Entrada");
+			$this->excel->getActiveSheet()->setCellValue("N2", "Hr Salida");
+			$this->excel->getActiveSheet()->setCellValue("O2", "Minutos");
+			$this->excel->getActiveSheet()->setCellValue("P2", "Hr Entrada");
+			$this->excel->getActiveSheet()->setCellValue("Q2", "Hr Salida");
+			$this->excel->getActiveSheet()->setCellValue("R2", "Minutos");
+			$this->excel->getActiveSheet()->setCellValue("S2", "Hr Entrada");
+			$this->excel->getActiveSheet()->setCellValue("T2", "Hr Salida");
+			$this->excel->getActiveSheet()->setCellValue("U2", "Minutos");
+			$this->excel->getActiveSheet()->setCellValue("V2", "Hr Entrada");
+			$this->excel->getActiveSheet()->setCellValue("W2", "Hr Salida");
+			$this->excel->getActiveSheet()->setCellValue("X2", "Minutos");
+
 			//$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
 			/*foreach ($materias as $materia) {
 			$this->excel->getActiveSheet()->setCellValue("A{$contador}", $materia['nombre']);
