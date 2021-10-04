@@ -284,8 +284,6 @@ class Log_model extends CI_Model{
             
             //Tengo entrada y salida del mismo edificio
             if($fecha1!=null && $fecha2!=null){
-                echo "Te tengo";
-                return;
                 //Calcular diferencia en minutos entre dos fechas
                 $start_date = new DateTime($fecha1);
                 $since_start = $start_date->diff(new DateTime($fecha2));                                        

@@ -891,11 +891,11 @@ class Pedrera extends CI_Controller {
 
 				$this->excel->getActiveSheet()->setCellValue("I{$numrow}", $lo['time']);
 
-				$max=$this->Log_model->getTimes($lo['idLog'], 2);
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2);
 				
-				$this->excel->getActiveSheet()->setCellValue("M{$numrow}", $max[0]);
-				$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max[1]);
-				$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max[2]);
+				$this->excel->getActiveSheet()->setCellValue("M{$numrow}", $max1);
+				$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max2);
+				$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max3);
 
 
 				//$lo['total']=$incidents->num_rows();
