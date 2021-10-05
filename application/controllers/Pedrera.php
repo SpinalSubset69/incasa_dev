@@ -915,7 +915,9 @@ class Pedrera extends CI_Controller {
 				$numgeocerca = 1;
 				foreach ($fechas as $fecha):
 					$fila = 1;
-					$column2 = $column+2;
+					$column2 = $column;
+					$column2++;
+					$column2++;
 					$this->excel->getActiveSheet()->mergeCells($column.$fila.":".$column2.$fila);												
 					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Geocerca '.$numgeocerca);
 					$this->excel->getActiveSheet()->getStyle($column.$fila.":".$column2.$fila)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
