@@ -912,14 +912,21 @@ class Pedrera extends CI_Controller {
 				$fechas = $this->Log_model->getTimes($lo['idLog'], 2, true);
 
 				$column = 'Y';
+				$numgeocerca = 1;
 				foreach ($fechas as $fecha):
-
+					$fila = 1;
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Geocerca '.$numgeocerca);
+					$fila++;
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Entrada');
 					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[0]);
 					$column++;
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Salida');
 					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[1]);
 					$column++;
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Minutos');
 					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
 					$column++;
+					$numgeocerca++;
 				endforeach;
 
 				//$lo['total']=$incidents->num_rows();
