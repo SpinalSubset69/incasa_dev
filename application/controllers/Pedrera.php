@@ -891,32 +891,36 @@ class Pedrera extends CI_Controller {
 
 				$this->excel->getActiveSheet()->setCellValue("I{$numrow}", $lo['time']);
 
-				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2);
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2, false);
 				
 				$this->excel->getActiveSheet()->setCellValue("M{$numrow}", $max1);
 				$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max2);
 				$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max3);
 
-				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2);
-				
-				$this->excel->getActiveSheet()->setCellValue("M{$numrow}", $max1);
-				$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max2);
-				$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max3);
-
-				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 3);
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 3, false);
 				
 				$this->excel->getActiveSheet()->setCellValue("P{$numrow}", $max1);
 				$this->excel->getActiveSheet()->setCellValue("Q{$numrow}", $max2);
 				$this->excel->getActiveSheet()->setCellValue("R{$numrow}", $max3);
 
-				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 4);
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 4, false);
 				
 				$this->excel->getActiveSheet()->setCellValue("S{$numrow}", $max1);
 				$this->excel->getActiveSheet()->setCellValue("T{$numrow}", $max2);
 				$this->excel->getActiveSheet()->setCellValue("U{$numrow}", $max3);
 
-				
+				$fechas = $this->Log_model->getTimes($lo['idLog'], 2, true);
 
+				$column = 'Y';
+				foreach ($fechas as $fecha):
+
+					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[0]);
+					$column++;
+					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[1]);
+					$column++;
+					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
+					$column++;
+				endforeach;
 
 				//$lo['total']=$incidents->num_rows();
 				//$_log[] = $lo;

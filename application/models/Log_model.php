@@ -252,7 +252,7 @@ class Log_model extends CI_Model{
         return $query;
     }
 
-    public function getTimes($idLog, $tipo){
+    public function getTimes($idLog, $tipo, $count){
         //select * from history, buildings where history.idLog = 130 and history.idBuilding = buildings.idBuilding and buildings.typeBuilding=2 ORDER by history.idLog
         $this->db->select("*");
         $this->db->from('history, buildings');        
@@ -270,6 +270,7 @@ class Log_model extends CI_Model{
         $max_entrada = null;
         $max_salida = null;
         $max_minutos = 0;
+        $fechas = [];
         foreach($incidents as $incident):            
             if($incident['type']==1){
                 $fecha1 = $incident['date'];
@@ -295,6 +296,24 @@ class Log_model extends CI_Model{
                     $max_minutos = $minutes;
                 }
 
+                if($count){//Me esta pidiendo todos
+                    $dateu = mysql_to_unix($fecha1);
+                    if(date('I')==1)
+                        $dateu = gmt_to_local($dateu, "UP2", FALSE);
+                    else
+                        $dateu = gmt_to_local($dateu, "UP1", FALSE);
+                    $dateu = unix_to_human($dateu);
+                    $fecha1 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+                    $dateu = mysql_to_unix($fecha2);
+                    if(date('I')==1)
+                        $dateu = gmt_to_local($dateu, "UP2", FALSE);
+                    else
+                        $dateu = gmt_to_local($dateu, "UP1", FALSE);
+                    $dateu = unix_to_human($dateu);
+                    $fecha2 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+                    $fechas[] = array($fecha1, $fecha2, $minutos);
+                }
+
                 $fecha1=null;
                 $fecha2=null;
             }
@@ -315,6 +334,8 @@ class Log_model extends CI_Model{
             $dateu = unix_to_human($dateu);
             $max_salida = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
         }
+        if($count)
+            return $fechas;
         return array($max_entrada, $max_salida, $max_minutos);
     }
 
