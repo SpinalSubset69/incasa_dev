@@ -980,7 +980,7 @@ class Pedrera extends CI_Controller {
 				'op' => 'ok',
 				'file' => "data:application/vnd.ms-excel;base64,".base64_encode($xlsData)
 			);
-			return json_encode($response);
+			die(json_encode($response));
 			//return "data:application/vnd.ms-excel;base64,".base64_encode($xlsData);
 		}else{
 			$data['heading'] = "404 Página no encotrada.";
