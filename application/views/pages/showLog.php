@@ -180,15 +180,13 @@
             
         });
 
-        $('#btnDescargar').click(function() {   
-            console.log(minDate);
-            console.log(maxDate);         
-            console.log(minDate.toISOString().slice(0, 19).replace('T', ' '));
-            console.log(maxDate.toISOString().slice(0, 19).replace('T', ' '));
+        $('#btnDescargar').click(function() {               
+            f1 = minDate.toISOString().slice(0, 19).replace('T', ' ');
+            f2 = maxDate.toISOString().slice(0, 19).replace('T', ' ');
             $.ajax({
                 type: "POST",
                 url: '<?php echo base_url(); ?>Pedrera/downloadReport',
-                data: {minDate:minDate.toISOString().slice(0, 19).replace('T', ' '), maxDate:maxDate.toISOString().slice(0, 19).replace('T', ' ')},
+                data: {minDate:f1, maxDate:f2},
                 dataType: "json",                
                 success: function(response) {
                     var win = window.open("", "_blank");
