@@ -183,7 +183,7 @@
         $('#btnDescargar').click(function() {   
             f1 = null;
             f2 = null;
-            if(minDate!=null && maxDate==null){
+            if(minDate!=null && maxDate!=null){
                 f1 = minDate.toISOString().slice(0, 19).replace('T', ' ');
                 f2 = maxDate.toISOString().slice(0, 19).replace('T', ' ');
             }
