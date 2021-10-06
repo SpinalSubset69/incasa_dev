@@ -263,6 +263,8 @@ class Log_model extends CI_Model{
         $this->db->where("buildings.typeBuilding=1");
         $this->db->order_by("history.idLog");
         $query=$this->db->get();
+        if($query->num_rows()==0)
+            return array(null, null, null);
         $entrada = $query->row();
         $fecha1 = null;
         $fecha2 = null;
@@ -288,6 +290,8 @@ class Log_model extends CI_Model{
         $this->db->where("buildings.typeBuilding=1");
         $this->db->order_by("history.idLog DESC");
         $query=$this->db->get();
+        if($query->num_rows()==0)
+            return array(null, null, null);
         $entrada = $query->row();
         $fecha1 = null;
         $fecha2 = null;
