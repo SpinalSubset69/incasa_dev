@@ -182,8 +182,8 @@
 
         $('#btnDescargar').click(function() {
             console.log("Fechas");
-            console.log(minDate);
-            console.log(maxDate);
+            //console.log(minDate);
+            //console.log(maxDate);
         });
         
 
