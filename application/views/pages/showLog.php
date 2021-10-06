@@ -179,6 +179,11 @@
             });
             
         });
+
+        $('#btnLimpiar').click(function() {
+            console.log(minDate);
+            console.log(maxDate);
+        });
         
 
         $('#btnLimpiar').click(function() {
