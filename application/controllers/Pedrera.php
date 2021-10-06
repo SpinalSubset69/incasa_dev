@@ -935,10 +935,14 @@ class Pedrera extends CI_Controller {
 					$column2 = $column;
 					$column2++;
 					$column2++;
+					$column2++;
 					$this->excel->getActiveSheet()->mergeCells($column.$fila.":".$column2.$fila);												
 					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Geocerca '.$numgeocerca);
 					$this->excel->getActiveSheet()->getStyle($column.$fila.":".$column2.$fila)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 					$fila++;
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Nombre');
+					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[3]);
+					$column++;
 					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Entrada');
 					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[0]);
 					$column++;

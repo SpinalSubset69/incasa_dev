@@ -394,7 +394,7 @@ class Log_model extends CI_Model{
                         $dateu = gmt_to_local($dateu, "UP1", FALSE);
                     $dateu = unix_to_human($dateu);
                     $fecha2 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
-                    $fechas[] = array($fecha1, $fecha2, $minutes);
+                    $fechas[] = array($fecha1, $fecha2, $minutes, $incident['nameBuilding']);
                 }
 
                 $fecha1=null;
