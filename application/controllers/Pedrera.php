@@ -853,7 +853,7 @@ class Pedrera extends CI_Controller {
 			$this->excel->getActiveSheet()->setCellValue("W2", "Hr Salida");
 			$this->excel->getActiveSheet()->setCellValue("X2", "Minutos");
 			$this->excel->getActiveSheet()->getStyle('A2:X2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-			foreach(range('A','ZZ') as $columnID) {
+			foreach(range('A','X') as $columnID) {
 				$this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
 			}
 
