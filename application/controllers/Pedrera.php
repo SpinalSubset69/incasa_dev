@@ -858,7 +858,7 @@ class Pedrera extends CI_Controller {
 			}
 
 			$numrow = 3;
-			$log = $this->Log_model->getLog2();
+			$log = $this->Log_model->getLog2($fechaInicial, $fechaFinal);
 
 			foreach($log as $lo):
 				//$lo['log2']=$this->Log_model->getLogId($lo['idLog']);
