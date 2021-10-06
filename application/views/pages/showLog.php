@@ -259,6 +259,7 @@
                 var year = date.getFullYear();
 
                 minDate = yymmddUTC(year + "/" + month + "/" + day);
+                console.log(minDate);
                 mitabla.draw();
             },
             endCalendar: $('#rangeend')
@@ -307,8 +308,7 @@
             var date = row[6];
             date = date.split(' ')[0];
             date = date.replace(/-/g, '/');
-            let rowDate = yymmddUTC(date);  
-            console.log(minDate);
+            let rowDate = yymmddUTC(date);              
             return (rowDate >= minDate || minDate == null) && (rowDate <= maxDate || maxDate == null);
         });
 
