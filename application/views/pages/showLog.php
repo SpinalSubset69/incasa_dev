@@ -180,7 +180,8 @@
             
         });
 
-        $('#btnLimpiar').click(function() {
+        $('#btnDescargar').click(function() {
+            console.log("Fechas");
             console.log(minDate);
             console.log(maxDate);
         });
