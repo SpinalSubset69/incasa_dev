@@ -52,7 +52,7 @@
                         <div class="column">
                             <div class="field">
                                 <label><br></label>
-                                <button type="button" class="ui blue button" id="btnDescargar" name="button"><i class="download icon"></i> Descargar</button>
+                                <button type="button" class="ui fluid blue button" id="btnDescargar" name="button"><i class="download icon"></i> Descargar</button>
                             </div>
                         </div>
                     </div>
