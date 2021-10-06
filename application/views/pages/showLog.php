@@ -302,7 +302,7 @@
 
 
         $.fn.DataTable.ext.search.push((settings, row) => {
-            var date = row[5];
+            var date = row[6];
             date = date.split(' ')[0];
             date = date.replace(/-/g, '/');
             let rowDate = yymmddUTC(date);   
