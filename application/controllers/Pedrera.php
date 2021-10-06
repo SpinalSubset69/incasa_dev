@@ -852,10 +852,7 @@ class Pedrera extends CI_Controller {
 			$this->excel->getActiveSheet()->setCellValue("V2", "Hr Entrada");
 			$this->excel->getActiveSheet()->setCellValue("W2", "Hr Salida");
 			$this->excel->getActiveSheet()->setCellValue("X2", "Minutos");
-			$this->excel->getActiveSheet()->getStyle('A2:X2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-			foreach(range('A','X') as $columnID) {
-				$this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
-			}
+			$this->excel->getActiveSheet()->getStyle('A2:X2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);			
 
 			$numrow = 3;
 			$log = $this->Log_model->getLog();
@@ -954,7 +951,9 @@ class Pedrera extends CI_Controller {
 					$column++;
 					$numgeocerca++;
 				endforeach;
-
+				foreach(range('A',$column) as $columnID) {
+					$this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+				}
 				//$lo['total']=$incidents->num_rows();
 				//$_log[] = $lo;
 				$numrow++;
