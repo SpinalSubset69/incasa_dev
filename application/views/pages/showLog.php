@@ -49,6 +49,12 @@
                                 <button type="button" class="ui fluid button" id="btnLimpiar" name="button"><i class="eraser icon"></i> Limpiar</button>
                             </div>
                         </div>
+                        <div class="column">
+                            <div class="field">
+                                <label><br></label>
+                                <button type="button" class="ui fluid button" id="btnLimpiar" name="button"><i class="download icon"></i> Descargar</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

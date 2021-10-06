@@ -966,7 +966,7 @@ class Pedrera extends CI_Controller {
 			$this->excel->getActiveSheet()->setCellValue("B{$contador}", $materia['total']);
 			$contador++;
 			}*/
-			$archivo = "reporteBasico.xls";
+			$archivo = "reporte.xls";
 			header('Content-Type: application/vnd.ms-excel');
 			header('Content-Disposition: attachment;filename="'.$archivo.'"');
 			header('Cache-Control: max-age=0');
