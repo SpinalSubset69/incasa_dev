@@ -180,7 +180,7 @@
             
         });
 
-        /*$('#btnDescargar').click(function() {
+        $('#btnDescargar').click(function() {
             console.log(minDate);
             console.log(maxDate);
             $.ajax({
@@ -196,7 +196,7 @@
                     console.log(exception);
                 }
             });
-        });*/
+        });
         
 
         $('#btnLimpiar').click(function() {
@@ -305,7 +305,9 @@
             var date = row[5];
             date = date.split(' ')[0];
             date = date.replace(/-/g, '/');
-            let rowDate = yymmddUTC(date);            
+            let rowDate = yymmddUTC(date);   
+            console.log(minDate);
+            console.log(maxDate);         
             return (rowDate >= minDate || minDate == null) && (rowDate <= maxDate || maxDate == null);
         });
 
