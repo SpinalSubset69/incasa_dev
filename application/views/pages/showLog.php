@@ -180,14 +180,12 @@
             
         });
 
-        $('#btnDescargar').click(function() {
-            console.log(minDate);
-            console.log(maxDate);
-            console.log(minDate.toISOString().slice(0, 19).replace('T', ' '));
+        $('#btnDescargar').click(function() {            
+            console.log();
             $.ajax({
                 type: "POST",
                 url: '<?php echo base_url(); ?>Pedrera/downloadReport',
-                data: {minDate:minDate, maxDate:maxDate},
+                data: {minDate:minDate.toISOString().slice(0, 19).replace('T', ' '), maxDate:maxDate.toISOString().slice(0, 19).replace('T', ' ')},
                 dataType: "json",                
                 success: function(response) {
                     console.log(response);   
