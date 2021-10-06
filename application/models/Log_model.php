@@ -299,7 +299,7 @@ class Log_model extends CI_Model{
         $this->db->from('history, buildings, log');
         $this->db->where("history.idLog=".$idLog);
         $this->db->where("history.idLog=log.idLog");
-        $this->db->where("history.type=2");
+        $this->db->where("history.type=1");
         $this->db->where("history.idBuilding = buildings.idBuilding");
         $this->db->where("buildings.typeBuilding=1");
         $this->db->order_by("history.idLog DESC");
