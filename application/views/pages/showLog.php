@@ -181,7 +181,8 @@
         });
 
         $('#btnDescargar').click(function() {            
-            console.log();
+            console.log(minDate.toISOString().slice(0, 19).replace('T', ' '));
+            console.log(maxDate.toISOString().slice(0, 19).replace('T', ' '));
             $.ajax({
                 type: "POST",
                 url: '<?php echo base_url(); ?>Pedrera/downloadReport',
