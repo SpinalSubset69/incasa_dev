@@ -188,6 +188,7 @@
         
 
         $('#btnLimpiar').click(function() {
+            console.log("Limpiar");
             minDate = null;
             maxDate = null;
             mitabla.draw();
