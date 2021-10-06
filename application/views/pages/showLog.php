@@ -180,7 +180,9 @@
             
         });
 
-        $('#btnDescargar').click(function() {            
+        $('#btnDescargar').click(function() {   
+            console.log(minDate);
+            console.log(maxDate);         
             console.log(minDate.toISOString().slice(0, 19).replace('T', ' '));
             console.log(maxDate.toISOString().slice(0, 19).replace('T', ' '));
             $.ajax({
