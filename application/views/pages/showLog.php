@@ -190,6 +190,10 @@
                 dataType: "json",
                 success: function(response) {
                     console.log(response);   
+                },
+                error: function (jqXHR, exception) {
+                    console.log(jqXHR);
+                    console.log(exception);
                 }
             });
         });
