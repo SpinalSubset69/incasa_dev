@@ -192,7 +192,7 @@
                 dataType: "json",                
                 success: function(response) {
                     var win = window.open("", "_blank");
-                    win.location.href = response;
+                    win.location.href = response.file;
                 },
                 error: function (jqXHR, exception) {
                     console.log(jqXHR);
