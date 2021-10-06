@@ -195,6 +195,7 @@ class Log_model extends CI_Model{
 
             $this->db->set('idLog', $idLog);
             $this->db->set('description', $desc);
+            $this->db->set('type', 2);
             $this->db->set('date', 'NOW()', FALSE);
             $this->db->insert('history');     
             /*$this->db->set('idLog', $idLog);
@@ -250,6 +251,56 @@ class Log_model extends CI_Model{
         $this->db->order_by("idHistory ASC");
         $query=$this->db->get();
         return $query;
+    }
+
+    public function getTimeEntrada($idLog){
+        $this->db->select("*");
+        $this->db->from('history, buildings, log');
+        $this->db->where("history.idLog=".$idLog);
+        $this->db->where("history.idLog=log.idLog");
+        $this->db->where("history.type=2");
+        $this->db->where("history.idBuilding = buildings.idBuilding");
+        $this->db->where("buildings.typeBuilding=1");
+        $this->db->order_by("history.idLog");
+        $query=$this->db->get();
+        $entrada = $query->row();
+        $fecha1 = null;
+        $fecha2 = null;
+        $minutes = 0;
+        if($entrada->arrival!=null && $entrada->date!=null){
+            $fecha1 =  $entrada->arrival;
+            $fecha2 =  $entrada->date;
+            $start_date = new DateTime($fecha1);
+            $since_start = $start_date->diff(new DateTime($fecha2));                                        
+            $minutes = $since_start->h * 60;
+            $minutes += $since_start->i;
+        }
+        return array($fecha1, $fecha2, $minutes);
+    }
+
+    public function getTimeSalida($idLog){
+        $this->db->select("*");
+        $this->db->from('history, buildings, log');
+        $this->db->where("history.idLog=".$idLog);
+        $this->db->where("history.idLog=log.idLog");
+        $this->db->where("history.type=2");
+        $this->db->where("history.idBuilding = buildings.idBuilding");
+        $this->db->where("buildings.typeBuilding=1");
+        $this->db->order_by("history.idLog DESC");
+        $query=$this->db->get();
+        $entrada = $query->row();
+        $fecha1 = null;
+        $fecha2 = null;
+        $minutes = 0;
+        if($entrada->departure!=null && $entrada->date!=null){
+            $fecha1 =  $entrada->date;
+            $fecha2 =  $entrada->departure;            
+            $start_date = new DateTime($fecha1);
+            $since_start = $start_date->diff(new DateTime($fecha2));                                        
+            $minutes = $since_start->h * 60;
+            $minutes += $since_start->i;
+        }
+        return array($fecha1, $fecha2, $minutes);
     }
 
     public function getTimes($idLog, $tipo, $count){
