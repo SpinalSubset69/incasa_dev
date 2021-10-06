@@ -183,6 +183,15 @@
         $('#btnDescargar').click(function() {
             console.log(minDate);
             console.log(maxDate);
+            $.ajax({
+                type: "POST",
+                url: '<?php echo base_url(); ?>Pedrera/downloadReport',
+                data: {minDate:minDate, maxDate:maxDate},
+                dataType: "json",
+                success: function(response) {
+                    
+                }
+            });
         });
         
 

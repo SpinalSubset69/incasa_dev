@@ -792,7 +792,11 @@ class Pedrera extends CI_Controller {
 	}
 
 	public function downloadReport(){
-
+		$fechaInicial = $this->input->post('minDate');
+		$fechaFinal = $this->input->post('maxDate');
+		echo $fechaInicial;
+		echo $fechaFinal;
+		return;
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==1){			
 
 			$this->load->library('excel');
