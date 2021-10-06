@@ -180,7 +180,7 @@
             
         });
 
-        $('#btnDescargar').click(function() {
+        /*$('#btnDescargar').click(function() {
             console.log(minDate);
             console.log(maxDate);
             $.ajax({
@@ -196,7 +196,7 @@
                     console.log(exception);
                 }
             });
-        });
+        });*/
         
 
         $('#btnLimpiar').click(function() {
