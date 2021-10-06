@@ -224,7 +224,8 @@ class Log_model extends CI_Model{
         $this->db->where("companies.idCompany=log.idCompany");
         $this->db->where("drivers.idDriver=log.idDriver");
         $this->db->where("quarries.idQuarry=log.idQuarry");
-        $this->db->where("log.arrival between '".$fechaInicio."' and '".$fechaFin."'");
+        if($fechaInicio!=null && $fechaFin!=null)
+            $this->db->where("log.arrival between '".$fechaInicio."' and '".$fechaFin."'");
         $this->db->order_by("arrival");
         $query=$this->db->get();
         return $query->result_array();
