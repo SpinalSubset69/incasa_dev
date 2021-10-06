@@ -187,12 +187,13 @@
         });
         
 
-        // $('#btnLimpiar').click(function() {
-        //     console.log("Limpiar");
-        //     minDate = null;
-        //     maxDate = null;
-        //     mitabla.draw();
-        // });
+        $('#btnLimpiar').click(function() {
+            console.log("Limpiar");
+            console.log("SE ejecuta la funcion");
+            minDate = null;
+            maxDate = null;
+            mitabla.draw();
+        });
 
         $('.tablaUsuarios').tablesort();        
         var tablesort = $('.tablaUsuarios').data('tablesort'); 
