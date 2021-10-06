@@ -307,7 +307,8 @@
             var date = row[6];
             date = date.split(' ')[0];
             date = date.replace(/-/g, '/');
-            let rowDate = yymmddUTC(date);               
+            let rowDate = yymmddUTC(date);  
+            console.log(minDate);
             return (rowDate >= minDate || minDate == null) && (rowDate <= maxDate || maxDate == null);
         });
 
