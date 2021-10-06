@@ -165,7 +165,7 @@
         var minDate = null;
         var maxDate = null;
 
-        const yymmddUTC = str => new Date(...str.split('/').map((value, index) => index == 1 ? value-- : value));        
+        const yymmddUTC = str => new Date(...str.split('/').map((value, index) => index == 1 ? value-1 : value));        
 
         $('.btnDetails').on('click', function() {
             var event = $(this);
