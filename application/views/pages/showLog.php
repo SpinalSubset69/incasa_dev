@@ -165,7 +165,7 @@
         var minDate = null;
         var maxDate = null;
 
-        const yymmddUTC = str => new Date(...str.split('/').map((value, index) => index == 1 ? value-- : value));
+        const yymmddUTC = str => new Date(...str.split('/').map((value, index) => index == 1 ? value-- : value));        
 
         $('.btnDetails').on('click', function() {
             var event = $(this);
@@ -183,6 +183,7 @@
         $('#btnDescargar').click(function() {
             console.log(minDate);
             console.log(maxDate);
+            console.log(minDate.toISOString().slice(0, 19).replace('T', ' '));
             $.ajax({
                 type: "POST",
                 url: '<?php echo base_url(); ?>Pedrera/downloadReport',
@@ -305,8 +306,7 @@
             var date = row[6];
             date = date.split(' ')[0];
             date = date.replace(/-/g, '/');
-            let rowDate = yymmddUTC(date);   
-            console.log(rowDate);            
+            let rowDate = yymmddUTC(date);               
             return (rowDate >= minDate || minDate == null) && (rowDate <= maxDate || maxDate == null);
         });
 
