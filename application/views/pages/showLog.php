@@ -181,15 +181,12 @@
         });
 
         $('#btnDescargar').click(function() {
-            console.log("Fechas");
-            //console.log(minDate);
-            //console.log(maxDate);
+            console.log(minDate);
+            console.log(maxDate);
         });
         
 
         $('#btnLimpiar').click(function() {
-            console.log("Limpiar");
-            console.log("SE ejecuta la funcion");
             minDate = null;
             maxDate = null;
             mitabla.draw();
