@@ -190,58 +190,13 @@
                 url: '<?php echo base_url(); ?>Pedrera/downloadReport',
                 data: {minDate:minDate.toISOString().slice(0, 19).replace('T', ' '), maxDate:maxDate.toISOString().slice(0, 19).replace('T', ' ')},
                 dataType: "json",                
-                success : function(data, status, xhr) {
-                    //Ocultamos el loader
-                    
-                    //Si se han devuelto datos
-                    if (data != null && data != "FAIL") {
-                        var b64Data = data;
-                        var contentType = xhr.getResponseHeader("Content-Type"); //Obtenemos el tipo de los datos
-                        var filename = xhr.getResponseHeader("Content-disposition");//Obtenemos el nombre del fichero a desgargar
-                        filename = filename.substring(filename.lastIndexOf("=") + 1) || "download";
-            
-                        var sliceSize = 512;
-                        
-                        
-                        var byteCharacters = window.atob(b64Data);
-                        var byteArrays = [];
-            
-                        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-                            var slice = byteCharacters.slice(offset, offset + sliceSize);
-            
-                            var byteNumbers = new Array(slice.length);
-                            for (var i = 0; i < slice.length; i++) {
-                                byteNumbers[i] = slice.charCodeAt(i);
-                            }
-            
-                            var byteArray = new Uint8Array(byteNumbers);
-            
-                            byteArrays.push(byteArray);
-                        }
-                        //Tras el procesado anterior creamos un objeto blob
-                        var blob = new Blob(byteArrays, {
-                            type : contentType
-                        });
-            
-                        // IE 10+
-                        if (navigator.msSaveBlob) {
-                            navigator.msSaveBlob(blob, filename);
-                        } else {
-                        //Descargamos el fichero obtenido en la petición ajax
-                            var url = URL.createObjectURL(blob);
-                            var link = document.createElement('a');
-                            link.href = url;
-                            link.download = filename;
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
-                        }
-            
-                    }
+                success: function(response) {
+                    var win = window.open("", "_blank");
+                    win.location.href = response;
                 },
                 error: function (jqXHR, exception) {
-                    console.log("Error....");
-                    console.log(jqXHR);                    
+                    console.log(jqXHR);
+                    console.log(exception);
                 }
             });
         });

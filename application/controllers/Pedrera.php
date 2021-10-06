@@ -967,18 +967,16 @@ class Pedrera extends CI_Controller {
 			$contador++;
 			}*/
 			$archivo = "reporte.xls";
-			header("Pragma: public");
-			header("Expires: 0");
-			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-			header("Content-Type: application/force-download");
-			header("Content-Type: application/octet-stream");
-			header("Content-Type: application/download");;
+			ob_start();
 			header('Content-Type: application/vnd.ms-excel');
 			header('Content-Disposition: attachment;filename="'.$archivo.'"');
 			header('Cache-Control: max-age=0');
 			$objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
 			//Hacemos una salida al navegador con el archivo Excel.
 			$objWriter->save('php://output');
+			$xlsData = ob_get_contents();
+			ob_end_clean();
+			return "data:application/vnd.ms-excel;base64,".base64_encode($xlsData);
 		}else{
 			$data['heading'] = "404 Página no encotrada.";
 			$data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
