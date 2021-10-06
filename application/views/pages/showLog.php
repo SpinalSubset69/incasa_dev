@@ -189,7 +189,7 @@
                 data: {minDate:minDate, maxDate:maxDate},
                 dataType: "json",
                 success: function(response) {
-                    
+                    console.log(response);   
                 }
             });
         });
