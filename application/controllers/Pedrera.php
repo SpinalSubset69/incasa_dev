@@ -967,6 +967,12 @@ class Pedrera extends CI_Controller {
 			$contador++;
 			}*/
 			$archivo = "reporte.xls";
+			header("Pragma: public");
+			header("Expires: 0");
+			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+			header("Content-Type: application/force-download");
+			header("Content-Type: application/octet-stream");
+			header("Content-Type: application/download");;
 			header('Content-Type: application/vnd.ms-excel');
 			header('Content-Disposition: attachment;filename="'.$archivo.'"');
 			header('Cache-Control: max-age=0');
