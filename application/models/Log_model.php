@@ -214,7 +214,20 @@ class Log_model extends CI_Model{
             $this->db->insert('incidents');
         }
 
-    }   
+    } 
+    
+    public function getLog2($fechaInicio, $fechaFin){
+        $this->db->select("*, IF(departure is NULL,TIMESTAMPDIFF(MINUTE,arrival,NOW()),TIMESTAMPDIFF(MINUTE,arrival,departure)) as time");
+        $this->db->from('log, materials, companies, drivers, quarries');
+        $this->db->where("log.idMaterial=materials.idMaterial");
+        //$this->db->where("log.idBuilding=buildings.idBuilding");
+        $this->db->where("companies.idCompany=log.idCompany");
+        $this->db->where("drivers.idDriver=log.idDriver");
+        $this->db->where("quarries.idQuarry=log.idQuarry");
+        $this->db->where("log.arrival between ".$fechaInicio." and ".$fechaFin);
+        $query=$this->db->get();
+        return $query->result_array();
+    }
     
     public function getLog(){
         $this->db->select("*, IF(departure is NULL,TIMESTAMPDIFF(MINUTE,arrival,NOW()),TIMESTAMPDIFF(MINUTE,arrival,departure)) as time");

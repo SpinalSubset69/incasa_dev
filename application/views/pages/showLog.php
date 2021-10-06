@@ -187,7 +187,7 @@
                 type: "POST",
                 url: '<?php echo base_url(); ?>Pedrera/downloadReport',
                 data: {minDate:minDate, maxDate:maxDate},
-                dataType: "json",
+                dataType: "json",                
                 success: function(response) {
                     console.log(response);   
                 },

@@ -791,14 +791,10 @@ class Pedrera extends CI_Controller {
 		}
 	}
 
-	public function downloadReport(){
-		$fechaInicial = $this->input->post('minDate');
-		$fechaFinal = $this->input->post('maxDate');
-		echo $fechaInicial;
-		echo $fechaFinal;
-		return;
+	public function downloadReport(){		
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==1){			
-
+			$fechaInicial = $this->input->post('minDate');
+			$fechaFinal = $this->input->post('maxDate');
 			$this->load->library('excel');
 			$this->excel->setActiveSheetIndex(0);
 			$this->excel->getActiveSheet()->setTitle('Tiempos');
@@ -862,7 +858,7 @@ class Pedrera extends CI_Controller {
 			}
 
 			$numrow = 3;
-			$log = $this->Log_model->getLog();
+			$log = $this->Log_model->getLog2();
 
 			foreach($log as $lo):
 				//$lo['log2']=$this->Log_model->getLogId($lo['idLog']);
