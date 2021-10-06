@@ -257,9 +257,6 @@
                     month = '0' + month;
                 }
                 var year = date.getFullYear();
-                console.log(year);
-                console.log(month);
-                console.log(day);
                 minDate = yymmddUTC(year + "/" + month + "/" + day);
                 console.log(minDate);
                 mitabla.draw();
