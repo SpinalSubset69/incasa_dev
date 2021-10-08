@@ -994,9 +994,9 @@ class Pedrera extends CI_Controller {
 
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==5){			
 				
-			//$idUser = $this->session->userdata('idUser');
+			$idQuarry = $this->session->userdata('quarry');
 			
-			$plants = $this->Log_model->getAttendance();
+			$plants = $this->Log_model->getAttendance($idQuarry);
 
 			/* Obtener los vehiculos a planta */
 			$_plants = [];

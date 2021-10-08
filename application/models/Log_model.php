@@ -152,7 +152,7 @@ class Log_model extends CI_Model{
 
     }
 
-    public function getAttendance(){//adm - prioridad
+    public function getAttendance($idQuarry){//adm - prioridad
         /*
         select *, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, (select TIME(min(log.arrival)) from log where log.idBuilding=buildings.idBuilding) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=13), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=13), 1, 0) as isOnBuilding from buildings where buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idOperator=13 and operators_buildings.idBuilding=buildings.idBuilding) ORDER by isOnBuilding DESC, isOperator ASC, -time DESC, total desc
         */
@@ -161,6 +161,7 @@ class Log_model extends CI_Model{
          */
         $this->db->select("*, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, TIMESTAMPDIFF(MINUTE, (select min(log.arrival) from log where log.idBuilding=buildings.idBuilding  and EXISTS( select * from materials_buildings where log.idMaterial=materials_buildings.idMaterial and materials_buildings.idBuilding=buildings.idBuilding)),now()) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding), 1, 0) as isOperator");
         $this->db->from('buildings');
+        $this->db->where('idQuarry='.$idQuarry);
         $this->db->where("buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idBuilding=buildings.idBuilding)");
         $this->db->order_by("total DESC, time DESC, isOperator ASC");
         $query=$this->db->get();
