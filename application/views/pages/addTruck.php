@@ -136,10 +136,6 @@
       $('.txt_tipo').dropdown('set selected', <?php echo $tipo; ?>);
     <?php } ?>
 
-    <?php if($gps2!=''){?>
-      $('.txt_gps').dropdown('set selected', <?php echo $gps2; ?>);
-    <?php } ?>
-
     <?php if($materialSel!=-1){?>
       $('.txt_material').dropdown('set selected', <?php echo $materialSel; ?>);
     <?php } ?>
@@ -147,6 +143,10 @@
     if ($('.mini.modal').hasClass('mostrarModal')) {
       $('.mini.modal').modal('show');
     }
+
+    <?php if($gps2!=''){?>
+      $('.txt_gps').dropdown('set selected', <?php echo $gps2; ?>);
+    <?php } ?>
 
     $('.ui.form')
       .form({
