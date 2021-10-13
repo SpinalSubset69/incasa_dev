@@ -215,14 +215,13 @@
         var mitabla = $('.tablaUsuarios').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-            },
-            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]            
+            }            
         });   
         
         $('.tablaUsuarios').tablesort();        
         var tablesort = $('.tablaUsuarios').data('tablesort'); 
-        tablesort.sort($("th.default-sort"));
-        tablesort.sort($("th.default-sort"));
+        /*tablesort.sort($("th.default-sort"));
+        tablesort.sort($("th.default-sort"));*/
 
         $('thead th.tiempo').data(
         'sortBy', 
