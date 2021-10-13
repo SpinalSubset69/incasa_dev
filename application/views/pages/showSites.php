@@ -22,7 +22,8 @@
           <tr>
             <th class="sorted descending">Pedrera</th>
             <th class="sorted descending">Tipo</th>
-            <th class="sorted descending">Sitio</th>
+            <th class="sorted descending">Clave Sitio</th>
+            <th class="sorted descending">Sitio</th>            
             <th class="no-sort" style="width: 200px;">Acciones</th>
             <!-- <th class="no-sort" style="width: 400px;">Acciones</th> -->
           </tr>
@@ -33,6 +34,7 @@
           <tr>
             <td><?php echo $building['nameQuarry']; ?></td>            
             <td><?php if ($building['typeBuilding']==1) echo "Caseta"; else if($building['typeBuilding']==2) echo "Planta"; else if($building['typeBuilding']==3) echo "Báscula"; else echo "Enlonado"; ?></td>            
+            <td><?php echo $building['idBuilding']; ?></td>            
             <td><?php echo $building['nameBuilding']; ?></td>            
             <td><div data-value="<?php echo $building['idBuilding']; ?>" class="ui red icon button btnEliminar" name="button"><i class="remove icon"></i> </div></td>            
           </tr>
@@ -43,6 +45,7 @@
           <tr>
             <th class="sorted descending">Pedrera</th>
             <th class="sorted descending">Tipo</th>
+            <th class="sorted descending">Clave Sitio</th>
             <th class="sorted descending">Sitio</th>
             <!-- <th class="">Ticket</th> -->
             <th class="">Acciones</th>
