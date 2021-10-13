@@ -210,24 +210,25 @@
             mitabla.draw();
         });
 
-        $('.tablaUsuarios').tablesort();        
-        var tablesort = $('.tablaUsuarios').data('tablesort'); 
-        console.log(tablesort);        
-        /*tablesort.sort($("th.default-sort"));
-        /*tablesort.sort($("th.default-sort"));*/
-
-        $('thead th.tiempo').data(
-        'sortBy', 
-        function(th, td, tablesort) {
-            return parseInt(td.text());
-        }
-    );
+        
 
         var mitabla = $('.tablaUsuarios').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
             }            
-        });        
+        });   
+        
+        $('.tablaUsuarios').tablesort();        
+        var tablesort = $('.tablaUsuarios').data('tablesort'); 
+        tablesort.sort($("th.default-sort"));
+        tablesort.sort($("th.default-sort"));
+
+        $('thead th.tiempo').data(
+        'sortBy', 
+            function(th, td, tablesort) {
+                return parseInt(td.text());
+            }
+        );
 
         $('#rangestart').calendar({
             type: 'date',
