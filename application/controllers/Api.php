@@ -499,15 +499,19 @@ class Api extends RestController
 				$type = $this->post('type');
 				$name = $this->post('name');
 				$date = $this->post('date');
+				$batt = $this->post('batt');
 				//$type = ucwords($type);
 				//$this->Log_model->insertTimeTest();
 				
 				$file = "miarchivo2.txt";
-				$texto = $id." ".$nombregps." ".$name." ".$type." ".$date."\n";
+				$texto = $id." ".$nombregps." ".$name." ".$type." ".$date." ".$batt."\n";
 				$fp = fopen($file, "a");
 				fwrite($fp, $texto);
 				fclose($fp);
                 
+				//Actualizar bateria
+				$this->Log_model->updateBattery($id, $batt);
+
 				//Se obtiene el idLog que esta dentro
 				$log = $this->Log_model->getTruck2($id);
 				if($log){//Quiere decir que el gps que se esta moviendo es un gps dentro de la planta

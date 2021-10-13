@@ -152,6 +152,12 @@ class Log_model extends CI_Model{
 
     }
 
+    public function updateBattery($id, $batt){
+        $this->db->set('batt', $batt);
+        $this->db->where('idGPS', $id);
+        $this->db->update('gps');
+    }
+
     public function getAttendance($idQuarry){//adm - prioridad
         /*
         select *, (select count(*) from log where log.idBuilding=buildings.idBuilding) as total, (select TIME(min(log.arrival)) from log where log.idBuilding=buildings.idBuilding) as time, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser!=13), 1, 0) as isOperator, IF(EXISTS(select * from users where users.idBuilding=buildings.idBuilding and users.idUser=13), 1, 0) as isOnBuilding from buildings where buildings.typeBuilding=2 and EXISTS(select * from operators_buildings where operators_buildings.idOperator=13 and operators_buildings.idBuilding=buildings.idBuilding) ORDER by isOnBuilding DESC, isOperator ASC, -time DESC, total desc
