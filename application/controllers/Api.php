@@ -200,6 +200,45 @@ class Api extends RestController
 		}
     }
 
+	/* Obtener los gps en la pedrera */
+	public function getGPS_post()
+	{
+
+		// Get all the headers
+		$headers = $this->input->request_headers();
+
+		// Extract the token
+		$token = $headers['Authorization'];
+		$token = sscanf($token, 'Bearer %s')[0];
+
+		try {
+			// Validate the token
+			// Successfull validation will return the decoded user data else returns false
+			$data = AUTHORIZATION::validateToken($token);
+			if ($data === false) {
+				$status = parent::HTTP_UNAUTHORIZED;
+				$response = ['status' => $status, 'msg' => 'Unauthorized Access!'];
+				$this->response($response, $status);
+				exit();
+			} else {
+				// Obtain the materials
+				//$quarry = $data->quarry;
+				$gps = $this->Materials_model->getGPS();
+				
+				$status = parent::HTTP_OK;
+				$response = ['status' => $status, 'gps' => $gps];
+				$this->response($response, $status);
+				
+			}
+		} catch (Exception $e) {
+			// Token is invalid
+			// Send the unathorized access message
+			$status = parent::HTTP_UNAUTHORIZED;
+			$response = ['status' => $status, 'msg' => 'Unauthorized Access! '];
+			$this->response($response, $status);
+		}
+    }
+
 	/* Obtener los materiales disponibles en la pedrera */
 	public function getAttendancePriority_post()
 	{
