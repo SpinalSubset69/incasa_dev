@@ -870,7 +870,7 @@ class Pedrera extends CI_Controller {
 				$this->excel->getActiveSheet()->setCellValue("C{$numrow}", $lo['nameDriver']);
 				$this->excel->getActiveSheet()->setCellValue("D{$numrow}", $lo['nameCompany']);
 				$this->excel->getActiveSheet()->setCellValue("E{$numrow}", $lo['nameMaterial']);
-				$this->excel->getActiveSheet()->setCellValue("F{$numrow}", $lo['mica']);
+				// $this->excel->getActiveSheet()->setCellValue("F{$numrow}", $lo['mica']);
 
 				$this->excel->getActiveSheet()->setCellValue("G{$numrow}", explode(" ",$lo['arrival'])[0]);				
 
