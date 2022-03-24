@@ -912,48 +912,48 @@ class Pedrera extends CI_Controller {
 					$this->excel->getActiveSheet()->setCellValue("S{$numrow}", strval($max3));
 				}
 
-			// 	list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 4, false);
-			// 	if($max1!=null && $max2!=null){
-			// 		$this->excel->getActiveSheet()->setCellValue("T{$numrow}", $max1);
-			// 		$this->excel->getActiveSheet()->setCellValue("U{$numrow}", $max2);
-			// 		$this->excel->getActiveSheet()->setCellValue("V{$numrow}", $max3);
-			// 	}
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 4, false);
+				if($max1!=null && $max2!=null){
+					$this->excel->getActiveSheet()->setCellValue("T{$numrow}", $max1);
+					$this->excel->getActiveSheet()->setCellValue("U{$numrow}", $max2);
+					$this->excel->getActiveSheet()->setCellValue("V{$numrow}", strval($max3));
+				}
 
-			// 	list($max1, $max2, $max3) = $this->Log_model->getTimeSalida($lo['idLog']);
-			// 	if($max1!=null && $max2!=null){
-			// 		$this->excel->getActiveSheet()->setCellValue("W{$numrow}", $max1);
-			// 		$this->excel->getActiveSheet()->setCellValue("X{$numrow}", $max2);
-			// 		$this->excel->getActiveSheet()->setCellValue("Y{$numrow}", $max3);
-			// 	}
+				list($max1, $max2, $max3) = $this->Log_model->getTimeSalida($lo['idLog']);
+				if($max1!=null && $max2!=null){
+					$this->excel->getActiveSheet()->setCellValue("W{$numrow}", $max1);
+					$this->excel->getActiveSheet()->setCellValue("X{$numrow}", $max2);
+					$this->excel->getActiveSheet()->setCellValue("Y{$numrow}", strval($max3));
+				}
 
-			// 	$fechas = $this->Log_model->getTimes($lo['idLog'], 2, true);
+				$fechas = $this->Log_model->getTimes($lo['idLog'], 2, true);
 
-			// 	$column = 'Z';
-			// 	$numgeocerca = 1;
-			// 	foreach ($fechas as $fecha):
-			// 		$fila = 1;
-			// 		$column2 = $column;
-			// 		$column2++;
-			// 		$column2++;
-			// 		$column2++;
-			// 		$this->excel->getActiveSheet()->mergeCells($column.$fila.":".$column2.$fila);												
-			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Geocerca '.$numgeocerca);
-			// 		$this->excel->getActiveSheet()->getStyle($column.$fila.":".$column2.$fila)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-			// 		$fila++;
-			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Nombre');
-			// 		$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[3]);
-			// 		$column++;
-			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Entrada');
-			// 		$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[0]);
-			// 		$column++;
-			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Salida');
-			// 		$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[1]);
-			// 		$column++;
-			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Minutos');
-			// 		$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
-			// 		$column++;
-			// 		$numgeocerca++;
-			// 	endforeach;
+				$column = 'Z';
+				$numgeocerca = 1;
+				foreach ($fechas as $fecha):
+					$fila = 1;
+					$column2 = $column;
+					$column2++;
+					$column2++;
+					$column2++;
+					$this->excel->getActiveSheet()->mergeCells($column.$fila.":".$column2.$fila);												
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Geocerca '.$numgeocerca);
+					$this->excel->getActiveSheet()->getStyle($column.$fila.":".$column2.$fila)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+					$fila++;
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Nombre');
+					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[3]);
+					$column++;
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Entrada');
+					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[0]);
+					$column++;
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Salida');
+					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[1]);
+					$column++;
+					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Minutos');
+					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
+					$column++;
+					$numgeocerca++;
+				endforeach;
 
 				//$lo['total']=$incidents->num_rows();
 				//$_log[] = $lo;
