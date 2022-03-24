@@ -367,7 +367,8 @@ class Api extends RestController
 				$idMaterial = $this->post('idMaterial');
 				$driver = $this->post('driverName');
 				$company = $this->post('companyName');
-				$gps = $this->post('GPS');	
+				$gps = $this->post('GPS');
+				$mica = $this->post('mica');	
 				
 				$plate = strtoupper($plate);
 				$driver = strtoupper($driver);
@@ -386,7 +387,8 @@ class Api extends RestController
 					'idDriver' => $idDriver,
 					'idCompany' => $idCompany,
 					'idGPS' => $gps,
-					'idGPS2' => $gps
+					'idGPS2' => $gps,
+					'mica' => $mica
 				);
 
                 //adm - Descomentar en producción
