@@ -202,6 +202,7 @@
                 error: function (jqXHR, exception) {
                     console.log(jqXHR);
                     console.log(exception);
+                    console.log(exception.responseText);
                 }
             });
         });
