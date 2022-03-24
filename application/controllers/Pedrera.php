@@ -895,7 +895,7 @@ class Pedrera extends CI_Controller {
 				if($max1!=null && $max2!=null){
 					$this->excel->getActiveSheet()->setCellValue("K{$numrow}", $max1);
 					$this->excel->getActiveSheet()->setCellValue("L{$numrow}", $max2);
-					//$this->excel->getActiveSheet()->setCellValue("M{$numrow}", $max3);
+					$this->excel->getActiveSheet()->setCellValue("M{$numrow}", "2");
 				}
 
 				// list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2, false);
