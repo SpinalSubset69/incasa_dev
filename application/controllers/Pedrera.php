@@ -870,14 +870,14 @@ class Pedrera extends CI_Controller {
 				$this->excel->getActiveSheet()->setCellValue("E{$numrow}", $lo['nameMaterial']);
 				$this->excel->getActiveSheet()->setCellValue("F{$numrow}", $lo['mica']);
 
-			// 	$this->excel->getActiveSheet()->setCellValue("G{$numrow}", explode(" ",$lo['arrival'])[0]);				
+				$this->excel->getActiveSheet()->setCellValue("G{$numrow}", explode(" ",$lo['arrival'])[0]);				
 
-			// 	date_default_timezone_set('America/Monterrey');
-            //     $dateu = mysql_to_unix($lo['arrival']);
-			// 	if(date('I')==1) 
-			// 		$dateu = gmt_to_local($dateu, "UP2", FALSE);
-			// 	else
-			// 		$dateu = gmt_to_local($dateu, "UP1", FALSE);
+				date_default_timezone_set('America/Monterrey');
+                $dateu = mysql_to_unix($lo['arrival']);
+				if(date('I')==1) 
+					$dateu = gmt_to_local($dateu, "UP2", FALSE);
+				else
+					$dateu = gmt_to_local($dateu, "UP1", FALSE);
 
 			// 	$dateu = unix_to_human($dateu); 
 			// 	$this->excel->getActiveSheet()->setCellValue("H{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
