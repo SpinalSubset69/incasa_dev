@@ -879,17 +879,17 @@ class Pedrera extends CI_Controller {
 				else
 					$dateu = gmt_to_local($dateu, "UP1", FALSE);
 
-			// 	$dateu = unix_to_human($dateu); 
-			// 	$this->excel->getActiveSheet()->setCellValue("H{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
-			// 	$dateu = mysql_to_unix($lo['departure']);
-			// 	if(date('I')==1)
-			// 		$dateu = gmt_to_local($dateu, "UP2", FALSE);
-			// 	else
-			// 		$dateu = gmt_to_local($dateu, "UP1", FALSE);
-			// 	$dateu = unix_to_human($dateu); 
-			// 	$this->excel->getActiveSheet()->setCellValue("I{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
+				$dateu = unix_to_human($dateu); 
+				$this->excel->getActiveSheet()->setCellValue("H{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
+				$dateu = mysql_to_unix($lo['departure']);
+				if(date('I')==1)
+					$dateu = gmt_to_local($dateu, "UP2", FALSE);
+				else
+					$dateu = gmt_to_local($dateu, "UP1", FALSE);
+				$dateu = unix_to_human($dateu); 
+				$this->excel->getActiveSheet()->setCellValue("I{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
 
-			// 	$this->excel->getActiveSheet()->setCellValue("J{$numrow}", $lo['time']);
+				$this->excel->getActiveSheet()->setCellValue("J{$numrow}", $lo['time']);
 
 			// 	list($max1, $max2, $max3) = $this->Log_model->getTimeEntrada($lo['idLog']);
 			// 	if($max1!=null && $max2!=null){
