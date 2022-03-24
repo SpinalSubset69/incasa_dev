@@ -860,106 +860,105 @@ class Pedrera extends CI_Controller {
 			$numrow = 3;
 			$log = $this->Log_model->getLog2($fechaInicial, $fechaFinal);
 
-			foreach($log as $lo):
-				//$lo['log2']=$this->Log_model->getLogId($lo['idLog']);
-				$incidents=$this->Log_model->getIncidents($lo['idLog']);
-				$incidents=$incidents->result_array();
-				$this->excel->getActiveSheet()->setCellValue("A{$numrow}", $lo['idTruck']);				
-				$this->excel->getActiveSheet()->setCellValueExplicit("B{$numrow}", $lo['idGPS2'], PHPExcel_Cell_DataType::TYPE_STRING);
-				$this->excel->getActiveSheet()->setCellValue("C{$numrow}", $lo['nameDriver']);
-				$this->excel->getActiveSheet()->setCellValue("D{$numrow}", $lo['nameCompany']);
-				$this->excel->getActiveSheet()->setCellValue("E{$numrow}", $lo['nameMaterial']);
-				$this->excel->getActiveSheet()->setCellValue("F{$numrow}", $lo['mica']);
+			// foreach($log as $lo):				
+			// 	$incidents=$this->Log_model->getIncidents($lo['idLog']);
+			// 	$incidents=$incidents->result_array();
+			// 	$this->excel->getActiveSheet()->setCellValue("A{$numrow}", $lo['idTruck']);				
+			// 	$this->excel->getActiveSheet()->setCellValueExplicit("B{$numrow}", $lo['idGPS2'], PHPExcel_Cell_DataType::TYPE_STRING);
+			// 	$this->excel->getActiveSheet()->setCellValue("C{$numrow}", $lo['nameDriver']);
+			// 	$this->excel->getActiveSheet()->setCellValue("D{$numrow}", $lo['nameCompany']);
+			// 	$this->excel->getActiveSheet()->setCellValue("E{$numrow}", $lo['nameMaterial']);
+			// 	$this->excel->getActiveSheet()->setCellValue("F{$numrow}", $lo['mica']);
 
-				$this->excel->getActiveSheet()->setCellValue("G{$numrow}", explode(" ",$lo['arrival'])[0]);				
+			// 	$this->excel->getActiveSheet()->setCellValue("G{$numrow}", explode(" ",$lo['arrival'])[0]);				
 
-				date_default_timezone_set('America/Monterrey');
-                $dateu = mysql_to_unix($lo['arrival']);
-				if(date('I')==1) 
-					$dateu = gmt_to_local($dateu, "UP2", FALSE);
-				else
-					$dateu = gmt_to_local($dateu, "UP1", FALSE);
+			// 	date_default_timezone_set('America/Monterrey');
+            //     $dateu = mysql_to_unix($lo['arrival']);
+			// 	if(date('I')==1) 
+			// 		$dateu = gmt_to_local($dateu, "UP2", FALSE);
+			// 	else
+			// 		$dateu = gmt_to_local($dateu, "UP1", FALSE);
 
-				$dateu = unix_to_human($dateu); 
-				$this->excel->getActiveSheet()->setCellValue("H{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
-				$dateu = mysql_to_unix($lo['departure']);
-				if(date('I')==1)
-					$dateu = gmt_to_local($dateu, "UP2", FALSE);
-				else
-					$dateu = gmt_to_local($dateu, "UP1", FALSE);
-				$dateu = unix_to_human($dateu); 
-				$this->excel->getActiveSheet()->setCellValue("I{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
+			// 	$dateu = unix_to_human($dateu); 
+			// 	$this->excel->getActiveSheet()->setCellValue("H{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
+			// 	$dateu = mysql_to_unix($lo['departure']);
+			// 	if(date('I')==1)
+			// 		$dateu = gmt_to_local($dateu, "UP2", FALSE);
+			// 	else
+			// 		$dateu = gmt_to_local($dateu, "UP1", FALSE);
+			// 	$dateu = unix_to_human($dateu); 
+			// 	$this->excel->getActiveSheet()->setCellValue("I{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
 
-				$this->excel->getActiveSheet()->setCellValue("J{$numrow}", $lo['time']);
+			// 	$this->excel->getActiveSheet()->setCellValue("J{$numrow}", $lo['time']);
 
-				list($max1, $max2, $max3) = $this->Log_model->getTimeEntrada($lo['idLog']);
-				if($max1!=null && $max2!=null){
-					$this->excel->getActiveSheet()->setCellValue("K{$numrow}", $max1);
-					$this->excel->getActiveSheet()->setCellValue("L{$numrow}", $max2);
-					$this->excel->getActiveSheet()->setCellValue("M{$numrow}", $max3);
-				}
+			// 	list($max1, $max2, $max3) = $this->Log_model->getTimeEntrada($lo['idLog']);
+			// 	if($max1!=null && $max2!=null){
+			// 		$this->excel->getActiveSheet()->setCellValue("K{$numrow}", $max1);
+			// 		$this->excel->getActiveSheet()->setCellValue("L{$numrow}", $max2);
+			// 		$this->excel->getActiveSheet()->setCellValue("M{$numrow}", $max3);
+			// 	}
 
-				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2, false);
-				if($max1!=null && $max2!=null){
-					$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max1);
-					$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max2);
-					$this->excel->getActiveSheet()->setCellValue("P{$numrow}", $max3);
-				}
+			// 	list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2, false);
+			// 	if($max1!=null && $max2!=null){
+			// 		$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max1);
+			// 		$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max2);
+			// 		$this->excel->getActiveSheet()->setCellValue("P{$numrow}", $max3);
+			// 	}
 
-				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 3, false);
-				if($max1!=null && $max2!=null){
-					$this->excel->getActiveSheet()->setCellValue("Q{$numrow}", $max1);
-					$this->excel->getActiveSheet()->setCellValue("R{$numrow}", $max2);
-					$this->excel->getActiveSheet()->setCellValue("S{$numrow}", $max3);
-				}
+			// 	list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 3, false);
+			// 	if($max1!=null && $max2!=null){
+			// 		$this->excel->getActiveSheet()->setCellValue("Q{$numrow}", $max1);
+			// 		$this->excel->getActiveSheet()->setCellValue("R{$numrow}", $max2);
+			// 		$this->excel->getActiveSheet()->setCellValue("S{$numrow}", $max3);
+			// 	}
 
-				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 4, false);
-				if($max1!=null && $max2!=null){
-					$this->excel->getActiveSheet()->setCellValue("T{$numrow}", $max1);
-					$this->excel->getActiveSheet()->setCellValue("U{$numrow}", $max2);
-					$this->excel->getActiveSheet()->setCellValue("V{$numrow}", $max3);
-				}
+			// 	list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 4, false);
+			// 	if($max1!=null && $max2!=null){
+			// 		$this->excel->getActiveSheet()->setCellValue("T{$numrow}", $max1);
+			// 		$this->excel->getActiveSheet()->setCellValue("U{$numrow}", $max2);
+			// 		$this->excel->getActiveSheet()->setCellValue("V{$numrow}", $max3);
+			// 	}
 
-				list($max1, $max2, $max3) = $this->Log_model->getTimeSalida($lo['idLog']);
-				if($max1!=null && $max2!=null){
-					$this->excel->getActiveSheet()->setCellValue("W{$numrow}", $max1);
-					$this->excel->getActiveSheet()->setCellValue("X{$numrow}", $max2);
-					$this->excel->getActiveSheet()->setCellValue("Y{$numrow}", $max3);
-				}
+			// 	list($max1, $max2, $max3) = $this->Log_model->getTimeSalida($lo['idLog']);
+			// 	if($max1!=null && $max2!=null){
+			// 		$this->excel->getActiveSheet()->setCellValue("W{$numrow}", $max1);
+			// 		$this->excel->getActiveSheet()->setCellValue("X{$numrow}", $max2);
+			// 		$this->excel->getActiveSheet()->setCellValue("Y{$numrow}", $max3);
+			// 	}
 
-				$fechas = $this->Log_model->getTimes($lo['idLog'], 2, true);
+			// 	$fechas = $this->Log_model->getTimes($lo['idLog'], 2, true);
 
-				$column = 'Z';
-				$numgeocerca = 1;
-				foreach ($fechas as $fecha):
-					$fila = 1;
-					$column2 = $column;
-					$column2++;
-					$column2++;
-					$column2++;
-					$this->excel->getActiveSheet()->mergeCells($column.$fila.":".$column2.$fila);												
-					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Geocerca '.$numgeocerca);
-					$this->excel->getActiveSheet()->getStyle($column.$fila.":".$column2.$fila)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-					$fila++;
-					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Nombre');
-					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[3]);
-					$column++;
-					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Entrada');
-					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[0]);
-					$column++;
-					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Salida');
-					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[1]);
-					$column++;
-					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Minutos');
-					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
-					$column++;
-					$numgeocerca++;
-				endforeach;
+			// 	$column = 'Z';
+			// 	$numgeocerca = 1;
+			// 	foreach ($fechas as $fecha):
+			// 		$fila = 1;
+			// 		$column2 = $column;
+			// 		$column2++;
+			// 		$column2++;
+			// 		$column2++;
+			// 		$this->excel->getActiveSheet()->mergeCells($column.$fila.":".$column2.$fila);												
+			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Geocerca '.$numgeocerca);
+			// 		$this->excel->getActiveSheet()->getStyle($column.$fila.":".$column2.$fila)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			// 		$fila++;
+			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Nombre');
+			// 		$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[3]);
+			// 		$column++;
+			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Entrada');
+			// 		$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[0]);
+			// 		$column++;
+			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Hr Salida');
+			// 		$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[1]);
+			// 		$column++;
+			// 		$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Minutos');
+			// 		$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
+			// 		$column++;
+			// 		$numgeocerca++;
+			// 	endforeach;
 
-				//$lo['total']=$incidents->num_rows();
-				//$_log[] = $lo;
-				$numrow++;
-			endforeach;
+			// 	//$lo['total']=$incidents->num_rows();
+			// 	//$_log[] = $lo;
+			// 	$numrow++;
+			// endforeach;
 
 			//$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
 			/*foreach ($materias as $materia) {
