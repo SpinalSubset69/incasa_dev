@@ -898,19 +898,19 @@ class Pedrera extends CI_Controller {
 					$this->excel->getActiveSheet()->setCellValue("M{$numrow}", strval($max3));
 				}
 
-				// list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2, false);
-				// if($max1!=null && $max2!=null){
-				// 	$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max1);
-				// 	$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max2);
-				// 	$this->excel->getActiveSheet()->setCellValue("P{$numrow}", $max3);
-				// }
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 2, false);
+				if($max1!=null && $max2!=null){
+					$this->excel->getActiveSheet()->setCellValue("N{$numrow}", $max1);
+					$this->excel->getActiveSheet()->setCellValue("O{$numrow}", $max2);
+					$this->excel->getActiveSheet()->setCellValue("P{$numrow}", strval($max3));
+				}
 
-			// 	list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 3, false);
-			// 	if($max1!=null && $max2!=null){
-			// 		$this->excel->getActiveSheet()->setCellValue("Q{$numrow}", $max1);
-			// 		$this->excel->getActiveSheet()->setCellValue("R{$numrow}", $max2);
-			// 		$this->excel->getActiveSheet()->setCellValue("S{$numrow}", $max3);
-			// 	}
+				list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 3, false);
+				if($max1!=null && $max2!=null){
+					$this->excel->getActiveSheet()->setCellValue("Q{$numrow}", $max1);
+					$this->excel->getActiveSheet()->setCellValue("R{$numrow}", $max2);
+					$this->excel->getActiveSheet()->setCellValue("S{$numrow}", strval($max3));
+				}
 
 			// 	list($max1, $max2, $max3) = $this->Log_model->getTimes($lo['idLog'], 4, false);
 			// 	if($max1!=null && $max2!=null){
