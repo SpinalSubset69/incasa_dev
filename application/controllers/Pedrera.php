@@ -860,15 +860,15 @@ class Pedrera extends CI_Controller {
 			$numrow = 3;
 			$log = $this->Log_model->getLog2($fechaInicial, $fechaFinal);
 
-			// foreach($log as $lo):				
-			// 	$incidents=$this->Log_model->getIncidents($lo['idLog']);
-			// 	$incidents=$incidents->result_array();
-			// 	$this->excel->getActiveSheet()->setCellValue("A{$numrow}", $lo['idTruck']);				
-			// 	$this->excel->getActiveSheet()->setCellValueExplicit("B{$numrow}", $lo['idGPS2'], PHPExcel_Cell_DataType::TYPE_STRING);
-			// 	$this->excel->getActiveSheet()->setCellValue("C{$numrow}", $lo['nameDriver']);
-			// 	$this->excel->getActiveSheet()->setCellValue("D{$numrow}", $lo['nameCompany']);
-			// 	$this->excel->getActiveSheet()->setCellValue("E{$numrow}", $lo['nameMaterial']);
-			// 	$this->excel->getActiveSheet()->setCellValue("F{$numrow}", $lo['mica']);
+			foreach($log as $lo):				
+				$incidents=$this->Log_model->getIncidents($lo['idLog']);
+				$incidents=$incidents->result_array();
+				$this->excel->getActiveSheet()->setCellValue("A{$numrow}", $lo['idTruck']);				
+				$this->excel->getActiveSheet()->setCellValueExplicit("B{$numrow}", $lo['idGPS2'], PHPExcel_Cell_DataType::TYPE_STRING);
+				$this->excel->getActiveSheet()->setCellValue("C{$numrow}", $lo['nameDriver']);
+				$this->excel->getActiveSheet()->setCellValue("D{$numrow}", $lo['nameCompany']);
+				$this->excel->getActiveSheet()->setCellValue("E{$numrow}", $lo['nameMaterial']);
+				$this->excel->getActiveSheet()->setCellValue("F{$numrow}", $lo['mica']);
 
 			// 	$this->excel->getActiveSheet()->setCellValue("G{$numrow}", explode(" ",$lo['arrival'])[0]);				
 
@@ -955,10 +955,10 @@ class Pedrera extends CI_Controller {
 			// 		$numgeocerca++;
 			// 	endforeach;
 
-			// 	//$lo['total']=$incidents->num_rows();
-			// 	//$_log[] = $lo;
-			// 	$numrow++;
-			// endforeach;
+				//$lo['total']=$incidents->num_rows();
+				//$_log[] = $lo;
+				$numrow++;
+			endforeach;
 
 			//$this->excel->getActiveSheet()->setCellValue("B1", "Alumnos");
 			/*foreach ($materias as $materia) {
