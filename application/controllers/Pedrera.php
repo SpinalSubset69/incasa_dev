@@ -804,29 +804,28 @@ class Pedrera extends CI_Controller {
 			//$this->excel->getActiveSheet()->getStyle("B1")->getFont()->setBold(true);			
 
 			//Entrada
-			$this->excel->getActiveSheet()->mergeCells("J1:L1");			
-			$this->excel->getActiveSheet()->setCellValue("J1", "Entrada");
-			$this->excel->getActiveSheet()->getStyle('J1:L1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-
+			$this->excel->getActiveSheet()->mergeCells("K1:M1");			
+			$this->excel->getActiveSheet()->setCellValue("K1", "Entrada");
+			$this->excel->getActiveSheet()->getStyle('K1:M1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			//Material Cargar
-			$this->excel->getActiveSheet()->mergeCells("M1:O1");			
-			$this->excel->getActiveSheet()->setCellValue("M1", "Material Cargar");
-			$this->excel->getActiveSheet()->getStyle('M1:O1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$this->excel->getActiveSheet()->mergeCells("N1:P1");			
+			$this->excel->getActiveSheet()->setCellValue("N1", "Material Cargar");
+			$this->excel->getActiveSheet()->getStyle('N1:P1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
 			//Bascula
-			$this->excel->getActiveSheet()->mergeCells("P1:R1");			
-			$this->excel->getActiveSheet()->setCellValue("P1", "Báscula");
-			$this->excel->getActiveSheet()->getStyle('P1:R1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$this->excel->getActiveSheet()->mergeCells("Q1:S1");			
+			$this->excel->getActiveSheet()->setCellValue("Q1", "Báscula");
+			$this->excel->getActiveSheet()->getStyle('Q1:S1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
 			//Enlonado
-			$this->excel->getActiveSheet()->mergeCells("S1:U1");			
-			$this->excel->getActiveSheet()->setCellValue("S1", "Enlonado");
-			$this->excel->getActiveSheet()->getStyle('S1:U1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$this->excel->getActiveSheet()->mergeCells("T1:V1");			
+			$this->excel->getActiveSheet()->setCellValue("T1", "Enlonado");
+			$this->excel->getActiveSheet()->getStyle('T1:V1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
 			//Salida
-			$this->excel->getActiveSheet()->mergeCells("V1:X1");			
-			$this->excel->getActiveSheet()->setCellValue("V1", "Salida");
-			$this->excel->getActiveSheet()->getStyle('V1:X1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			$this->excel->getActiveSheet()->mergeCells("W1:Y1");			
+			$this->excel->getActiveSheet()->setCellValue("W1", "Salida");
+			$this->excel->getActiveSheet()->getStyle('W1:Y1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
 			$this->excel->getActiveSheet()->setCellValue("A2", "Placa");
 			$this->excel->getActiveSheet()->setCellValue("B2", "GPS");
@@ -952,7 +951,7 @@ class Pedrera extends CI_Controller {
 					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[1]);
 					$column++;
 					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Minutos');
-					//$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
+					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
 					$column++;
 					$numgeocerca++;
 				endforeach;
