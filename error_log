@@ -21,3 +21,5 @@
 [21-May-2021 20:09:47 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
 [21-May-2021 20:10:46 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
 [21-May-2021 20:12:07 UTC] PHP Fatal error:  Cannot redeclare Api::saveExit_post() in /home/grqztg8s1f89/public_html/lapedrera.margam.mx/application/controllers/Api.php on line 535
+[05-Oct-2021 12:39:35 America/Monterrey] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/grqztg8s1f89/public_html/incasapac.com/application/libraries/PHPExcel/Cell.php on line 896
+[05-Oct-2021 12:41:17 America/Monterrey] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/grqztg8s1f89/public_html/incasapac.com/application/libraries/PHPExcel/Cell.php on line 896
