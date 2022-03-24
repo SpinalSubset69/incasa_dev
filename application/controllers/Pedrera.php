@@ -952,7 +952,7 @@ class Pedrera extends CI_Controller {
 					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[1]);
 					$column++;
 					$this->excel->getActiveSheet()->setCellValue($column.$fila, 'Minutos');
-					$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
+					//$this->excel->getActiveSheet()->setCellValue($column.$numrow, $fecha[2]);
 					$column++;
 					$numgeocerca++;
 				endforeach;
