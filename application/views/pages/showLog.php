@@ -63,11 +63,11 @@
                 <thead>
                     <tr>
                         <th class="sorted">Pedrera</th>
-                        <th class="sorted">Placa</th>
-                        <th class="sorted">Mica</th>
+                        <th class="sorted">Placa</th>                        
                         <th class="sorted">Compañia</th>
                         <th class="sorted">GPS</th>
                         <th class="sorted">Material</th>
+                        <th class="sorted">Mica</th>
                         <th class="sorted">Conductor</th>
                         <th class="sorted default-sort">Llegada</th>
                         <th class="sorted">Salida</th>
@@ -81,11 +81,11 @@
                     <?php foreach ($log as $lo) : ?>
                         <tr <?php if ($lo['departure']!=NULL){ if ($lo['time'] >= 45) echo 'class="warning"'; } else {echo 'class="positive"';} ?>>
                             <td><?php echo $lo['nameQuarry']; ?></td>
-                            <td><?php echo $lo['idTruck']; ?></td>
-                            <td><?php echo $lo['mica']; ?></td>
+                            <td><?php echo $lo['idTruck']; ?></td>                            
                             <td><?php echo $lo['nameCompany']; ?></td>                            
                             <td><?php echo $lo['idGPS2']; ?></td>
                             <td><?php echo $lo['nameMaterial']; ?></td>
+                            <td><?php echo $lo['mica']; ?></td>
                             <!-- En horario de verano debo de adelantar dos horas; si no una hora -->
                             <td><?php echo $lo['nameDriver']; ?></td>
                             <td>
@@ -125,11 +125,11 @@
                 <tfoot>
                     <tr>
                         <th class="sorted">Pedrera</th>
-                        <th class="sorted">Placa</th>
-                        <th class="sorted">Mica</th>
+                        <th class="sorted">Placa</th>                        
                         <th class="sorted">Compañia</th>
                         <th class="sorted">GPS</th>
                         <th class="sorted">Material</th>
+                        <th class="sorted">Mica</th>
                         <th class="sorted">Conductor</th>
                         <th class="sorted">Llegada</th>
                         <th class="sorted">Salida</th>
