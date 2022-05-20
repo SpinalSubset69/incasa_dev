@@ -304,14 +304,18 @@ class Log_model extends CI_Model{
             else
                 $dateu = gmt_to_local($dateu, "UP1", FALSE);
             $dateu = unix_to_human($dateu);
-            $fecha1 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+            $dateu = date_create($dateu);
+            $fecha1 = date_format($dateu, 'H:i');
+            //$fecha1 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
             $dateu = mysql_to_unix($fecha2);
             if(date('I')==1)
                 $dateu = gmt_to_local($dateu, "UP2", FALSE);
             else
                 $dateu = gmt_to_local($dateu, "UP1", FALSE);
             $dateu = unix_to_human($dateu);
-            $fecha2 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+            $dateu = date_create($dateu);
+            $fecha2 = date_format($dateu, 'H:i');
+            //$fecha2 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
         }
         return array($fecha1, $fecha2, $minutes);
     }
@@ -345,14 +349,18 @@ class Log_model extends CI_Model{
             else
                 $dateu = gmt_to_local($dateu, "UP1", FALSE);
             $dateu = unix_to_human($dateu);
-            $fecha1 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+            $dateu = date_create($dateu);
+            $fecha1 = date_format($dateu, 'H:i');
+            //$fecha1 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
             $dateu = mysql_to_unix($fecha2);
             if(date('I')==1)
                 $dateu = gmt_to_local($dateu, "UP2", FALSE);
             else
                 $dateu = gmt_to_local($dateu, "UP1", FALSE);
             $dateu = unix_to_human($dateu);
-            $fecha2 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
+            $dateu = date_create($dateu);
+            $fecha2 = date_format($dateu, 'H:i');
+            //$fecha2 = explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2];
         }
         return array($fecha1, $fecha2, $minutes);
     }
