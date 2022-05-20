@@ -191,8 +191,8 @@
             f1 = null;
             f2 = null;
             if(minDate!=null && maxDate!=null){
-                //minDate.setTime(minDate.getTime() - 2 * 60 * 60 * 1000);
-                //maxDate.setTime(maxDate.getTime() - 2 * 60 * 60 * 1000);
+                minDate.setTime(minDate.getTime() - 7 * 60 * 60 * 1000);
+                maxDate.setTime(maxDate.getTime() + 22 * 60 * 60 * 1000);
 
                 f1 = minDate.toISOString().slice(2, 19).replace('T', ' ');
                 f2 = maxDate.toISOString().slice(2, 19).replace('T', ' ');
@@ -204,8 +204,8 @@
                 day2 = parseInt(day2)+1;
                 f1 = day1.toString()+f1 + " 22:00:00";
                 f2 = day1.toString()+f2 + " 02:00:00";*/
-                minDate.setTime(minDate.getTime() - 2 * 60 * 60 * 1000);
-                maxDate.setTime(maxDate.getTime() - 2 * 60 * 60 * 1000);
+                //minDate.setTime(minDate.getTime() - 2 * 60 * 60 * 1000);
+                //maxDate.setTime(maxDate.getTime() - 2 * 60 * 60 * 1000);
                 console.log(f1);
                 console.log(f2);
             }
