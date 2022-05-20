@@ -97,7 +97,8 @@
                                     }else
                                         $dateu = gmt_to_local($dateu, "UP1", FALSE);
                                     echo unix_to_human($dateu); 
-                                    echo date_format($dateu, 'd/m/Y H:i:s');
+                                    $date = date_create($dateu);
+                                    echo date_format($date, 'd/m/Y H:i:s');
                                 ?>
                             </td>
                             <td>
