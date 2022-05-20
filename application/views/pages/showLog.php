@@ -91,12 +91,13 @@
                             <td>
                                 <?php 
                                     date_default_timezone_set('America/Monterrey');
-                                    $dateu = mysql_to_unix($lo['arrival']);
+                                    $dateu = mysql_to_unix($lo['arrival']);                                    
                                     if(date('I')==1) {
                                         $dateu = gmt_to_local($dateu, "UP2", FALSE);
                                     }else
                                         $dateu = gmt_to_local($dateu, "UP1", FALSE);
                                     echo unix_to_human($dateu); 
+                                    echo date_format($dateu, 'd/m/Y H:i:s');
                                 ?>
                             </td>
                             <td>
