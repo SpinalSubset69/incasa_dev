@@ -191,16 +191,21 @@
             f1 = null;
             f2 = null;
             if(minDate!=null && maxDate!=null){
-                f1 = minDate.toISOString().slice(2, 10).replace('T', ' ');
-                f2 = maxDate.toISOString().slice(2, 10).replace('T', ' ');
+                minDate.setTime(minDate.getTime() - 2 * 60 * 60 * 1000);
+                maxDate.setTime(maxDate.getTime() - 2 * 60 * 60 * 1000);
+
+                f1 = minDate.toISOString().slice(2, 19).replace('T', ' ');
+                f2 = maxDate.toISOString().slice(2, 19).replace('T', ' ');
                 //console.log(minDate.toISOString().slice(0, 10));
                 //console.log(maxDate.toISOString().slice(0, 10));
-                day1 = minDate.toISOString().slice(0, 2);
+                /*day1 = minDate.toISOString().slice(0, 2);
                 day2 = minDate.toISOString().slice(0, 2);
                 day1 = parseInt(day1)-1;
                 day2 = parseInt(day2)+1;
                 f1 = day1.toString()+f1 + " 22:00:00";
-                f2 = day1.toString()+f2 + " 02:00:00";
+                f2 = day1.toString()+f2 + " 02:00:00";*/
+                minDate.setTime(minDate.getTime() - 2 * 60 * 60 * 1000);
+                maxDate.setTime(maxDate.getTime() - 2 * 60 * 60 * 1000);
                 console.log(f1);
                 console.log(f2);
             }
