@@ -110,7 +110,9 @@
                                             $dateu = gmt_to_local($dateu, "UP2", FALSE);
                                         }else
                                             $dateu = gmt_to_local($dateu, "UP1", FALSE);
-                                        echo unix_to_human($dateu);
+                                        //echo unix_to_human($dateu);
+                                        $date = date_create(unix_to_human($dateu));
+                                        echo date_format($date, 'Y-m-d H:i');
                                     }else{
                                         echo "No ha salido";
                                     }
