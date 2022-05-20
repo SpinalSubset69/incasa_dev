@@ -191,8 +191,8 @@
             f1 = null;
             f2 = null;
             if(minDate!=null && maxDate!=null){
-                minDate.setTime(minDate.getTime() - 2 * 60 * 60 * 1000);
-                maxDate.setTime(maxDate.getTime() - 2 * 60 * 60 * 1000);
+                //minDate.setTime(minDate.getTime() - 2 * 60 * 60 * 1000);
+                //maxDate.setTime(maxDate.getTime() - 2 * 60 * 60 * 1000);
 
                 f1 = minDate.toISOString().slice(2, 19).replace('T', ' ');
                 f2 = maxDate.toISOString().slice(2, 19).replace('T', ' ');
