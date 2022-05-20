@@ -189,8 +189,8 @@
             if(minDate!=null && maxDate!=null){
                 f1 = minDate.toISOString().slice(0, 19).replace('T', ' ');
                 f2 = maxDate.toISOString().slice(0, 19).replace('T', ' ');
-                console.log(minDate.toISOString().slice(0, 9));
-                console.log(maxDate.toISOString().slice(0, 9));
+                console.log(minDate.toISOString().slice(0, 10));
+                console.log(maxDate.toISOString().slice(0, 10));
                 console.log(f1);
                 console.log(f2);
             }
