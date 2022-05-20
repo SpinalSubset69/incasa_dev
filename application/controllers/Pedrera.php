@@ -880,6 +880,8 @@ class Pedrera extends CI_Controller {
 					$dateu = gmt_to_local($dateu, "UP1", FALSE);
 
 				$dateu = unix_to_human($dateu); 
+				$dateu = date_create($dateu);
+                $dateu = date_format($dateu, 'Y-m-d H:i');
 				$this->excel->getActiveSheet()->setCellValue("H{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
 				$dateu = mysql_to_unix($lo['departure']);
 				if(date('I')==1)
@@ -887,6 +889,8 @@ class Pedrera extends CI_Controller {
 				else
 					$dateu = gmt_to_local($dateu, "UP1", FALSE);
 				$dateu = unix_to_human($dateu); 
+				$dateu = date_create($dateu);
+                $dateu = date_format($dateu, 'Y-m-d H:i');
 				$this->excel->getActiveSheet()->setCellValue("I{$numrow}", explode(" ",$dateu)[1]." ".explode(" ",$dateu)[2]);
 
 				$this->excel->getActiveSheet()->setCellValue("J{$numrow}", $lo['time']);
