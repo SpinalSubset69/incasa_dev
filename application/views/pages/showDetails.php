@@ -92,9 +92,38 @@
                             </div>
                         </div>
                     </div>
+                    <div class="ui equal width grid stackable">
+                        <div class="column">
+                            <div class="field">
+                                <label>Remisión:</label>
+                                <input disabled type="text" value="<?php echo ($log->remision!=NULL)?$log->remision:"No disponible"; ?>">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="field">
+                                <label>Observaciones:</label>
+                                <button type="button" class="ui fluid blue button btnObservaciones" id="btnObservaciones" name="button"
+                                    <?php echo ($log->observaciones!=NULL)?"":" disabled";?> > 
+                                    <?php echo ($log->observaciones!=NULL)?"Mostrar observaciones":"No hay observaciones";?>
+                                </button> <!-- TODO -->
+                            </div>
+                        </div>
+                        <div class="column">
+                            <!-- Empty column used to align the fields -->
+                        </div>
+                        <div class="column">
+                            <!-- Empty column used to align the fields -->
+                        </div>
+                    </div>
                 </form>
             </div>
             <br>
+            <div id="observationsField" class="observationsField" style="display:none">
+                <h4>Observaciones</h4>
+                <div class="ui segment attached">
+                    <p><?php echo ($log->observaciones!=NULL)?$log->observaciones:"" ?></p>
+                </div>
+            </div>
             <table class="ui sortable celled table tablaUsuarios">
                 <thead>
                     <tr>
@@ -155,10 +184,22 @@
     </div>
 </main>
 
-
 <script type="text/javascript">
     $(document).ready(function() {
-        
+    
+        $('.btnObservaciones').on('click', function() {
+            var obsField = document.getElementById("observationsField")
+            var obsButton = document.getElementById("btnObservaciones")
 
-    });
+            if (obsField.style.display === 'none') {
+                obsField.style.display = 'block'
+                obsButton.textContent = 'Ocultar observaciones'
+            }
+            else {
+                obsField.style.display = 'none'
+                obsButton.textContent = 'Mostrar observaciones'
+            }
+        });       
+
+    })
 </script>

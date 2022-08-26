@@ -87,7 +87,7 @@
         console.log(idBuilding);
         $.ajax({
             type: 'POST',
-            url: 'https://incasapac.com/Pedrera/addMaterialPlant/',
+            url: '<?php echo base_url(); ?>Pedrera/addMaterialPlant/',
             data: {idBuilding:idBuilding, idMaterial: val},
             dataType: 'json',
             success: function(response){
@@ -107,7 +107,7 @@
         
         $.ajax({
             type: 'POST',
-            url: 'https://incasapac.com/Pedrera/removeMaterialPlant/',
+            url: '<?php echo base_url(); ?>Pedrera/removeMaterialPlant/',
             data: {idBuilding:idBuilding, idMaterial: val},
             dataType: 'json',
             success: function(response){

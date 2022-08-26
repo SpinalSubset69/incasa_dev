@@ -180,7 +180,7 @@
             document.cookie = 'id_log='+data_id;
             //$(location).attr('href', "https://incasapac.com/Pedrera/showDetails/" + data_id);
             //window.open("https://incasapac.com/Pedrera/showDetails/" + data_id, '_blank');
-            $('#description').load("https://incasapac.com/Pedrera/showDetails/" + data_id, function() {
+            $('#description').load("<?php echo base_url(); ?>Pedrera/showDetails/" + data_id, function() {
                  //$('#bootstrap-modal').modal({show:true});
                  $('.ui.modal').modal('show');
             });

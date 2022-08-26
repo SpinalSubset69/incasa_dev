@@ -89,8 +89,7 @@ class Pedrera extends CI_Controller {
 				$lo['total']=$incidents->num_rows();
 				$_log[] = $lo;
 			endforeach;*/
-			
-
+		
 			$data['log'] = $log;
 			$data["txt_fechainicio"]="";
     		$data["txt_fechafin"]="";
@@ -682,7 +681,8 @@ class Pedrera extends CI_Controller {
 			$data['driver']='';
 			$data['company']='';
 			$data['materialSel']=-1;	
-			$data['gps2'] = '';		
+			$data['gps2'] = '';
+			$data['mica'] = '';
 			$quarry = $this->session->userdata('quarry');
 			$data['materials'] = $this->Materials_model->getAvailableMaterials($quarry);
 			$gps = $this->Materials_model->getGPS();//Corregir
@@ -717,6 +717,7 @@ class Pedrera extends CI_Controller {
 				$driver = $this->input->post("txt_driver");
 				$company = $this->input->post("txt_company");
 				$gps2 = $this->input->post("txt_gps");
+				$mica = $this->input->post("txt_mica");
 
 				$plate = strtoupper($plate);
 				$driver = strtoupper($driver);
@@ -727,6 +728,7 @@ class Pedrera extends CI_Controller {
 				$data['driver']=$driver;
 				$data['company']=$company;
 				$data['gps2'] = $gps2;
+				$data['mica'] = $mica;
 
 				if($this->Trucks_model->getTruck($plate)!=FALSE){
 					//Error existe el vehículo
@@ -752,7 +754,8 @@ class Pedrera extends CI_Controller {
 						'idDriver' => $idDriver,
 						'idCompany' => $idCompany,
 						'idGPS' => $gps2,
-						'idGPS2' => $gps2
+						'idGPS2' => $gps2,
+						'mica' => $mica
 					);
 	
 					//adm - Descomentar en producción
@@ -852,11 +855,17 @@ class Pedrera extends CI_Controller {
 			$this->excel->getActiveSheet()->setCellValue("W2", "Hr Entrada");
 			$this->excel->getActiveSheet()->setCellValue("X2", "Hr Salida");
 			$this->excel->getActiveSheet()->setCellValue("Y2", "Minutos");
-			$this->excel->getActiveSheet()->getStyle('A2:Y2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-			foreach(range('A','Y') as $columnID) {
+			$this->excel->getActiveSheet()->setCellValue("Z2", "Remision");
+			$this->excel->getActiveSheet()->setCellValue("AA2", "Observaciones");
+			$this->excel->getActiveSheet()->getStyle('A2:Z2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+			foreach(range('A','Z') as $columnID) {
 				$this->excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
 			}
 
+			$this->excel->getActiveSheet()->getColumnDimension('AA')->setAutoSize(false);
+			$this->excel->getActiveSheet()->getColumnDimension('AA')->setWidth(100);
+			$this->excel->getActiveSheet()->getStyle('AA3:AA35565')->getAlignment()->setWrapText(true);
+			
 			$numrow = 3;
 			$log = $this->Log_model->getLog2($fechaInicial, $fechaFinal);
 
@@ -869,6 +878,8 @@ class Pedrera extends CI_Controller {
 				$this->excel->getActiveSheet()->setCellValue("D{$numrow}", $lo['nameCompany']);
 				$this->excel->getActiveSheet()->setCellValue("E{$numrow}", $lo['nameMaterial']);
 				$this->excel->getActiveSheet()->setCellValue("F{$numrow}", $lo['mica']);
+				$this->excel->getActiveSheet()->setCellValue("Z{$numrow}", $lo['remision']);
+				$this->excel->getActiveSheet()->setCellValue("AA{$numrow}", $lo['observaciones']);
 
 				$this->excel->getActiveSheet()->setCellValue("G{$numrow}", explode(" ",$lo['arrival'])[0]);				
 
@@ -934,7 +945,7 @@ class Pedrera extends CI_Controller {
 
 				$fechas = $this->Log_model->getTimes($lo['idLog'], 2, true);
 
-				$column = 'Z';
+				$column = 'AB';
 				$numgeocerca = 1;
 				foreach ($fechas as $fecha):
 					$fila = 1;

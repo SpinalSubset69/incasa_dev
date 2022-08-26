@@ -157,7 +157,7 @@
       $(".mini.modal.del").modal("setting", {
         closable: false,
         onApprove: function () {
-          $(location).attr('href',"https://incasapac.com/Pedrera/removeGPS/"+data_id);
+          $(location).attr('href',"<?php echo base_url(); ?>Pedrera/removeGPS/" + data_id);
           return false;
         }
       }).modal("show");

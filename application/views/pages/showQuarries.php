@@ -140,7 +140,7 @@
       $(".mini.modal.del").modal("setting", {
         closable: false,
         onApprove: function () {
-          $(location).attr('href',"https://incasapac.com/Pedrera/removeQuarry/"+data_id);
+          $(location).attr('href', "<?php echo base_url(); ?>Pedrera/removeQuarry/" + data_id);
           return false;
         }
       }).modal("show");

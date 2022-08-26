@@ -189,7 +189,7 @@ class Log_model extends CI_Model{
         $this->db->insert('test');
     }
 
-    public function updateLog($field, $idLog, $desc){  
+    public function updateLog($field, $idLog, $desc, $remision = "", $observaciones = ""){  
         $this->db->set($field, 'NOW()', FALSE);                   
         $this->db->where('idLog', $idLog);
         $this->db->update('log');
@@ -197,9 +197,10 @@ class Log_model extends CI_Model{
         if($field=="departure"){
             //Si es salida se pone el campo idGPS en NULL
             $this->db->set('idGPS', NULL);           
+            $this->db->set('remision', $remision);//added Luis
+            $this->db->set('observaciones', $observaciones); //added LUIS
             $this->db->where('idLog', $idLog);
-            $this->db->update('log');
-
+            $this->db->update('log');            
             $this->db->set('idLog', $idLog);
             $this->db->set('description', $desc);
             $this->db->set('type', 2);

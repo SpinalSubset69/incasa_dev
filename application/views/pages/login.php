@@ -72,7 +72,6 @@
       passCifrado=sha256(pass);
       $("#txt_contrasena").val(passCifrado);
       $("#txt_contrasena1").prop("disabled",true);
-      console.log(passCifrado);
     });
 
     /*$('.loginButton').click(function(){

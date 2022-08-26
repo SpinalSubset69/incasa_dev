@@ -92,7 +92,7 @@ class Api extends RestController
                     
 					if($log){//Salida
 						$status = parent::HTTP_OK;
-					    $response = ['status' => $status, 'gps' => $log->idGPS, 'isExit'=>1, 'idLog' => $log->idLog, 'driver' => $log->nameDriver, 'company' => $log->nameCompany];
+					    $response = ['status' => $status, 'gps' => $log->idGPS, 'isExit'=>1, 'idLog' => $log->idLog, 'driver' => $log->nameDriver, 'company' => $log->nameCompany, 'mica' => $log->mica];
 						$this->response($response, $status);					                
                     }else{//Es entrada
                         $status = parent::HTTP_OK;
@@ -433,8 +433,10 @@ class Api extends RestController
             } else {
                 // Extract the idLog
                 $idLog = $this->post('idLog');                                                        
+				$remision = $this->post('remision');
+				$observaciones = $this->post('observaciones');
 				
-				$this->Log_model->updateLog("departure",$idLog, "Salida de vehículo");
+				$this->Log_model->updateLog("departure",$idLog, "Salida de vehículo", $remision, $observaciones);
 				$this->Log_model->updateTruckBuilding($idLog, NULL);
 
                 $status = parent::HTTP_OK;

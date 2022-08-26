@@ -62,9 +62,20 @@
                   <div class="item" data-value="<?php echo $material['idMaterial']; ?>"><?php echo $material['nameMaterial']; ?></div>                  
                 <?php endforeach; ?>
               </div>
+            </div>
           </div>
-          </div>          
-        </div>               
+        </div>
+        <div class="three fields">
+          <div class="field">
+            <label>MICA:</label>
+            <div class="ui search mica">
+              <div class="ui icon input">
+                <input class="prompt" name="txt_mica" type="text" placeholder="MICA" id="txt_mica" value="<?php echo $mica; ?>" onkeypress="soloNumeros(valor)">
+              </div>
+              <div class="results"></div>
+            </div>
+          </div>
+        </div>
         <div class="ui divider"></div>
         <button type="submit" class="ui positive button guardarUsuario" value="Guardar"><i class="save icon"></i>Guardar</button>
         <a class="ui right floated secondary  button" name="button" href="<?php echo base_url(); ?>Pedrera/"><i class="arrow left icon"></i> Regresar</a>
@@ -188,6 +199,14 @@
               {
                 type: 'empty',
                 prompt: 'Selecciona un gps'
+              }
+            ]
+          },
+          txt_mica    : {
+            rules: [
+              {
+                type: 'empty',
+                prompt: 'Ingresa la MICA'
               }
             ]
           },
