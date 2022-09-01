@@ -29,11 +29,12 @@ class Pedrera extends CI_Controller {
 				array_push($menu, getMenuPedreras());
 				array_push($menu, getMenuUsuarios());				
 				array_push($menu, getMenuSites());
-				array_push($menu, getMenuMaterials());				
+				array_push($menu, getMenuMaterials());
+				array_push($menu, getMenuCamiones(1));
 				array_push($menu, getMenuLog());								
 				break;
 			case 5://bascula
-				array_push($menu, getMenuCamiones());
+				array_push($menu, getMenuCamiones(5));
 				array_push($menu, getMenuSitesBascula());
 			break;
 		}				
@@ -791,6 +792,13 @@ class Pedrera extends CI_Controller {
 			$data['heading'] = "404 Página no encotrada.";
             $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
             $this->load->view('errors/cli/error_404',$data);
+		}
+	}
+
+	public function showTrucks()
+	{
+		if($this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1) {
+
 		}
 	}
 

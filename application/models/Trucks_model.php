@@ -5,6 +5,15 @@ class Trucks_model extends CI_Model{
 		$this->load->database();
 	}
 
+	public function getTrucks() {
+		$this->db->select('*');
+		$this->db->from("trucks");
+
+		$query = $this->db->get();
+		
+		return $query->result_array();
+	}
+
     public function getTruck($plate){
 		$this->db->select('*');
 		$this->db->from("trucks, truckTypes");

@@ -14,17 +14,26 @@ function getMenuSitesBascula(){
   return $menu;
 }
 
-function getMenuCamiones(){
-  $menu=array(
-            "nombre"=>"Camiones",
-            "icono" => "truck icon",
-            "submenu"=>array(
-              array(
-                "nombre"=>"Agregar Camión",
-                "direccion"=>"Pedrera/addTruck"
-              )
-            )
+function getMenuCamiones($usertype)
+{
+  $menu = array(
+    "nombre" => "Camiones",
+    "icono" => "truck icon",
+    "submenu" => array()
   );
+
+  if ($usertype == 1) // if usertype is admin, add the showTrucks sub-menu
+    array_push($menu['submenu'], array(
+      "nombre" => "Ver Camiones",
+      "direccion" => "Pedrera/showTrucks"
+    ));
+  
+  if ($usertype == 5) // if usertype is báscula, add the addTruck sub-menu
+    array_push($menu['submenu'], array(
+      "nombre" => "Agregar Camiones",
+      "direccion" => "Pedrera/addTruck"
+    ));
+
   return $menu;
 }
 
