@@ -42,6 +42,12 @@ class Users_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function removeUser($id)
+	{
+		$sqlCommand = "DELETE FROM users WHERE idUser=$id";
+		return $this->db->query($sqlCommand);
+	}
+
 	public function getQuarries(){
 		//select *,(select count(*) from log where log.idQuarry=10 and (log.arrival BETWEEN curdate() and NOW()) and log.departure is NULL) as dentro, (select count(*) from log where log.idQuarry=quarries.idQuarry and (log.arrival BETWEEN curdate() and NOW()) and log.departure is not NULL) as atendidos from quarries
 		$this->db->select('*, (select count(*) from log where log.idQuarry=quarries.idQuarry and (log.arrival BETWEEN curdate() and NOW()) and log.departure is NULL) as dentro, (select count(*) from log where log.idQuarry=quarries.idQuarry and (log.arrival BETWEEN curdate() and NOW()) and log.departure is not NULL) as atendidos');

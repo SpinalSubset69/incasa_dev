@@ -22,7 +22,7 @@
             <th class="sorted descending">Nombre</th>
             <th class="">Usuario</th>
             <th class="">Tipo de usuario</th>
-            <!-- <th class="no-sort" style="width: 400px;">Acciones</th> -->
+            <th class="no-sort" style="width: 100px;">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@
           <tr>
             <td><?php echo $usuario['nameQuarry']; ?></td>
             <td><?php echo $usuario['nameUser']; ?></td>
-            <td ><?php echo $usuario['username']; ?></td>
+            <td><?php echo $usuario['username']; ?></td>
             <td>
               <?php
                 switch($usuario['usertype']){
@@ -51,6 +51,15 @@
                 <div data-value="<?php echo $usuario['idEncriptado']; ?>" class="ui positive icon button btnActivar" name="button"><i class="check icon"></i> </div>
               <?php } ?>
             </td> -->
+            <td>
+              <!-- genearate a delete button for every user row -->
+              <div data-value=<?php echo $usuario['idUser'];?>
+                   name-value=<?php echo $usuario['nameUser'];?>
+                   class="ui red icon button btnEliminar"
+                   name="button">
+                <i class="x icon"></i>
+              </div>
+            </td>
           </tr>
           <?php endforeach; ?>
           <!-- TERMINA FILA -->
@@ -63,6 +72,7 @@
             <!-- <th class="">Ticket</th> -->
             <th class="">Tipo de usuario</th>
             <!-- <th class="">Acciones</th> -->
+            <th class="">Acciones</th>
           </tr>
         </tfoot>
       </table>
@@ -70,12 +80,20 @@
   </div>
 </main>
 
+<!-- Eliminar modal -->
+<div class="ui mini modal del">
+  <div class="header">Eliminar Usuario</div>
+  <div class="content">
+    <p>¿Esta seguro de eliminar este usuario?</p>
+  </div>
+  <div class="actions">
+    <div class="ui positive button">Aceptar</div>
+    <div class="ui red cancel button">Cancelar</div>
+  </div>
+</div>
+
 <script type="text/javascript">
-  $(document).ready(function(){
-
-    
-    
-
+  $(document).ready(function() {
     $('.tablaUsuarios').tablesort();
     $('.tablaUsuarios').DataTable({
       "language":{
@@ -83,6 +101,18 @@
       }
     });
 
+    $('.btnEliminar').on('click', function() {
+      var event = $(this);
+      var user_id = $(this).attr("data-value");
+
+      $(".mini.modal.del").modal("setting", {
+        closable: false,
+        onApprove: function () {
+          $(location).attr('href',"<?php echo base_url(); ?>Pedrera/removeUser/" + user_id);
+          return false;
+        }
+      }).modal("show");
+    });
 
   });
 </script>

@@ -5,7 +5,8 @@ class Trucks_model extends CI_Model{
 		$this->load->database();
 	}
 
-	public function getTrucks() {
+	public function getTrucks()
+	{	// TODO
 		$this->db->select('*');
 		$this->db->from("trucks");
 
