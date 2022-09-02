@@ -403,6 +403,20 @@ class Pedrera extends CI_Controller {
 		}
 	}
 
+	public function removeMaterial()
+	{
+		$id_material = $this->uri->segment(3);
+
+		if ($id_material != '' && $this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1) {
+			$this->Materials_model->removeMaterial($id_material);
+			redirect(base_url().'Pedrera/showMaterials', 'refresh');
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+			$data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+			$this->load->view('errors/cli/error_404', $data);
+		}
+	}
+
 	public function showSites(){
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==1){
 			$data['menu']=$this->getMenu();
