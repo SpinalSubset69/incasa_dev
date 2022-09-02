@@ -671,6 +671,20 @@ class Pedrera extends CI_Controller {
 		}
 	}
 
+    public function removeUser()
+    {
+        $id_user = $this->uri->segment(3);
+
+        if ($id_user != '' && $this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1) {
+            $this->Users_model->removeUser($id_user);
+            redirect(base_url().'Pedrera/showUsers', 'refresh');
+        } else {
+            $data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404',$data);
+        }
+    }
+
 	public function addTruck(){				
 
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype')==5){			
@@ -796,7 +810,7 @@ class Pedrera extends CI_Controller {
 	}
 
 	public function showTrucks()
-	{
+	{	// TODO
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1) {
 
 		}
