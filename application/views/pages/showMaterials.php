@@ -38,7 +38,16 @@
             <!-- <td>                      
                 <input type="checkbox" class="form-check-input" id="active" name="<?php echo $material['idMaterial']; ?>" <?php if($material['active']==1)echo "checked";?>>
             </td> -->
-            <td><div data-value="<?php echo $material['idMaterial']; ?>" name-value="<?php echo $material['nameMaterial']; ?>" class="ui green icon button btnEditar" name="button"><i class="edit icon"></i> </div></td>            
+            <!-- genearate a modify and delete button for every material row -->
+            <td>
+              <div data-value="<?php echo $material['idMaterial']; ?>" name-value="<?php echo $material['nameMaterial']; ?>" class="ui green icon button btnEditar" name="button"><i class="edit icon"></i> </div>
+              <div data-value=<?php echo $material['idMaterial'];?>
+                   name-value=<?php echo $material['nameMaterial'];?>
+                   class="ui red icon button btnEliminar"
+                   name="button">
+                <i class="x icon"></i>
+              </div>
+            </td>
           </tr>
           <?php endforeach; ?>
           <!-- TERMINA FILA -->
@@ -124,6 +133,18 @@
   </div>
 </div>
 
+<!-- Eliminar modal -->
+<div class="ui mini modal del">
+  <div class="header">Eliminar Usuario</div>
+  <div class="content">
+    <p>¿Esta seguro de eliminar este material?</p>
+  </div>
+  <div class="actions">
+    <div class="ui positive button">Aceptar</div>
+    <div class="ui red cancel button">Cancelar</div>
+  </div>
+</div>
+
 <!-- Registro exitoso modal -->
 <?php if(isset($_SESSION['success'])){ ?>  
   <div class="ui mini modal success">
@@ -201,6 +222,19 @@
         }
 		  }).modal('show');      
 
+    });
+
+    $('.btnEliminar').on('click', function() {
+      var event = $(this);
+      var material_id = $(this).attr("data-value");
+
+      $(".mini.modal.del").modal("setting", {
+        closable: false,
+        onApprove: function () {
+          $(location).attr('href',"<?php echo base_url(); ?>Pedrera/removeMaterial/" + material_id);
+          return false;
+        }
+      }).modal("show");
     });
 
     $('.ui.form.edit')

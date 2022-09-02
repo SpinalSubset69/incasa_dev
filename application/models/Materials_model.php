@@ -18,6 +18,12 @@ class Materials_model extends CI_Model{
 		return $query->result_array();        		
     }
 
+    public function removeMaterial($id_material)
+    {
+        $sqlCommand = "DELETE FROM materials WHERE idMaterial=$id_material";
+        return $this->db->query($sqlCommand);
+    }
+
     public function updateMaterial($idMaterial, $active){
         $this->db->set('active', $active);           
         $this->db->where('idMaterial', $idMaterial);
