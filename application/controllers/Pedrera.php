@@ -19,7 +19,8 @@ class Pedrera extends CI_Controller {
 		$this->load->model('Users_model'); //Users model {login}
 		$this->load->model('Trucks_model'); 
 		$this->load->model('Materials_model'); 	
-		$this->load->model('Log_model'); 		
+		$this->load->model('Log_model');
+		$this->load->model('Drivers_model');
 	}
 
 	public function getMenu(){
@@ -823,10 +824,79 @@ class Pedrera extends CI_Controller {
 		}
 	}
 
-	public function showTrucks()
-	{	// TODO
-		if($this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1) {
+	public function manageDrivers()
+	{
+		if ( $this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1 ) {
+			$data['menu'] = $this->getMenu();
+			$data['user'] = $this->session->userdata('username');
+			$data['type'] = '';
 
+			if ( $this->session->userdata('usertype') == 1 )
+				$data['type'] = 'Administrador';
+
+			if ( $this->session->userdata('usertype') == 5 )
+				$data['type'] = 'Báscula';
+
+			$data['drivers'] = $this->Drivers_model->getDrivers();
+
+			$this->load->view('templates/header', $data);
+    		$this->load->view('pages/manageDrivers', $data);
+    		$this->load->view('templates/footer');
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404', $data);
+		}
+	}
+
+	public function addDriver()
+	{
+		if ( $this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1 ) {				
+			if ( isset($_POST['txt_driver_name']) ) {
+				$driver_name = $this->input->post("txt_driver_name");
+
+				$this->Drivers_model->insertDriver( strtoupper($driver_name) );
+				$this->session->set_userdata('success', 'El conductor se ha registrado correctamente.'); 					
+
+				redirect(base_url().'Pedrera/manageDrivers', 'refresh');
+			}
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404', $data);
+		}
+	}
+
+	public function editDriver()
+	{
+		if($this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1){				
+			if ( isset($_POST['txt_driver_name']) ) {
+				$driver_id = $this->input->post("txt_driver_id");
+				$driver_name = $this->input->post("txt_driver_name");
+
+				$this->Drivers_model->updateDriver($driver_id, strtoupper($driver_name) );
+				$this->session->set_userdata('success', 'Se ha cambiado el nombre del conductor correctamente.'); 					
+
+				redirect(base_url().'Pedrera/manageDrivers', 'refresh');
+			}
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404',$data);
+		}
+	}
+
+	public function removeDriver()
+	{
+		$id_driver = $this->uri->segment(3);
+
+		if ($id_driver != '' && $this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1) {
+			$this->Drivers_model->removeDriver($id_driver);
+			redirect(base_url().'Pedrera/manageDrivers', 'refresh');
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+			$data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+			$this->load->view('errors/cli/error_404', $data);
 		}
 	}
 

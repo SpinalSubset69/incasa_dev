@@ -22,13 +22,19 @@ function getMenuCamiones($usertype)
     "submenu" => array()
   );
 
-  if ($usertype == 1) // if usertype is admin, add the showTrucks sub-menu
+  // if usertype is admin, add the manageTrucks and manageDrivers sub-menu
+  if ($usertype == 1) {
     array_push($menu['submenu'], array(
-      "nombre" => "Ver Camiones",
-      "direccion" => "Pedrera/showTrucks"
+      "nombre" => "Gestionar Conductores",
+      "direccion" => "Pedrera/manageDrivers"
+    ), array(
+      "nombre" => "Gestionar Camiones",
+      "direccion" => "Pedrera/manageTrucks"
     ));
-  
-  if ($usertype == 5) // if usertype is báscula, add the addTruck sub-menu
+  }
+
+  // if usertype is báscula, add the addTruck sub-menu
+  if ($usertype == 5)
     array_push($menu['submenu'], array(
       "nombre" => "Agregar Camiones",
       "direccion" => "Pedrera/addTruck"
