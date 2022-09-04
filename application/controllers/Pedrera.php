@@ -21,6 +21,7 @@ class Pedrera extends CI_Controller {
 		$this->load->model('Materials_model'); 	
 		$this->load->model('Log_model');
 		$this->load->model('Drivers_model');
+		$this->load->model('Blocked_Drivers_Log_model');
 	}
 
 	public function getMenu(){
@@ -838,6 +839,7 @@ class Pedrera extends CI_Controller {
 				$data['type'] = 'Báscula';
 
 			$data['drivers'] = $this->Drivers_model->getDrivers();
+			$data['blocked_drivers_log_model'] = $this->Blocked_Drivers_Log_model;
 
 			$this->load->view('templates/header', $data);
     		$this->load->view('pages/manageDrivers', $data);
@@ -871,11 +873,31 @@ class Pedrera extends CI_Controller {
 	{
 		if($this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1){				
 			if ( isset($_POST['txt_driver_name']) ) {
-				$driver_id = $this->input->post("txt_driver_id");
+				$driver_id = $this->input->post("txt_driver_id_edit");
 				$driver_name = $this->input->post("txt_driver_name");
 
 				$this->Drivers_model->updateDriver($driver_id, strtoupper($driver_name) );
 				$this->session->set_userdata('success', 'Se ha cambiado el nombre del conductor correctamente.'); 					
+
+				redirect(base_url().'Pedrera/manageDrivers', 'refresh');
+			}
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404',$data);
+		}
+	}
+
+	public function blockDriver()
+	{
+		if($this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1){				
+			if ( isset($_POST['txt_reason']) ) {
+				$driver_id = $this->input->post("txt_driver_id_block");
+				$end_date = $this->input->post("txt_end_date");
+				$reason = $this->input->post("txt_reason");
+
+				$this->Blocked_Drivers_Log_model->insertLog($driver_id, $end_date, $reason);
+				$this->session->set_userdata('success', 'Se ha bloqueado el conductor.'); 					
 
 				redirect(base_url().'Pedrera/manageDrivers', 'refresh');
 			}
