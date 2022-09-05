@@ -22,6 +22,7 @@ class Pedrera extends CI_Controller {
 		$this->load->model('Log_model');
 		$this->load->model('Drivers_model');
 		$this->load->model('Blocked_Drivers_Log_model');
+		$this->load->model('Blocked_Trucks_Log_model');
 	}
 
 	public function getMenu(){
@@ -915,6 +916,98 @@ class Pedrera extends CI_Controller {
 		if ($id_driver != '' && $this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1) {
 			$this->Drivers_model->removeDriver($id_driver);
 			redirect(base_url().'Pedrera/manageDrivers', 'refresh');
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+			$data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+			$this->load->view('errors/cli/error_404', $data);
+		}
+	}
+
+	public function manageTrucks()
+	{
+		if ( $this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1 ) {
+			$data['menu'] = $this->getMenu();
+			$data['user'] = $this->session->userdata('username');
+			$data['type'] = 'Administrador';
+
+			$data['trucks'] = $this->Trucks_model->getTrucks();
+			$data['blocked_trucks_log_model'] = $this->Blocked_Trucks_Log_model;
+
+			$this->load->view('templates/header', $data);
+    		$this->load->view('pages/manageTrucks', $data);
+    		$this->load->view('templates/footer');
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404', $data);
+		}
+	}
+
+	public function addTruckAdmin()
+	{
+		if ( $this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1 ) {				
+			if ( isset($_POST['dropdown_truck_type_add']) ) {
+				$plate = $this->input->post('txt_plate_add');
+				$truck_type = $this->input->post('dropdown_truck_type_add');
+
+				$this->Trucks_model->insertTruck( strtoupper($plate), $truck_type );
+				$this->session->set_userdata('success', 'El camión se ha registrado correctamente.'); 					
+
+				redirect(base_url().'Pedrera/manageTrucks', 'refresh');
+			}
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404', $data);
+		}
+	}
+
+	public function editTruck()
+	{
+		if($this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1){				
+			if ( isset($_POST['dropdown_truck_type_edit']) ) {
+				$plate = $this->input->post('txt_plate_edit');
+				$truck_type = $this->input->post('dropdown_truck_type_edit');
+
+				$this->Trucks_model->updateTruck($plate, $truck_type);
+				$this->session->set_userdata('success', 'Se ha cambiado el tipo de camión correctamente.'); 					
+
+				redirect(base_url().'Pedrera/manageTrucks', 'refresh');
+			}
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404',$data);
+		}
+	}
+
+	public function blockTruck()
+	{
+		if($this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1){				
+			if ( isset($_POST['txt_reason']) ) {
+				$plate = $this->input->post("txt_plate_block");
+				$end_date = $this->input->post("txt_end_date");
+				$reason = $this->input->post("txt_reason");
+
+				$this->Blocked_Trucks_Log_model->insertLog($plate, $end_date, $reason);
+				$this->session->set_userdata('success', 'Se ha bloqueado el camión.'); 					
+
+				redirect(base_url().'Pedrera/manageTrucks', 'refresh');
+			}
+		} else {
+			$data['heading'] = "404 Página no encotrada.";
+            $data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
+            $this->load->view('errors/cli/error_404',$data);
+		}
+	}
+
+	public function removeTruck()
+	{
+		$plate = $this->uri->segment(3);
+
+		if ($plate != '' && $this->session->userdata('is_logued') && $this->session->userdata('usertype') == 1) {
+			$this->Trucks_model->removeTruck($plate);
+			redirect(base_url().'Pedrera/manageTrucks', 'refresh');
 		} else {
 			$data['heading'] = "404 Página no encotrada.";
 			$data['message'] = "Lo sentimos, pero no puede tener acceso a la página solicitada.";
