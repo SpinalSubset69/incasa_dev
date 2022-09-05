@@ -12,11 +12,37 @@ class Trucks_model extends CI_Model
     public function getTrucks()
     {
         $this->db->select('*');
-        $this->db->from("trucks");
+        $this->db->from('trucks');
 
         $query = $this->db->get();
-        
         return $query->result_array();
+    }
+
+    // insert a truck to the database with the given plate and truck type
+    public function insertTruck($plate, $truck_type)
+    {
+        $this->db->set('idTruck', $plate);
+        $this->db->set('idType', $truck_type);
+
+        $this->db->insert('trucks');
+
+        return $this->db->insert_id();  // return the last inserted id
+    }
+
+    // update a truck's type from the database by its plate
+    public function updateTruck($plate, $truck_type)
+    {
+        $this->db->set('idType', $truck_type);
+        $this->db->where('idTruck', $plate);
+        
+        return $this->db->update('trucks');
+    }
+
+    // remove a truck from the database by its plate (hard delete)
+    public function removeTruck($plate)
+    {
+        $sqlCommand = "DELETE FROM trucks WHERE idTruck = \"$plate\"";
+        return $this->db->query($sqlCommand);
     }
 
     // --- THE METHODS BELLOW ARE NOT MINE --- Alan F.
